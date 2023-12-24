@@ -7,14 +7,16 @@ import { BlogComponent } from '../blog/blog.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import {MatCardModule} from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TextHeadingComponent, BioComponent, SkillComponent, BlockExperienceComponent, BlogComponent, MatCardModule, FlexLayoutModule, FlexLayoutServerModule],
+  imports: [CommonModule, TextHeadingComponent, BioComponent, SkillComponent, BlockExperienceComponent, BlogComponent, MatCardModule, FlexLayoutModule, FlexLayoutServerModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.sass'
 })
 export class HomeComponent {
   gridColumns = 3;
+  cards = [{},{},{},{},{}];
 }
