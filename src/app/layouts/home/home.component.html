@@ -16,7 +16,7 @@
 
 <app-blog></app-blog>
 
-<div fxLayout.gt-sm="row" fxLayout.sm="column" class="masonry-with-flex" layout-wrap fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<div fxLayout.gt-sm="row" fxLayout.sm="column" id="magic-grid" fxLayoutWrap fxLayoutGap="0.5%">
   <div *ngFor="let card of cards" class="card-portfolio" fxFlex="30" fxFlex.gt-md="25">
     <mat-card class="portfolio-card mat-elevation-z4" data-id="https://github.com/k1n4kut4/Aroma">
       <mat-card-header>Aroma: Angular RxJS</mat-card-header>
