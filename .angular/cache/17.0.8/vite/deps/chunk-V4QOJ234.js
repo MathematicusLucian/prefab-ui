@@ -1,10 +1,10 @@
 import {
   BrowserModule,
   DomRendererFactory2
-} from "./chunk-JGP77YGM.js";
+} from "./chunk-2ESLATB3.js";
 import {
   DOCUMENT
-} from "./chunk-SDLDE3A4.js";
+} from "./chunk-W4WCCA5G.js";
 import {
   ANIMATION_MODULE_TYPE,
   ApplicationRef,
@@ -21,7 +21,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-YAMLI3IX.js";
+} from "./chunk-RWZNMAFR.js";
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AUTO_STYLE = "*";
@@ -67,6 +67,20 @@ function transition(stateChangeExpr, steps, options = null) {
     type: 1,
     expr: stateChangeExpr,
     animation: steps,
+    options
+  };
+}
+function animateChild(options = null) {
+  return {
+    type: 9,
+    options
+  };
+}
+function query(selector, animation, options = null) {
+  return {
+    type: 11,
+    selector,
+    animation,
     options
   };
 }
@@ -4590,6 +4604,8 @@ export {
   style,
   state,
   transition,
+  animateChild,
+  query,
   InjectableAnimationEngine,
   BrowserAnimationsModule,
   provideAnimations,
@@ -4619,4 +4635,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-6R5O3UUM.js.map
+//# sourceMappingURL=chunk-V4QOJ234.js.map

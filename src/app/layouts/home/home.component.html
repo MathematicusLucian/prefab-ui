@@ -2,132 +2,22 @@
 
 <app-bio></app-bio>
 
-<!-- <div class="content">
-    @for (item of [
-      { title: 'Explore the Docs', link: 'https://angular.dev' },
-      { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' }
-    ]; track item.title) {
-      {{ item.title }}
-      <br>
-    }
-<mat-card-actions> -->
-
 <app-skill></app-skill>
 
 <app-blog></app-blog>
 
 <div fxLayout.gt-sm="row" fxLayout.sm="column" id="magic-grid" fxLayoutWrap fxLayoutGap="0.5%">
-  <div *ngFor="let card of cards" class="card-portfolio" fxFlex="30" fxFlex.gt-md="25">
-    <mat-card class="portfolio-card mat-elevation-z4" data-id="https://github.com/k1n4kut4/Aroma">
-      <mat-card-header>Aroma: Angular RxJS</mat-card-header>
-      <img mat-card-image src="https://raw.githubusercontent.com/k1n4kut4/Aroma/master/readme_imgs/products-route.png">
-      <mat-card-content>RxJS Observables, Angular 8 shopping app. Local storage of basket contents. Calls exchange rates API for multi-currency option. Unit tests: Karma, Jasmine, SinonJS.</mat-card-content>
+  <div *ngFor="let card of obs | async" class="card-portfolio" fxFlex="30" fxFlex.gt-md="25">
+    <mat-card class="portfolio-card mat-elevation-z4" data-id="{{ card.project_url }}">
+      <mat-card-header>{{ card.title }}</mat-card-header>
+      <img mat-card-image src="{{ card.img_src }}">
+      <mat-card-content>{{ card.content }}</mat-card-content>
       <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/Aroma" class="btn btn-primary">read more</a>
+        <a href="{{ card.project_url }}" class="btn btn-primary">read more</a>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
-
-<!-- 
-        
-    <mat-card class="portfolio-card mat-elevation-z4" data-id="https://github.com/k1n4kut4/Aroma">
-      <img mat-card-image src="https://raw.githubusercontent.com/k1n4kut4/Aroma/master/readme_imgs/products-route.png">
-      <mat-card-header>Aroma: Angular RxJS</mat-card-header>
-      <mat-card-content>RxJS Observables, Angular 8 shopping app. Local storage of basket contents. Calls exchange rates API for multi-currency option. Unit tests: Karma, Jasmine, SinonJS.</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/Aroma" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card>
-
-    <mat-card class="portfolio-card" data-id="https://github.com/k1n4kut4/Election-Brexit-Visualisation-OpenLayers-d3">
-      <img mat-card-image src="https://raw.githubusercontent.com/k1n4kut4/Election-Brexit-Visualisation-OpenLayers-d3/master/readme_imgs/ref-brexit.png">
-      <mat-card-header>Election-Brexit-Visualisation-OpenLayers-d3</mat-card-header>
-      <mat-card-content>GIS project written in TypeScript and with Angular 8 framework. Without political intent, render of OpenLayers map of the UK, each constituency colour-coded by victor, and d3 bar chart of votes. Neutrally displayed data: results of elections (2017 and 2019), referendum (Brexit), and petitions (Brexit). Hover shows local MP.</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/Election-Brexit-Visualisation-OpenLayers-d3" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card>
-
-    <mat-card class="portfolio-card" data-id="https://github.com/k1n4kut4/PoliticalPosition">
-      <img mat-card-image src="https://raw.githubusercontent.com/k1n4kut4/PoliticalPosition/master/readme_imgs/home-route.png">
-      <mat-card-header>PoliticalPosition</mat-card-header>
-      <mat-card-content>No political intent. Quiz determines where you sit on the political spectrums.</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/PoliticalPosition" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card>
-
-    <mat-card class="portfolio-card" data-id="https://github.com/k1n4kut4/Hottest-MP-Elo-Rating-Algorithm">
-      <img mat-card-image src="https://raw.githubusercontent.com/k1n4kut4/Hottest-MP-Elo-Rating-Algorithm/master/readme_imgs/mps_m.png">
-      <mat-card-header>Hottest-MP-Elo-Rating-Algorithm</mat-card-header>
-      <mat-card-content>Inspired by Facebook's founder Mark Zuckerberg's FaceMash; based on an Elo rating algorithm on the window of a Havard dorm. Angular 8, Material, RxJS, PHP API, MySQL DB, Algorithm</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/Hottest-MP-Elo-Rating-Algorithm" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card> -->
-
-    <!-- 
-        
-    <div class="card card-cascade wider tile" data-id="https://github.com/k1n4kut4/Rock-Paper-Scissors-Lizard-Spock--Game">
-      <img class="card-img-top view view-cascade overlay" src="https://raw.githubusercontent.com/k1n4kut4/Rock-Paper-Scissors-Lizard-Spock--Game/master/img/RPSLS.png">
-      <mat-card-header>Rock-Paper-Scissors-Lizard-Spock--Game</mat-card-header>
-      <mat-card-content>Expansion of my earlier Angular 8 (TypeScript) implementation of Roshambo (rock-paper-scissors), now featuring lizard and spock - additional weapons as popularised by The Big Bang Theory. Use of Google Material and Font Awesome.</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/Rock-Paper-Scissors-Lizard-Spock--Game" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card>
-
-    <mat-card class="portfolio-card" data-id="https://github.com/k1n4kut4/WordpressTS">
-      <img mat-card-image src="https://raw.githubusercontent.com/k1n4kut4/WordpressTS/master/readme_imgs/v8vicvkck.png">
-      <mat-card-header>WordpressTS</mat-card-header>
-      <mat-card-content>Angular Front-End App for Headless CMS (Wordpress modified). Fetches posts as JSON via API, and renders Material theme.</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/WordpressTS" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card>
-
-    <div class="card card-cascade wider tile" data-id="https://github.com/k1n4kut4/Data-Visualisation-PoliceAPI-McDonalds-Haversine-Formula">
-      <img class="card-img-top view view-cascade overlay" src="https://github.com/k1n4kut4/McYobbo/raw/master/assets/img/distance-of-mcdonalds-fr.png">
-      <mat-card-header>Data-Visualisation-PoliceAPI-McDonalds-Haversine-Formula</mat-card-header>
-      <mat-card-content>Accessing the Police API and McDonald's store location data, to use the Haversine formula, to see if level of anti-social "yobbo" crime is higher in the vicinity of a MackyD venue</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/Data-Visualisation-PoliceAPI-McDonalds-Haversine-Formula" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card>
-
-    <div class="card card-cascade wider tile" data-id="https://github.com/k1n4kut4/Reverse-engineered-McDonalds-API">
-      <img class="card-img-top view view-cascade overlay" src="./img/mcdonalds-api.jpg">
-      <mat-card-header>Reverse-engineered-McDonalds-API</mat-card-header>
-      <mat-card-content>I can't see documentation, but there seems to be a API at McDonalds.com and I'm feeling curious ;)</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/Reverse-engineered-McDonalds-API" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card>
-        
-    <mat-card class="portfolio-card" data-id="https://github.com/k1n4kut4/vd-techtest">
-      <img mat-card-image src="https://github.com/k1n4kut4/vd-techtest/raw/master/img/desktop_view_2.png">
-      <mat-card-header>vd-techtest</mat-card-header>
-      <mat-card-content>Technical Test. Main page: index.html (uses Twitter Bootstrap); CSS file: would prefer SASS but beyond scope of this little test; JavaScript: jQuery code in script.js</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/vd-techtest" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card>
-        
-    <mat-card class="portfolio-card" data-id="https://github.com/k1n4kut4/ng-staff-table">
-      <img mat-card-image src="https://raw.githubusercontent.com/k1n4kut4/ng-staff-table/master/img/i2n-frontend-actual.png">
-      <mat-card-header>ng-staff-table</mat-card-header>
-      <mat-card-content>Angular.... Google Material, forms, tables with data source</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/ng-staff-table" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card>
-        
-    <mat-card class="portfolio-card" data-id="https://github.com/k1n4kut4/selenium_testing">
-      <img mat-card-image src="./img/selenium.png ">
-      <mat-card-header>selenium_testing</mat-card-header>
-      <mat-card-content>Testing website with Selenium - attempt to overcome captcha.</mat-card-content>
-      <mat-card-actions>
-        <a href="https://github.com/k1n4kut4/selenium_testing" class="btn btn-primary">--read more--</a>
-      </mat-card-actions>
-    </mat-card> -->
+<div fxLayout="row">
+  <mat-paginator [pageSizeOptions]="[6, 12, 18, 60]"></mat-paginator>
+</div>
