@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { MatPaginator} from '@angular/material/paginator';
 import projectData from './../../../assets/projects.json';
+import { CardComponent } from '../card/card.component';
+import { of } from 'rxjs';
 
 export interface Card {
   project_url: string;
@@ -14,29 +16,21 @@ export interface Card {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.sass'
 })
 export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  projectData$!: any; 
-  projectData = projectData;
-  dataSource: MatTableDataSource<Card> = new MatTableDataSource<Card>(projectData);
-
+  projectData$: Card[] = [];
   constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.changeDetectorRef.detectChanges();
-    this.dataSource.paginator = this.paginator;
-    this.projectData$ = this.dataSource.connect();
+    of(projectData).subscribe(x => {
+      this.projectData$ = x;
+    }); 
   }
 
   ngAfterViewInit() {}
 
-  ngOnDestroy() {
-    if (this.dataSource) { 
-      this.dataSource.disconnect(); 
-    }
-  }
+  ngOnDestroy() {}
 }

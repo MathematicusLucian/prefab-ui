@@ -10,11 +10,12 @@ import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
+import { CardComponent } from '../../components/card/card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ProjectsComponent, TextHeadingComponent, BioComponent, SkillComponent, BlockExperienceComponent, BlogComponent, MatCardModule, MatPaginatorModule, FlexLayoutModule, FlexLayoutServerModule],
+  imports: [CommonModule, ProjectsComponent, CardComponent, TextHeadingComponent, BioComponent, SkillComponent, BlockExperienceComponent, BlogComponent, MatCardModule, MatPaginatorModule, FlexLayoutModule, FlexLayoutServerModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.sass'
 })
