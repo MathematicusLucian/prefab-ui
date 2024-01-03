@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './skill.component.sass'
 })
 export class SkillComponent implements OnInit {
-  skillsData = skillsData;
+  skillsData: any = skillsData;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
