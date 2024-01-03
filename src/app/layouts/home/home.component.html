@@ -6,31 +6,36 @@
 
 <app-blog></app-blog>
 
-<!-- <ngx-masonry>
-  <div ngxMasonryItem class="masonry-item" *ngFor="let card of projectData$">
-   {{ card.title }}
- </div>
-</ngx-masonry> -->
+<section id="projects" class="relative block px-6 py-10 md:py-20 md:px-10 rounded-lg border-b border-pink-600 bg-gray-900 shadow">
 
-<!-- 
-<div fxLayout.gt-sm="row" fxLayout.sm="column" id="magic-grid" fxLayoutWrap fxLayoutGap="0.5%">
-  <div *ngFor="let card of projectData$ | async" class="card-portfolio" fxFlex="30" fxFlex.gt-md="25">
-    <mat-card class="portfolio-card mat-elevation-z4" data-id="{{ card.project_url }}">
-      <mat-card-header>{{ card.title }}</mat-card-header>
-      <img mat-card-image src="{{ card.img_src }}">
-      <mat-card-content>{{ card.content }}</mat-card-content>
-      <mat-card-actions>
-        <a href="{{ card.project_url }}" class="btn btn-primary">read more</a>
-      </mat-card-actions>
-    </mat-card>
+  <div class="relative mx-auto max-w-5xl text-center">
+    <span class="my-3 flex items-center justify-center text-white font-medium uppercase tracking-wider">
+        Experience
+    </span>
+    <h1 class="mb-5 text-3xl font-semibold text-white md:text-center md:text-5xl">
+        GitHub scribbles
+    </h1>
+    <p class="text-xl md:text-center text-gray-400 md:text-2xl">
+        Snippets, dabbles, and all that
+    </p>
   </div>
-</div>
-<div fxLayout="row">
-  <mat-paginator [pageSizeOptions]="[3, 12, 60]"></mat-paginator>
-</div> -->
 
-<ngx-masonry>
-  <div ngxMasonryItem class="masonry-item" *ngFor="let item of masonryItems">
-   {{item.title}}
- </div>
-</ngx-masonry>
+  <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+    
+    <div *ngFor="let card of projectData$ | async" class="rounded-lg border border-white-800 bg-neutral-700/30 p-8 text-center shadow">
+      <div class="mx-auto flex h-200 w-200 items-center justify-center rounded-lg border">
+          <img src="{{ card.img_src }}" alt="{{ card.title }}">
+      </div>
+      <h3 class="mt-6 font-semibold leading-relaxed tracking-wide text-white">{{ card.title }}</h3>
+      <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">{{ card.content }}</p>
+      <div class="mt-6">
+          <a class="inline-flex rounded-lg bg-pink-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700"
+              href="{{ card.project_url }}">
+              Read More
+          </a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
