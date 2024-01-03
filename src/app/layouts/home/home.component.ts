@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ChangeDetectorRef, NgModule } from '@angular/core';
 import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
 import { BioComponent } from '../../components/bio/bio.component';
 import { SkillComponent } from '../../components/skill/skill.component';
@@ -11,9 +11,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator} from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
-import MagicGrid from 'magic-grid';
+// import MagicGrid from 'magic-grid';
 import projectData from './../../../assets/projects.json';
 import { Observable } from 'rxjs';
+import { NgxMasonryModule } from 'ngx-masonry';
+// import { MasonryModule } from 'angular2-masonry';
 
 export interface Card {
   project_url: string;
@@ -25,41 +27,31 @@ export interface Card {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, TextHeadingComponent, BioComponent, SkillComponent, BlockExperienceComponent, BlogComponent, MatCardModule, MatPaginatorModule, FlexLayoutModule, FlexLayoutServerModule],
+  imports: [NgxMasonryModule, CommonModule, TextHeadingComponent, BioComponent, SkillComponent, BlockExperienceComponent, BlogComponent, MatCardModule, MatPaginatorModule, FlexLayoutModule, FlexLayoutServerModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.sass'
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  projectData$!: Observable<any>;
+  projectData$!: any; //Observable<any>;
   projectData = projectData;
   dataSource: MatTableDataSource<Card> = new MatTableDataSource<Card>(projectData);
-  magicGrid: any;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
-  }
+  masonryItems = [
+    { title: 'item 1' },
+    { title: 'item 2' },
+    { title: 'item 3' },
+  ];
+  
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.changeDetectorRef.detectChanges();
     this.dataSource.paginator = this.paginator;
     this.projectData$ = this.dataSource.connect();
-
-    this.magicGrid = new MagicGrid({
-      container: "#magic-grid", 
-      items: this.projectData.length,
-      gutter: 3,
-      maxColumns: 4,
-      useMin: true,
-      useTransform: true,
-      animate: true, 
-    });
-    this.magicGrid.listen();
-    // this.magicGrid.positionItems();
   }
 
-  ngAfterViewInit() {
-    // this.magicGrid.positionItems();
-  }
+  ngAfterViewInit() {}
 
   ngOnDestroy() {
     if (this.dataSource) { 
