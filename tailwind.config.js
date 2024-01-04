@@ -51,5 +51,8 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
+    plugin(function ({ addVariant }) {
+      addVariant('enabled', '&:not(:disabled)')
+  })
   ],
 }
