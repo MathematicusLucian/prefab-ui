@@ -6,11 +6,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FontAwesomeModule, MatToolbarModule, MatTooltipModule, FlexLayoutModule, FlexLayoutServerModule],
+  imports: [CommonModule, RouterOutlet, RouterModule, FontAwesomeModule, MatToolbarModule, MatTooltipModule, FlexLayoutModule, FlexLayoutServerModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.sass'
 })
@@ -24,30 +27,6 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
-  }
-
-  goToLink(event: { button: number; }, url: string): void {
-    if (event.button === 0 || event.button === 1) {
-      window.open(url, '_blank');
-    }
-  }
-
-  goToPage(event: { button: number; }, url: string): void {
-    if (event.button === 0 || event.button === 1) {
-      window.location.href = url;
-    }
-  }
-
-  home(event: MouseEvent): void {
-    if (event.button === 0) {
-      window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
-    } else if (event.button === 1) {
-      window.open(window.location.href, '_blank');
-    }
   }
 
 }
