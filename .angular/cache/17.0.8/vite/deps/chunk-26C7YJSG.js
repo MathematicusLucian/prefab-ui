@@ -4,14 +4,16 @@ import {
   ESCAPE,
   FocusMonitor,
   MatCommonModule,
+  hasModifierKey
+} from "./chunk-N3AZYN7P.js";
+import {
   Platform,
   _getEventTarget,
   _isTestEnvironment,
   getRtlScrollAxisType,
-  hasModifierKey,
   normalizePassiveListenerOptions,
   supportsScrollBehavior
-} from "./chunk-3PZXQH6I.js";
+} from "./chunk-ERYRUS5E.js";
 import {
   coerceArray,
   coerceBooleanProperty,
@@ -25,7 +27,7 @@ import {
   style,
   transition,
   trigger
-} from "./chunk-HVQ2AHD5.js";
+} from "./chunk-CESG22F6.js";
 import {
   BidiModule,
   Directionality
@@ -6135,4 +6137,4 @@ export {
   matTooltipAnimations,
   MatTooltipModule
 };
-//# sourceMappingURL=chunk-O4FQEOQZ.js.map
+//# sourceMappingURL=chunk-26C7YJSG.js.map

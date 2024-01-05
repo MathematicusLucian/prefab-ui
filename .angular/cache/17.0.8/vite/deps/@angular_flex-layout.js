@@ -63,7 +63,8 @@ import {
 } from "./chunk-MQLQFRQJ.js";
 import {
   DomSanitizer
-} from "./chunk-44D7VQ2D.js";
+} from "./chunk-2FA3W2V5.js";
+import "./chunk-SFJMZMPH.js";
 import "./chunk-67RIG4LO.js";
 import {
   NgClass,

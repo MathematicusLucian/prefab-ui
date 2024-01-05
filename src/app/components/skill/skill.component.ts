@@ -12,10 +12,9 @@ import { CommonModule } from '@angular/common';
 export class SkillComponent implements OnInit {
   skillsData: any = skillsData;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+  constructor() {}
 
   ngOnInit() {
-    this.changeDetectorRef.detectChanges();
   }
 
   ngOnDestroy() {
