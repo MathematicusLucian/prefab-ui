@@ -1,9 +1,9 @@
-<div class="rounded-lg border border-white-800 bg-slate-700/40 p-8 text-center shadow">
+<div class="rounded-lg border border-slate-500 bg-slate-900 p-8 text-center shadow">
     <div class="mx-auto flex h-200 w-200 items-center justify-center rounded-lg border">
         <img src="./assets/imgs/{{ cardDetails$.img_src }}" alt="{{ cardDetails$.title }}">
     </div>
-    <h3 class="mt-6 font-semibold leading-relaxed tracking-wide text-white">{{ cardDetails$.title }}</h3>
-    <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">{{ cardDetails$.content }}</p>
+    <h3 class="mt-6 font-semibold leading-7 text-2xl tracking-wide text-white">{{ cardDetails$.title }}</h3>
+    <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-slate-400">{{ cardDetails$.content }}</p>
     <div class="mt-6">
         <a class="inline-flex rounded-lg bg-pink-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700"
             href="{{ cardDetails$.project_url }}">
