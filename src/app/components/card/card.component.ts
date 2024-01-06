@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, Input, OnChanges, OnInit } from '@angular/core';
-import { of } from 'rxjs';
+import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
+import { ButtonComponent } from '../button/button.component';
 
 export interface Card {
   project_url: string;
@@ -12,7 +12,7 @@ export interface Card {
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './card.component.html',
   styleUrl: './card.component.sass'
 })
