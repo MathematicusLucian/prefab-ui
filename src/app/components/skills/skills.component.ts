@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import skillsData from './../../../assets/skills.json';
+import skillsData from '../../../assets/skills.json';
 
 @Component({
-  selector: 'app-skill',
+  selector: 'app-skills',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './skill.component.html',
-  styleUrl: './skill.component.sass'
+  templateUrl: './skills.component.html',
+  styleUrl: './skills.component.sass'
 })
-export class SkillComponent implements OnInit {
+export class SkillsComponent implements OnInit {
   skillsData: any = skillsData;
 
   constructor() {}
