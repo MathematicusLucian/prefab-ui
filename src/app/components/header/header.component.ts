@@ -38,7 +38,7 @@ export class HeaderComponent {
     },
     {
       "title": "CV/Resume",
-      "linkPath": "/cv/" 
+      "linkPath": "/cv/"
     }
   ];
 
