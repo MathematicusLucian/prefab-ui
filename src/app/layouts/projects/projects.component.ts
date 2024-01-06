@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import projectData from '../../../assets/projects.json';
 import { CardComponent } from '../../components/card/card.component';
 import { of } from 'rxjs';
+import { TaglineComponent } from '../../components/tagline/tagline.component';
 
 export interface Card {
   project_url: string;
@@ -14,7 +15,7 @@ export interface Card {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, CardComponent],
+  imports: [CommonModule, CardComponent, TaglineComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.sass'
 })
