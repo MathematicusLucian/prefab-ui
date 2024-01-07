@@ -78,19 +78,19 @@ export class HeaderComponent {
     {
       "title": null,
       "icon": "faGithub",
-      "linkPath": "https://k1n4kut4.github.io/",
+      "linkPath": "/github/",
       "target": "_blank", 
       "active": false
     },{
       "title": null,
       "icon": "faLinkedin",
-      "linkPath": "https://www.linkedin.com/in/lukejones123/",
+      "linkPath": "/linkedin/",
       "target": "_blank", 
       "active": false
     },{
       "title": null,
       "icon": "faEnvelope",
-      "linkPath": "mailto:recruitlukejones@gmail.com",
+      "linkPath": "/contact/",
       "target": null, 
       "active": false
     }
