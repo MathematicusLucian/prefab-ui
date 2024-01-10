@@ -1,50 +1,16 @@
-<mat-toolbar fxHide.xs fxLayout="row" fxLayoutAlign="center center">
-  <mat-toolbar-row>
-
-      <div fxHide.lt-md fxFlex="30" fxLayoutAlign="end center">
-
-          <a href="/home" 
-              #tooltip="matTooltip" mat-button
-              matTooltip="Home page"
-              class="mat-button">
-              {{ HeaderTitle }}
-          </a>
-              
-          <a href="/blog" 
-              #tooltip="matTooltip"
-              mat-button
-              matTooltip="Articles and blog posts by Luke Jones"
-              class="mat-button">
-              Blog
-          </a>
-              
-          <a href="/cv" 
-              #tooltip="matTooltip"
-              mat-button
-              matTooltip="Work experience and education of Luke Jones"
-              class="mat-button">
-              CV / Resume
-          </a>
-
-      </div>
-
-      <div fxHide.lt-md fxFlex="60">
-        <div fxFlex="70" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end center">
-          
-          <a href="https://k1n4kut4.github.io/" target="_blank" class="button-hover" mat-icon-button
-          aria-label="icon-button icon">
-            <fa-icon [icon]="faGithub"></fa-icon>
-          </a>
-          <a href="https://www.linkedin.com/in/lukejones123/" target="_blank" class="button-hover" mat-icon-button
-            aria-label="icon-button icon">
-            <fa-icon [icon]="faLinkedin"></fa-icon>
-          </a>
-          <a href="mailto:recruitlukejones@gmail.com" class="button-hover" mat-icon-button aria-label="icon-button icon">
-            <fa-icon [icon]="faEnvelope"></fa-icon>
-          </a>
-    
-        </div>
-      </div>
-
-    </mat-toolbar-row>
-  </mat-toolbar>
+<header class="bg-white">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="https://k1n4kut4.github.io/" class="-m-1.5 p-1.5 text-sm font-semibold leading-6 text-gray-900">{{ HeaderTitle }}</a>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-12">
+      <a href="/blog" class="text-sm font-semibold leading-6 text-gray-900">Blog</a>
+      <a href="/cv" class="text-sm font-semibold leading-6 text-gray-900">CV/Resume</a>
+    </div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a href="https://k1n4kut4.github.io/" class="text-sm font-semibold leading-6 text-gray-900"><fa-icon [icon]="faGithub"></fa-icon></a>
+      <a href="hhttps://www.linkedin.com/in/lukejones123/" class="text-sm font-semibold leading-6 text-gray-900"> <fa-icon [icon]="faLinkedin"></fa-icon></a>
+      <a href="ailto:recruitlukejones@gmail.com" class="text-sm font-semibold leading-6 text-gray-900"><fa-icon [icon]="faEnvelope"></fa-icon></a>
+    </div>
+  </nav>
+</header>

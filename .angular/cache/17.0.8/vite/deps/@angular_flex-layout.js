@@ -1,4 +1,17 @@
 import {
+  ClassDirective,
+  DefaultClassDirective,
+  DefaultImgSrcDirective,
+  DefaultShowHideDirective,
+  DefaultStyleDirective,
+  ExtendedModule,
+  ImgSrcDirective,
+  ImgSrcStyleBuilder,
+  ShowHideDirective,
+  ShowHideStyleBuilder,
+  StyleDirective
+} from "./chunk-5DR4BRCD.js";
+import {
   DefaultFlexAlignDirective,
   DefaultFlexDirective,
   DefaultFlexOffsetDirective,
@@ -24,19 +37,6 @@ import {
   LayoutGapStyleBuilder,
   LayoutStyleBuilder
 } from "./chunk-BDYGBJB3.js";
-import {
-  ClassDirective,
-  DefaultClassDirective,
-  DefaultImgSrcDirective,
-  DefaultShowHideDirective,
-  DefaultStyleDirective,
-  ExtendedModule,
-  ImgSrcDirective,
-  ImgSrcStyleBuilder,
-  ShowHideDirective,
-  ShowHideStyleBuilder,
-  StyleDirective
-} from "./chunk-5DR4BRCD.js";
 import {
   BREAKPOINT,
   BREAKPOINTS,
@@ -71,10 +71,10 @@ import {
   sortDescendingPriority,
   validateBasis
 } from "./chunk-S56OXASO.js";
-import "./chunk-CESRQS5W.js";
 import {
   coerceBooleanProperty
 } from "./chunk-Y7OHALMR.js";
+import "./chunk-CESRQS5W.js";
 import "./chunk-2ESLATB3.js";
 import {
   isPlatformServer
