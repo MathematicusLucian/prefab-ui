@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
+import { SkillComponent } from '../../components/skill/skill.component';
+import { BioComponent } from '../../components/bio/bio.component';
+import { BlockExperienceComponent } from '../../components/block-experience/block-experience.component';
+import { BlogComponent } from '../blog/blog.component';
 
 @Component({
   selector: 'app-resume',
   standalone: true,
-  imports: [],
+  imports: [TextHeadingComponent, BioComponent, SkillComponent, BlockExperienceComponent, BlogComponent],
   templateUrl: './resume.component.html',
   styleUrl: './resume.component.sass'
 })
