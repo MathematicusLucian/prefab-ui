@@ -10,7 +10,7 @@ import {
 } from "./chunk-ULRUBIB4.js";
 import {
   NoopAnimationsModule
-} from "./chunk-CESG22F6.js";
+} from "./chunk-IMCC7BWS.js";
 import {
   BrowserDomAdapter,
   BrowserModule,
