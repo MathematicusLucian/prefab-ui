@@ -22,7 +22,7 @@
     
     <div *ngFor="let card of projectData$ | async" class="rounded-lg border border-white-800 bg-neutral-700/30 p-8 text-center shadow">
       <div class="mx-auto flex h-200 w-200 items-center justify-center rounded-lg border">
-          <img src="{{ card.img_src }}" alt="{{ card.title }}">
+          <img src="./assets/imgs/{{ card.img_src }}" alt="{{ card.title }}">
       </div>
       <h3 class="mt-6 font-semibold leading-relaxed tracking-wide text-white">{{ card.title }}</h3>
       <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">{{ card.content }}</p>
