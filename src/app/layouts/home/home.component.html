@@ -4,38 +4,6 @@
 
 <app-skill></app-skill>
 
-<section id="projects" class="relative block px-6 py-10 md:py-20 md:px-10 rounded-lg border-b border-pink-600 bg-gray-900 my-8 shadow">
-
-  <div class="relative mx-auto max-w-5xl text-center">
-    <span class="my-3 flex items-center justify-center text-white font-medium uppercase tracking-wider">
-        Experience
-    </span>
-    <h1 class="mb-5 text-3xl font-semibold text-white md:text-center md:text-5xl">
-        GitHub scribbles
-    </h1>
-    <p class="text-xl md:text-center text-gray-400 md:text-2xl">
-        Snippets, dabbles, and all that
-    </p>
-  </div>
-
-  <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
-    
-    <div *ngFor="let card of projectData$ | async" class="rounded-lg border border-white-800 bg-neutral-700/30 p-8 text-center shadow">
-      <div class="mx-auto flex h-200 w-200 items-center justify-center rounded-lg border">
-          <img src="./assets/imgs/{{ card.img_src }}" alt="{{ card.title }}">
-      </div>
-      <h3 class="mt-6 font-semibold leading-relaxed tracking-wide text-white">{{ card.title }}</h3>
-      <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">{{ card.content }}</p>
-      <div class="mt-6">
-          <a class="inline-flex rounded-lg bg-pink-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700"
-              href="{{ card.project_url }}">
-              Read More
-          </a>
-      </div>
-    </div>
-
-  </div>
-
-</section>
+<app-projects></app-projects>
 
 <app-blog></app-blog>
