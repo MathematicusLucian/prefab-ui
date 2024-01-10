@@ -10,5 +10,5 @@ import { FlexLayoutServerModule } from '@angular/flex-layout/server';
   styleUrl: './footer.component.sass'
 })
 export class FooterComponent {
-
+  currentYear: number = new Date().getFullYear();
 }
