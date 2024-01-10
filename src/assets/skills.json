@@ -1,214 +1,247 @@
 [{
     "name": "Finance/Quant dev",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
     "name": "Scipy",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
     "name": "Numpy",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
     "name": "ASP .Net",
-    "tag": "C#" 
+    "tag": ["C#"]
 }, { 
     "name": "C++",
-    "tag": "C++" 
+    "tag": ["C++"]
 }, { 
     "name": "VBA",
-    "tag": "Other" 
+    "tag": ["Other"]
 }, { 
     "name": "Xarray",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
     "name": "COM",
-    "tag": "C++" 
+    "tag": ["C++"]
 }, { 
     "name": "xlwings",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
     "name": "Pandas",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
     "name": "STL",
-    "tag": "C++" 
+    "tag": ["C++"]
 }, { 
     "name": "pybind 11",
-    "tag": "C++" 
+    "tag": ["C++"]
 }, { 
     "name": "Django",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
     "name": "Tensorflow",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
     "name": "ETL",
-    "tag": "Python" 
+    "tag": ["Python", "Java"]
 }, { 
     "name": "Data modelling",
-    "tag": "Python" 
+    "tag": ["Python", "Java"]
 }, { 
     "name": "Execution optimisation",
-    "tag": "Python" 
+    "tag": ["Java", "C#", "Python"]
 }, { 
     "name": "TypeScript",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "Angular",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "React",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "Ionic",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "Redux",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "NgRx",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "NextJs",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "GraphQL",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "Node",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "Express",
-    "tag": "JavaScript" 
+    "tag": ["JavaScript/UI"]
+}, { 
+    "name": "SingleSpa",
+    "tag": ["JavaScript/UI"]
+}, { 
+    "name": "Micro-frontends",
+    "tag": ["JavaScript/UI"]
+}, { 
+    "name": "Module Federation",
+    "tag": ["JavaScript/UI"]
+}, { 
+    "name": "Standalone Components",
+    "tag": ["JavaScript/UI"]
+}, { 
+    "name": "Storybook",
+    "tag": ["JavaScript/UI"]
+}, { 
+    "name": "Figma",
+    "tag": ["JavaScript/UI"]
 }, { 
     "name": "Spring Boot",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
-    "name":  "DropWizard",
-    "tag": "Java" 
+    "name": "DropWizard",
+    "tag": ["Java"]
 }, { 
     "name": "PHP",
-    "tag": "Other" 
+    "tag": ["Other"]
 }, { 
     "name": "LLMs",
-    "tag": "AI" 
+    "tag": ["AI", "Python"]
 }, { 
     "name": "GPT",
-    "tag": "AI" 
+    "tag": ["AI"]
 }, { 
     "name": "LORA", 
-    "tag": "AI" 
+    "tag": ["AI"]
 }, { 
     "name": "Stable Diffusion",
-    "tag": "AI" 
+    "tag": ["AI"]
 }, { 
-    "name":  "SQL",
-    "tag": "Infra / DBs" 
+    "name": "SQL",
+    "tag": ["Infra / DBs"]
 }, { 
     "name": "Redis",
-    "tag": "Python" 
+    "tag": ["Python", "Java", "Infra / DBs"]
 }, { 
     "name": "MongoDB",
-    "tag": "Python" 
+    "tag": ["Python"]
 }, { 
-    "name":  "Architectural design", 
-    "tag": "Leadership" 
+    "name": "Architectural design", 
+    "tag": ["Leadership"]
+}, { 
+    "name": "OOP",
+    "tag": ["Java", "C#", "Python"]
 }, { 
     "name": "Microservices",
-    "tag": "Java" 
+    "tag": ["Java", "C#", "Python"]
 }, { 
     "name": "BFFs", 
-    "tag": "Java" 
+    "tag": ["Java", "JavaScript/UI"]
 }, { 
     "name": "Gang of Four patterns",
-    "tag": "Java" 
+    "tag": ["Java"]
 }, { 
-    "name":  "Cloud (AWS,Azure)",
-    "tag": "Infra/DBs" 
+    "name": "Cloud (AWS,Azure)",
+    "tag": ["Infra/DBs"]
 }, { 
-    "name":  "DevOps",
-    "tag": "CI/CD" 
+    "name": "DevOps",
+    "tag": ["CI/CD"]
 }, { 
     "name": "Jenkins", 
-    "tag": "CI/CD" 
+    "tag": ["CI/CD"]
 }, { 
     "name": "Webpack",
-    "tag": "CI/CD" 
+    "tag": ["CI/CD"]
 }, { 
     "name": "Maven",
-    "tag": "CI/CD" 
+    "tag": ["CI/CD"]
 }, { 
-    "name":  "Gitflow",
-    "tag": "CI/CD" 
+    "name": "Gitflow",
+    "tag": ["CI/CD"]
 }, { 
-    "name":  "Trunk-based", 
-    "tag": "CI/CD" 
+    "name": "Trunk-based", 
+    "tag": ["CI/CD"]
 }, { 
     "name": "QA Automation",
-    "tag": "QA" 
+    "tag": ["QA"]
 }, { 
-    "name":  "TDD",
-    "tag": "QA" 
+    "name": "TDD",
+    "tag": ["QA"]
 }, { 
-    "name":  "Playwright",
-    "tag": "PQA" 
+    "name": "BDD",
+    "tag": ["QA"]
+}, { 
+    "name": "Jasmine",
+    "tag": ["QA"]
+}, { 
+    "name": "JUnit",
+    "tag": ["QA"]
+}, { 
+    "name": "PyTest",
+    "tag": ["QA"]
+}, { 
+    "name": "Playwright",
+    "tag": ["QA"]
 }, { 
     "name": "Cypress",
-    "tag": "QA" 
+    "tag": ["QA"]
 }, { 
-    "name":  "Postman",
-    "tag": "QA" 
+    "name": "Postman",
+    "tag": ["QA"]
 }, { 
     "name": "Gatling",
-    "tag": "QA" 
+    "tag": ["QA"]
 }, { 
-    "name":  "Hiring",
-    "tag": "Leadership" 
+    "name": "Hiring",
+    "tag": ["Leadership"]
 }, { 
     "name": "Scaling",
-    "tag": "Leadership" 
+    "tag": ["Leadership"]
 }, { 
-    "name":  "Line management", 
-    "tag": "Leadership" 
+    "name": "Line management", 
+    "tag": ["Leadership"]
 }, { 
     "name": "DevEx",
-    "tag": "Leadership" 
+    "tag": ["Leadership"]
 }, { 
     "name": "Coaching",
-    "tag": "Leadership" 
+    "tag": ["Leadership"]
 }, { 
-    "name":  "EngProd metrics", 
-    "tag": "Leadership" 
+    "name": "EngProd metrics", 
+    "tag": ["Leadership"]
 }, { 
     "name": "Stakeholders", 
-    "tag": "Leadership" 
+    "tag": ["Leadership"]
 }, { 
     "name": "Agile methodologies",
-    "tag": "SDLC/Agile" 
+    "tag": ["SDLC/Agile"]
 }, { 
-    "name":  "SDLC modernisation", 
-    "tag": "SDLC/Agile" 
+    "name": "SDLC modernisation", 
+    "tag": ["SDLC/Agile"]
 }, { 
     "name": "Digital Transformation",
-    "tag": "Leadership" 
+    "tag": ["Leadership"]
 }, { 
-    "name":  "ADKAR",
-    "tag": "SDLC/Agile" 
+    "name": "ADKAR",
+    "tag": ["SDLC/Agile"]
 }, { 
     "name": "Six Sigma",
-    "tag": "SDLC/Agile" 
+    "tag": ["SDLC/Agile"]
 }, { 
     "name": "Value stream mapping",
-    "tag": "SDLC/Agile" 
+    "tag": ["SDLC/Agile"]
 }, { 
     "name": "Scrum",
-    "tag": "SDLC/Agile" 
+    "tag": ["SDLC/Agile"]
 }, { 
     "name": "Kanban",
-    "tag": "SDLC/Agile"
+    "tag": ["SDLC/Agile"]
 }, { 
     "name": "ESG targets",
-    "tag": "Leadership" 
+    "tag": ["Leadership"]
 }, { 
     "name": "Diversity",
-    "tag": "Leadership"
+    "tag": ["Leadership"]
 }]
