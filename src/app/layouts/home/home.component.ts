@@ -12,7 +12,6 @@ import { MatPaginator} from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import projectData from './../../../assets/projects.json';
-import { Observable } from 'rxjs';
 
 export interface Card {
   project_url: string;
