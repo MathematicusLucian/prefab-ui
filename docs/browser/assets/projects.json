@@ -6,6 +6,12 @@
       "content": "RxJS Observables, Angular 8 shopping app. Local storage of basket contents. Calls exchange rates API for multi-currency option. Unit tests: Karma, Jasmine, SinonJS."
     }, 
     { 
+      "project_url": "https://github.com/k1n4kut4/Aroma",
+      "img_src": "https://raw.githubusercontent:.com/k1n4kut4/Aroma/master/readme_imgs/products-route.png",
+      "title": "Aroma: Angular RxJS",
+      "content": "RxJS Observables, Angular 8 shopping app. Local storage of basket contents. Calls exchange rates API for multi-currency option. Unit tests: Karma, Jasmine, SinonJS." 
+    },
+    { 
       "project_url": "https://github.com/k1n4kut4/Election-Brexit-Visualisation-OpenLayers-d3",
       "img_src": "https://raw.githubusercontent:.com/k1n4kut4/Election-Brexit-Visualisation-OpenLayers-d3/master/readme_imgs/ref-brexit.png",
       "title": "Election-Brexit-Visualisation-OpenLayers-d3",
