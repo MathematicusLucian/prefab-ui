@@ -4,11 +4,13 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FontAwesomeModule, MatToolbarModule, MatTooltipModule],
+  imports: [FontAwesomeModule, MatToolbarModule, MatTooltipModule, FlexLayoutModule, FlexLayoutServerModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.sass'
 })
