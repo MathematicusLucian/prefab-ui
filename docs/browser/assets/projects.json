@@ -1,5 +1,20 @@
 [
     {
+      "project_url": "https://github.com/k1n4kut4/personal-portfolio",
+      "img_src": "lj.png",
+      "title": "National Grid - timestamps",
+      "content": "Oscilliations, algorithms"
+    },{
+      "project_url": "https://github.com/k1n4kut4/personal-portfolio",
+      "img_src": "lj.png",
+      "title": "Luke Jones website - design system",
+      "content": "Atomic design system, Storybook"
+    },{
+      "project_url": "https://github.com/k1n4kut4/personal-portfolio",
+      "img_src": "lj.png",
+      "title": "Luke Jones website",
+      "content": "Angular, standalone components"
+    },{
       "project_url": "https://github.com/k1n4kut4/Aroma",
       "img_src": "aroma.png",
       "title": "Aroma: Angular RxJS",
