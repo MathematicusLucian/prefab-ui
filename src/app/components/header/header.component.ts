@@ -102,7 +102,7 @@ export class HeaderComponent {
   ];
 
   constructor(private router: Router) {
-    this.router.events.subscribe((val: any) => this.toggleHamburger());
+    this.router.events.subscribe((val: any) => this.hamburgerOpen = false);
   }
 
   toggleHamburger(): void {
