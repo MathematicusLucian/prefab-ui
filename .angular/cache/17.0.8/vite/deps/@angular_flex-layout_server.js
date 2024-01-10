@@ -7,10 +7,10 @@ import {
   SERVER_TOKEN,
   StylesheetMap,
   sortAscendingPriority
-} from "./chunk-S56OXASO.js";
+} from "./chunk-ULRUBIB4.js";
 import {
   NoopAnimationsModule
-} from "./chunk-V4QOJ234.js";
+} from "./chunk-HVQ2AHD5.js";
 import {
   BrowserDomAdapter,
   BrowserModule,
@@ -18,7 +18,7 @@ import {
   EventManagerPlugin,
   HTTP_ROOT_INTERCEPTOR_FNS,
   HttpClientModule
-} from "./chunk-2ESLATB3.js";
+} from "./chunk-44D7VQ2D.js";
 import {
   DOCUMENT,
   NullViewportScroller,
@@ -28,7 +28,7 @@ import {
   XhrFactory,
   getDOM,
   setRootDomAdapter
-} from "./chunk-W4WCCA5G.js";
+} from "./chunk-6HBPEUVG.js";
 import {
   ALLOW_MULTIPLE_PLATFORMS,
   APP_ID,
@@ -41,7 +41,6 @@ import {
   Optional,
   PLATFORM_ID,
   PLATFORM_INITIALIZER,
-  Subject,
   TESTABILITY,
   Testability,
   TransferState,
@@ -55,7 +54,10 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-RWZNMAFR.js";
+} from "./chunk-S3NJ77LX.js";
+import {
+  Subject
+} from "./chunk-AFRS2OIU.js";
 import {
   __async
 } from "./chunk-OXCW2X5T.js";
