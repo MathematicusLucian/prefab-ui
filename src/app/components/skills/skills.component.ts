@@ -30,6 +30,7 @@ export class SkillsComponent {
     "C#",
     "C++",
     "JavaScript/UI",
+    "Other",
     "QA",
     "CI/CD",
     "Infra / DBs",
@@ -46,6 +47,6 @@ export class SkillsComponent {
   }
 
   hasChosenTag(skill: any): boolean {
-    return this.tagChosen == skill.tag || this.tagChosen == "ALL";
+    return skill.tag.includes(this.tagChosen) || this.tagChosen == "ALL";
   }
 }
