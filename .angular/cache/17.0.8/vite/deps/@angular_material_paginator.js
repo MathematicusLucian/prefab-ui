@@ -8,7 +8,7 @@ import {
   OverlayModule,
   SelectionModel,
   ViewportRuler
-} from "./chunk-O4FQEOQZ.js";
+} from "./chunk-26C7YJSG.js";
 import {
   A,
   ActiveDescendantKeyManager,
@@ -26,7 +26,6 @@ import {
   MatRippleLoader,
   MatRippleModule,
   ObserversModule,
-  Platform,
   RIGHT_ARROW,
   SPACE,
   UP_ARROW,
@@ -40,7 +39,10 @@ import {
   mixinInitialized,
   mixinTabIndex,
   removeAriaReferencedId
-} from "./chunk-3PZXQH6I.js";
+} from "./chunk-N3AZYN7P.js";
+import {
+  Platform
+} from "./chunk-ERYRUS5E.js";
 import {
   coerceBooleanProperty,
   coerceNumberProperty
@@ -53,8 +55,9 @@ import {
   style,
   transition,
   trigger
-} from "./chunk-HVQ2AHD5.js";
-import "./chunk-44D7VQ2D.js";
+} from "./chunk-CESG22F6.js";
+import "./chunk-2FA3W2V5.js";
+import "./chunk-SFJMZMPH.js";
 import {
   Directionality
 } from "./chunk-67RIG4LO.js";

@@ -10,15 +10,17 @@ import {
 } from "./chunk-ULRUBIB4.js";
 import {
   NoopAnimationsModule
-} from "./chunk-HVQ2AHD5.js";
+} from "./chunk-CESG22F6.js";
 import {
   BrowserDomAdapter,
   BrowserModule,
   EVENT_MANAGER_PLUGINS,
-  EventManagerPlugin,
+  EventManagerPlugin
+} from "./chunk-2FA3W2V5.js";
+import {
   HTTP_ROOT_INTERCEPTOR_FNS,
   HttpClientModule
-} from "./chunk-44D7VQ2D.js";
+} from "./chunk-SFJMZMPH.js";
 import {
   DOCUMENT,
   NullViewportScroller,
