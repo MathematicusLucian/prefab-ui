@@ -1,20 +1,42 @@
-<nav class="sticky top-0 z-50 bg-amber-400 py-3 px-4 flex items-center justify-between border-b border-slate-700 space-x-6">
+<nav class="sticky top-0 z-50 bg-amber-400 py-0 lg:px-4
+  border-b border-slate-700">
 
-  <span class="font-bold text-xl text-slate-950 tracking-narrow" routerLink="/home/">{{ HeaderTitle }}</span>
- 
-  <div class="flex items-center text-slate-950">
+  <div class="max-w-screen-4xl flex flex-wrap items-center justify-between p-4">
 
-    <ng-container *ngFor="let menuItem of menuItems">
-      <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
-    </ng-container>
+    <span class="font-bold text-xl text-slate-950 tracking-narrow" routerLink="/home/">{{ headerTitle }}</span>
 
-  </div>
+    <button (click)="toggleHamburger()" 
+      data-collapse-toggle="navbar-dropdown" type="button" 
+      class="absolute top-2 right-2 items-center p-2 w-10 h-10 justify-center
+      text-lg text-pink-500 rounded-lg 
+      hover:bg-amber-500 focus:ring-amber-500 focus:outline-none focus:ring-2
+      md:hidden">
+      <fa-icon [icon]="faHamburger"></fa-icon>
+    </button>
 
-  <div class="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
+    <div [hidden]="!hamburgerOpen" class="w-full max-w-screen-xl md:block md:w-auto pl-0 md:pl-5">
 
-    <ng-container *ngFor="let menuItem of menuRightItems">
-      <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
-    </ng-container>
+      <ul class="block md:inline-block font-medium p-4 md:p-0 mt-4 
+      md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0"> 
+        <li>
+          <ng-container *ngFor="let menuItem of menuItems">
+            <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
+          </ng-container>
+        </li>
+
+      </ul>
+
+      <ul class="block md:inline-block font-medium p-4 md:p-0 mt-4 
+      md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0
+      lg:flex-1 lg:justify-end space-x-4"> 
+        <li>
+          <ng-container *ngFor="let menuItem of menuRightItems">
+            <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
+          </ng-container>
+        </li>
+      </ul>
+
+    </div>
 
   </div>
 
