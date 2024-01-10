@@ -2,20 +2,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+<div class="relative">
+
+  <app-header></app-header>
+
+  <main class="main mx-auto min-w-full bg-gradient-to-r from-rose-700 via-fuchsia-950 to-indigo-950 mix-blend-screen ">
+
+    <router-outlet></router-outlet>  
+
+    <app-footer></app-footer>
+
+  </main>
   
-<app-header></app-header>
-
-<main class="main container mx-auto min-w-full bg-teal-100">
-
-  <router-outlet></router-outlet>  
-
-  <app-footer></app-footer>
-
-</main>
-
-<div class="fixed bottom-0 left-0 z-0 h-full w-full border-b"
-    style="background-image: linear-gradient(to right top, rgba(79, 70, 229, 0.2) 0%, transparent 70%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
-</div>
-<div class="fixed bottom-0 right-0 z-0 h-full w-full"
-    style="background-image: linear-gradient(to left top, rgba(225, 14, 2, 0.2) 0%, transparent 70%, transparent 100%); border-color: rgba(92, 79, 240, 0.2);">
 </div>

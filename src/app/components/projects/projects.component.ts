@@ -22,7 +22,7 @@ export interface Card {
 })
 export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   projectData$: Card[] = [];
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+  constructor() {}
 
   ngOnInit() {
     of(projectData).subscribe(x => {

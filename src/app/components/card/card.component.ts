@@ -20,10 +20,9 @@ export class CardComponent implements OnInit, AfterViewInit, OnChanges {
   cardDetails$!: Card;
   @Input() cardDetails!: Card | any;
   
-  constructor(private changeDetectorRef: ChangeDetectorRef) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.changeDetectorRef.detectChanges();
   }
 
   ngAfterViewInit() { }
