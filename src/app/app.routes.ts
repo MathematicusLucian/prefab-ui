@@ -24,12 +24,12 @@ export const APP_ROUTES: Route[] = [
     { 
         path: "contact",
         loadComponent: () => 
-            import('./layouts/resume/resume.component').then(m => m.ResumeComponent),
+            import('./layouts/contact/contact.component').then(m => m.ContactComponent),
     },
     { 
         path: "courses",
         loadComponent: () => 
-            import('./layouts/resume/resume.component').then(m => m.ResumeComponent),
+            import('./layouts/courses/courses.component').then(m => m.CoursesComponent),
     },
     {   
         path: 'cv', 
@@ -62,17 +62,17 @@ export const APP_ROUTES: Route[] = [
     { 
         path: "projects",
         loadComponent: () => 
-            import('./layouts/resume/resume.component').then(m => m.ResumeComponent),
+            import('./layouts/projects/projects.component').then(m => m.ProjectsComponent),
     },
     { 
         path: "tags",
         loadComponent: () => 
-            import('./layouts/resume/resume.component').then(m => m.ResumeComponent),
+            import('./layouts/tags/tags.component').then(m => m.TagsComponent),
     },
     { 
         path: "research",
         loadComponent: () => 
-            import('./layouts/resume/resume.component').then(m => m.ResumeComponent),
+            import('./layouts/research/research.component').then(m => m.ResearchComponent),
     },
     { 
         path: '', 
