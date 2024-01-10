@@ -4,12 +4,19 @@
  
   <div class="flex items-center text-slate-950">
 
-    <span [routerLink]="['/blog/']" routerLinkActive="rounded-full bg-pink-700 text-white"class="text-sm px-4 py-2 leading-none rounded-full hover:bg-amber-500 hover:text-pink-950">'5 cents'</span>
+    <ng-container *ngFor="let menuItem of menuItems">
+      <app-menu-item 
+        title="{{ menuItem.title }}"
+        linkPath="{{ menuItem.linkPath }}">
+      </app-menu-item>
+    </ng-container>
+
+    <!-- <span [routerLink]="['/blog/']" routerLinkActive="rounded-full bg-pink-700 text-white"class="text-sm px-4 py-2 leading-none rounded-full hover:bg-amber-500 hover:text-pink-950">'5 cents'</span> -->
     <!-- <span [routerLink]="['']" class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700">Research Projects</span> -->
     <!-- <span [routerLink]="['']" class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700">Tags [v]</span> -->
-    <span [routerLink]="['']" routerLinkActive="rounded-full bg-pink-700 text-white" class="text-sm px-4 py-2 leading-none rounded-full hover:bg-amber-500 hover:text-pink-950">Codebases</span>
+    <!-- <span [routerLink]="['']" routerLinkActive="rounded-full bg-pink-700 text-white" class="text-sm px-4 py-2 leading-none rounded-full hover:bg-amber-500 hover:text-pink-950">Codebases</span> -->
     <!-- <span [routerLink]="['']" class="text-sm px-4 py-2 leading-none rounded-full hover:bg-gray-700">Courses</span> -->
-    <span [routerLink]="['/cv/']" routerLinkActive="rounded-full bg-pink-700 text-white" class="text-sm px-4 py-2 leading-none rounded-full hover:bg-amber-500 hover:text-pink-950" >CV/Resume</span>
+    <!-- <span [routerLink]="['/cv/']" routerLinkActive="rounded-full bg-pink-700 text-white" class="text-sm px-4 py-2 leading-none rounded-full hover:bg-amber-500 hover:text-pink-950" >CV/Resume</span> -->
     <!-- <span class="inline-flex rounded-lg bg-pink-900 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700"
     href="mailto:recruitlukejones@gmail.com">
         Contact
