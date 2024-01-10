@@ -10,5 +10,5 @@ export const APP_ROUTES: Route[] = [
         import('./layouts/blog/blog.component').then(m => m.BlogComponent)},
     { path: 'cv', component: ResumeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', redirectTo: '' },
+    { path: '**', redirectTo: '/home' },
 ];
