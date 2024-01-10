@@ -1,29 +1,22 @@
-.masonry-with-flex 
-  width: 100%
-  height: 100%
-  display: flex
-  flex-direction: column
-  flex-wrap: wrap
-  
+#magic-grid
+  place-content: flex-start
+
   .card-portfolio 
-    margin: 0 1rem 1rem 0
+    min-width: 250px
+    min-height: 100px
+    padding: 0.3em
+    background-color: antiquewhite
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 8px
     text-align: center
     font-family: system-ui
     font-weight: 300
-    font-size: 2rem
-   
-  @for $i from 1 through 36
-    div:nth-child(#{$i}) 
-      $h: (random(400) + 100) + px
-      height: $h
-      line-height: $h
+    font-size: 2.1rem
 
-  mat-card     
-    width: 100%
+  mat-card      
     min-height: 100%
-    background: #e0e0e0
-    padding: 0.3em
-    border-radius: 0.5em
     font-family: 'Poppins', sans-serif
     font-weight: 300
 
