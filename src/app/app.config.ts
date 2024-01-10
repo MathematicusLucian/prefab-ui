@@ -12,12 +12,13 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { APP_ROUTES } from './app.routes';
+import { RedirectGuard } from './redirect.guard';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(APP_ROUTES),
     importProvidersFrom(HttpClientModule),
     provideRouter(APP_ROUTES, withPreloading(PreloadAllModules), withDebugTracing()),
+    RedirectGuard,
     provideAnimations(),
     importProvidersFrom(LayoutModule), 
     provideClientHydration(), 
