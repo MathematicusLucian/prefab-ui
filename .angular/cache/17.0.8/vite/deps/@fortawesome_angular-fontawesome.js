@@ -1,7 +1,7 @@
 import {
   DomSanitizer
-} from "./chunk-JGP77YGM.js";
-import "./chunk-SDLDE3A4.js";
+} from "./chunk-2ESLATB3.js";
+import "./chunk-W4WCCA5G.js";
 import {
   Component,
   Directive,
@@ -29,7 +29,7 @@ import {
   ɵɵprojection,
   ɵɵprojectionDef,
   ɵɵsanitizeHtml
-} from "./chunk-YAMLI3IX.js";
+} from "./chunk-RWZNMAFR.js";
 import "./chunk-OXCW2X5T.js";
 
 // node_modules/@fortawesome/fontawesome-svg-core/index.mjs
