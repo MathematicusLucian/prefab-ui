@@ -5,7 +5,7 @@
   <div class="flex items-center text-slate-950">
 
     <ng-container *ngFor="let menuItem of menuItems">
-      <app-menu-item menuItem="{{ menuItem | json }}"></app-menu-item>
+      <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
     </ng-container>
 
   </div>
@@ -13,7 +13,7 @@
   <div class="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
 
     <ng-container *ngFor="let menuItem of menuRightItems">
-      <app-menu-item menuItem="{{ menuItem | json }}"></app-menu-item>
+      <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
     </ng-container>
 
   </div>
