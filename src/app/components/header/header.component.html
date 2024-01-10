@@ -1,0 +1,21 @@
+<nav class="sticky top-0 z-50 bg-amber-400 py-3 px-4 flex items-center justify-between border-b border-slate-700 space-x-6">
+
+  <span class="font-bold text-xl text-slate-950 tracking-narrow" routerLink="/home/">{{ HeaderTitle }}</span>
+ 
+  <div class="flex items-center text-slate-950">
+
+    <ng-container *ngFor="let menuItem of menuItems">
+      <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
+    </ng-container>
+
+  </div>
+
+  <div class="hidden lg:flex lg:flex-1 lg:justify-end space-x-4">
+
+    <ng-container *ngFor="let menuItem of menuRightItems">
+      <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
+    </ng-container>
+
+  </div>
+
+</nav>
