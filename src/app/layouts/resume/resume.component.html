@@ -1,25 +1,33 @@
-<app-text-heading headingText="CV / Resume"></app-text-heading>
-
-<section id="projects" class="relative block px-6 py-10 md:py-20 md:px-10 rounded-lg border-b border-pink-600 bg-gray-900 my-8 shadow">
+<section class="relative block px-6 py-10 md:px-0 md:py-20 mx-10 my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
 
     <div class="relative mx-auto max-w-5xl text-center">
         <span class="my-3 flex items-center justify-center text-amber-400 font-medium uppercase tracking-wider">
-            Blah blah
+            EXPERIENCE
         </span>
         <h1 class="mb-5 text-3xl font-semibold text-white md:text-center md:text-5xl">
-            Blog
+            CV / Resume
         </h1>
         <p class="text-xl md:text-center text-gray-400 md:text-2xl">
-            Waffle, and maybe something of utility
+            Past roles, education, et cetera
+        </p>
+        <p class="mb-5 mt-7 font-semibold text-1xl text-white md:text-center">
+            <a href="https://www.linkedin.com/in/lukejones123/" target="_blank">
+                Please see LinkedIn profile
+            </a>
         </p>
     </div>
 
-    Please see LinkedIn profile
-
-    <app-bio></app-bio>
-
-    <app-skill></app-skill>
-
-    <!-- <app-block-experience *ngFor="let experienceItem of resumeData$ | async" experienceItemDetails="{{ experienceItem }}"></app-block-experience> -->
-
+    <!-- <div class="pt-16 pb-4 flex flex-row flex-wrap items-center justify-center">
+        <div class="relative mx-20 max-w-7xl z-10 grid grid-cols-1 gap-10 px-12 sm:grid-cols-1 lg:grid-cols-3 gt-lg:grid-cols-4">        
+            <ng-container *ngFor="let experienceItem of resumeData$">
+                <app-block-experience experienceItemDetails="experienceItem"></app-block-experience>
+            </ng-container>
+        </div>
+    </div> -->
+    
 </section>
+
+<app-bio></app-bio>
+
+<app-skill></app-skill>
+          
