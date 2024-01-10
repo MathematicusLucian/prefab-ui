@@ -5,6 +5,7 @@ import { CardComponent } from '../../components/card/card.component';
 import { of } from 'rxjs';
 import { TaglineComponent } from '../../components/tagline/tagline.component';
 import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
+import { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';
 
 export interface Card {
   project_url: string;
@@ -16,7 +17,7 @@ export interface Card {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, CardComponent, TextHeadingComponent, TaglineComponent, ProjectsComponent],
+  imports: [CommonModule, CardComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent, ProjectsComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.sass'
 })
