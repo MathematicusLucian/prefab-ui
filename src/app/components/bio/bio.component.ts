@@ -12,5 +12,4 @@ import { FlexLayoutServerModule } from '@angular/flex-layout/server';
   styleUrl: './bio.component.sass'
 })
 export class BioComponent {
-
 }
