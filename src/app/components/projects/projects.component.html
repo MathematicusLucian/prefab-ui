@@ -12,13 +12,12 @@
         </p>
     </div>
 
-    <div class="relative mx-0 max-w-7xl z-10 grid grid-cols-1 gap-10 px-12 sm:grid-cols-2 lg:grid-cols-3 items-center justify-center">
-        
-        <div *ngFor="let project of projectData$">
-            <!-- {{ project | json }} -->
-            <app-card cardDetails="{{ project | json }}"></app-card>
+    <div class="flex flex-row flex-wrap items-center justify-center">
+        <div class="relative mx-20 max-w-7xl z-10 grid grid-cols-1 gap-10 px-12 sm:grid-cols-1 lg:grid-cols-3 gt-lg:grid-cols-4">        
+            <ng-container *ngFor="let project of projectData$">
+                <app-card cardDetails="{{ project | json }}"></app-card>
+            </ng-container>
         </div>
-
     </div>
 
 </section>
