@@ -1,0 +1,50 @@
+<div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-2 lg:my-0">
+    
+	<div id="profile" class="w-full lg:w-3/5 mx-6 lg:mx-0 mb-200 rounded-lg border-b border-pink-950 bg-slate-950 shadow ">
+	
+		<div class="p-4 md:p-12 text-center lg:text-left">
+
+			<!-- img: mobile view-->
+			<div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('./../../../assets/imgs/lj.png')"></div>	
+
+            <app-tagline-small taglineText="WELCOME"></app-tagline-small>
+            <app-text-heading headingText="Luke Jones" alignment="center" mb="5"></app-text-heading>
+            <app-tagline taglineText="The engineer you need"></app-tagline>
+            
+			<div class="mx-auto lg:mx-0 w-5/5 pt-8 border-b-2 border-amber-500"></div>
+
+			<p class="pt-4 text-base text-lg text-white font-bold flex items-center justify-center">
+				<fa-icon [icon]="faBriefcase" class="mr-4 text-amber-400"></fa-icon>
+				Quant, data, and UI developer / architect
+            </p>
+			<p class="pt-2 text-slate-400 text-lg flex items-center justify-center">
+                <fa-icon [icon]="faGlobe" class="mr-4 text-amber-400"></fa-icon>
+				London, United Kingdom
+            </p>
+
+			<p class="pt-12 text-lg text-white text-center">
+                20+ years experience (Python, Java, C#, C++, JavaScript, Angular, React, SQL)
+            </p>
+
+			<div class="py-8 text-center">
+				<app-button buttonText="Read more" buttonURL="cv"></app-button>
+			</div>
+
+			<div class="mt-6 pb-16 lg:pb-0 w-5/5 lg:w-full mx-auto flex flex-wrap items-center justify-center">
+                <ng-container *ngFor="let menuItem of menuRightItems">
+                    <app-menu-item colorScheme="light" menuItem="{{ menuItem | json }}"></app-menu-item>
+                </ng-container>
+			</div>
+
+		</div>
+
+	</div>
+	
+	<!--img: desktop biew -->
+	<div class="w-full lg:w-2/5">
+		<img src="./../../../assets/imgs/lj.png" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+	</div>
+
+</div>
+
+<app-skills></app-skills>

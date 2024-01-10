@@ -1,0 +1,12 @@
+<div class="rounded-lg border border-slate-500 bg-slate-900 p-8 text-center shadow">
+
+    <div class="mx-auto flex h-200 w-200 items-center justify-center rounded-lg border">
+        <img src="./assets/imgs/{{ cardDetails$.img_src }}" alt="{{ cardDetails$.title }}">
+    </div>
+    
+    <h3 class="mt-6 font-semibold leading-7 text-2xl tracking-wide text-white">{{ cardDetails$.title }}</h3>
+    <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-slate-400">{{ cardDetails$.content }}</p>
+
+    <app-button buttonText="Read more" buttonURL="{{ cardDetails$.project_url }}"></app-button>
+
+</div>
