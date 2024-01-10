@@ -55,7 +55,21 @@
                   "maximumError": "4kb"
                 }
               ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "outputHashing": "all"
+            },
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -70,6 +84,9 @@
           "configurations": {
             "production": {
               "buildTarget": "personal-porfolio:build:production"
+            },
+            "staging": {
+              "buildTarget": "personal-porfolio:build:staging"
             },
             "development": {
               "buildTarget": "personal-porfolio:build:development"
