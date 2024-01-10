@@ -1,6 +1,6 @@
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
-import skillsData from './../../../assets/skills.json';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import skillsData from './../../../assets/skills.json';
 
 @Component({
   selector: 'app-skill',

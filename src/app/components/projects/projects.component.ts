@@ -1,7 +1,5 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ChangeDetectorRef, NgModule } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatPaginator} from '@angular/material/paginator';
 import projectData from './../../../assets/projects.json';
 import { CardComponent } from '../card/card.component';
 import { of } from 'rxjs';
