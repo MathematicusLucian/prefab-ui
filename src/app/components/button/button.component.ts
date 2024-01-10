@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.component.sass'
 })
 export class ButtonComponent {
+  @Input() buttonText: any;
   @Input() buttonURL: any;
 }
