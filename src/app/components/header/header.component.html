@@ -1,6 +1,48 @@
-<nav>
-    <ul>
-        <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
-        <li><a routerLink="/blog" routerLinkActive="active" ariaCurrentWhenActive="page">Blog</a></li>
-    </ul>
-</nav>
+<mat-toolbar fxHide.xs fxLayout="row" fxLayoutAlign="center center">
+
+    <div fxHide.lt-md fxFlex="30" fxLayoutAlign="end center">
+
+        <a href="/home" 
+            #tooltip="matTooltip" mat-button
+            matTooltip="Home page"
+            class="mat-button">
+            {{ HeaderTitle }}
+        </a>
+            
+        <a href="/blog" 
+            #tooltip="matTooltip"
+            mat-button
+            matTooltip="Articles and blog posts by Luke Jones"
+            class="mat-button">
+            Blog
+        </a>
+            
+        <a href="/cv" 
+            #tooltip="matTooltip"
+            mat-button
+            matTooltip="Work experience and education of Luke Jones"
+            class="mat-button">
+            CV / Resume
+        </a>
+
+    </div>
+
+    <div fxHide.lt-md fxFlex="60">
+      <div fxFlex="70" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end center">
+        
+        <a href="https://k1n4kut4.github.io/" target="_blank" class="button-hover" mat-icon-button
+        aria-label="icon-button icon">
+          <fa-icon [icon]="faGithub"></fa-icon>
+        </a>
+        <a href="https://www.linkedin.com/in/lukejones123/" target="_blank" class="button-hover" mat-icon-button
+           aria-label="icon-button icon">
+          <fa-icon [icon]="faLinkedin"></fa-icon>
+        </a>
+        <a href="mailto:recruitlukejones@gmail.com" class="button-hover" mat-icon-button aria-label="icon-button icon">
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+        </a>
+  
+      </div>
+    </div>
+
+  </mat-toolbar>
