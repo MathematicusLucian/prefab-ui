@@ -1,1 +1,19 @@
-<p>home works!</p>
+<app-text-heading headingText="Luke Jones"></app-text-heading>
+
+<app-bio></app-bio>
+
+<div class="content">
+    @for (item of [
+      { title: 'Explore the Docs', link: 'https://angular.dev' },
+      { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' }
+    ]; track item.title) {
+      {{ item.title }}
+      <br>
+    }
+</div>
+
+<app-skill></app-skill>
+
+<app-block-experience></app-block-experience>
+
+<app-blog></app-blog>
