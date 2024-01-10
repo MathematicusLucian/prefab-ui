@@ -31,7 +31,7 @@ export interface Card {
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  obs!: Observable<any>;
+  projectData$!: Observable<any>;
   projectData = projectData;
   dataSource: MatTableDataSource<Card> = new MatTableDataSource<Card>(projectData);
   magicGrid: any;
@@ -42,13 +42,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.changeDetectorRef.detectChanges();
     this.dataSource.paginator = this.paginator;
-    this.obs = this.dataSource.connect();
+    this.projectData$ = this.dataSource.connect();
 
     this.magicGrid = new MagicGrid({
       container: "#magic-grid", 
       items: this.projectData.length,
       gutter: 3,
-      maxColumns: 5,
+      maxColumns: 4,
       useMin: true,
       useTransform: true,
       animate: true, 

@@ -7,7 +7,7 @@
 <app-blog></app-blog>
 
 <div fxLayout.gt-sm="row" fxLayout.sm="column" id="magic-grid" fxLayoutWrap fxLayoutGap="0.5%">
-  <div *ngFor="let card of obs | async" class="card-portfolio" fxFlex="30" fxFlex.gt-md="25">
+  <div *ngFor="let card of projectData$ | async" class="card-portfolio" fxFlex="30" fxFlex.gt-md="25">
     <mat-card class="portfolio-card mat-elevation-z4" data-id="{{ card.project_url }}">
       <mat-card-header>{{ card.title }}</mat-card-header>
       <img mat-card-image src="{{ card.img_src }}">
@@ -19,5 +19,5 @@
   </div>
 </div>
 <div fxLayout="row">
-  <mat-paginator [pageSizeOptions]="[6, 12, 18, 60]"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[3, 12, 60]"></mat-paginator>
 </div>

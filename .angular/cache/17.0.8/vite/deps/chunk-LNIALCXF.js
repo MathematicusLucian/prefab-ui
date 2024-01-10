@@ -3,7 +3,7 @@ import {
   ScrollDispatcher,
   ScrollingModule,
   ViewportRuler
-} from "./chunk-2QC64TH6.js";
+} from "./chunk-D5TTPF6P.js";
 import {
   A11yModule,
   AriaDescriber,
@@ -16,17 +16,17 @@ import {
   hasModifierKey,
   normalizePassiveListenerOptions,
   supportsScrollBehavior
-} from "./chunk-5T7WCOU4.js";
+} from "./chunk-GBZC4OFZ.js";
+import {
+  BidiModule,
+  Directionality
+} from "./chunk-CESRQS5W.js";
 import {
   coerceArray,
   coerceBooleanProperty,
   coerceCssPixelValue,
   coerceNumberProperty
 } from "./chunk-Y7OHALMR.js";
-import {
-  BidiModule,
-  Directionality
-} from "./chunk-CESRQS5W.js";
 import {
   animate,
   state,
@@ -4247,4 +4247,4 @@ export {
   matTooltipAnimations,
   MatTooltipModule
 };
-//# sourceMappingURL=chunk-L5HHZYYA.js.map
+//# sourceMappingURL=chunk-LNIALCXF.js.map
