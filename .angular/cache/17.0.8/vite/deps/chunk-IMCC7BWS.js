@@ -25,21 +25,6 @@ import {
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AUTO_STYLE = "*";
-function trigger(name, definitions) {
-  return {
-    type: 7,
-    name,
-    definitions,
-    options: {}
-  };
-}
-function animate(timings, styles = null) {
-  return {
-    type: 4,
-    styles,
-    timings
-  };
-}
 function sequence(steps, options = null) {
   return {
     type: 2,
@@ -52,36 +37,6 @@ function style(tokens) {
     type: 6,
     styles: tokens,
     offset: null
-  };
-}
-function state(name, styles, options) {
-  return {
-    type: 0,
-    name,
-    styles,
-    options
-  };
-}
-function transition(stateChangeExpr, steps, options = null) {
-  return {
-    type: 1,
-    expr: stateChangeExpr,
-    animation: steps,
-    options
-  };
-}
-function animateChild(options = null) {
-  return {
-    type: 9,
-    options
-  };
-}
-function query(selector, animation, options = null) {
-  return {
-    type: 11,
-    selector,
-    animation,
-    options
   };
 }
 var _AnimationBuilder = class _AnimationBuilder {
@@ -1169,10 +1124,10 @@ var AnimationAstBuilderVisitor = class {
         });
         stateDef.name = name;
       } else if (def.type == 1) {
-        const transition2 = this.visitTransition(def, context);
-        queryCount += transition2.queryCount;
-        depCount += transition2.depCount;
-        transitions.push(transition2);
+        const transition = this.visitTransition(def, context);
+        queryCount += transition.queryCount;
+        depCount += transition.depCount;
+        transitions.push(transition);
       } else {
         context.errors.push(invalidDefinition());
       }
@@ -2418,7 +2373,7 @@ function createFallbackTransition(triggerName, states, normalizer) {
     steps: [],
     options: null
   };
-  const transition2 = {
+  const transition = {
     type: 1,
     animation,
     matchers,
@@ -2426,7 +2381,7 @@ function createFallbackTransition(triggerName, states, normalizer) {
     queryCount: 0,
     depCount: 0
   };
-  return new AnimationTransitionFactory(triggerName, transition2, states);
+  return new AnimationTransitionFactory(triggerName, transition, states);
 }
 function balanceProperties(stateMap, key1, key2) {
   if (stateMap.has(key1)) {
@@ -2671,14 +2626,14 @@ var AnimationTransitionNamespace = class {
     }
   }
   _getTrigger(name) {
-    const trigger2 = this._triggers.get(name);
-    if (!trigger2) {
+    const trigger = this._triggers.get(name);
+    if (!trigger) {
       throw unregisteredTrigger(name);
     }
-    return trigger2;
+    return trigger;
   }
   trigger(element, triggerName, value, defaultToFallback = true) {
-    const trigger2 = this._getTrigger(triggerName);
+    const trigger = this._getTrigger(triggerName);
     const player = new TransitionAnimationPlayer(this.id, triggerName, element);
     let triggersWithStates = this._engine.statesByElement.get(element);
     if (!triggersWithStates) {
@@ -2700,8 +2655,8 @@ var AnimationTransitionNamespace = class {
     if (!isRemoval && fromState.value === toState.value) {
       if (!objEquals(fromState.params, toState.params)) {
         const errors = [];
-        const fromStyles = trigger2.matchStyles(fromState.value, fromState.params, errors);
-        const toStyles = trigger2.matchStyles(toState.value, toState.params, errors);
+        const fromStyles = trigger.matchStyles(fromState.value, fromState.params, errors);
+        const toStyles = trigger.matchStyles(toState.value, toState.params, errors);
         if (errors.length) {
           this._engine.reportError(errors);
         } else {
@@ -2719,19 +2674,19 @@ var AnimationTransitionNamespace = class {
         player2.destroy();
       }
     });
-    let transition2 = trigger2.matchTransition(fromState.value, toState.value, element, toState.params);
+    let transition = trigger.matchTransition(fromState.value, toState.value, element, toState.params);
     let isFallbackTransition = false;
-    if (!transition2) {
+    if (!transition) {
       if (!defaultToFallback)
         return;
-      transition2 = trigger2.fallbackTransition;
+      transition = trigger.fallbackTransition;
       isFallbackTransition = true;
     }
     this._engine.totalQueuedPlayers++;
     this._queue.push({
       element,
       triggerName,
-      transition: transition2,
+      transition,
       fromState,
       toState,
       player,
@@ -2797,8 +2752,8 @@ var AnimationTransitionNamespace = class {
     const previousTriggersValues = /* @__PURE__ */ new Map();
     if (triggerStates) {
       const players = [];
-      triggerStates.forEach((state2, triggerName) => {
-        previousTriggersValues.set(triggerName, state2.value);
+      triggerStates.forEach((state, triggerName) => {
+        previousTriggersValues.set(triggerName, state.value);
         if (this._triggers.has(triggerName)) {
           const player = this.trigger(element, triggerName, VOID_VALUE, defaultToFallback);
           if (player) {
@@ -2826,8 +2781,8 @@ var AnimationTransitionNamespace = class {
         if (visitedTriggers.has(triggerName))
           return;
         visitedTriggers.add(triggerName);
-        const trigger2 = this._triggers.get(triggerName);
-        const transition2 = trigger2.fallbackTransition;
+        const trigger = this._triggers.get(triggerName);
+        const transition = trigger.fallbackTransition;
         const fromState = elementStates.get(triggerName) || DEFAULT_STATE_VALUE;
         const toState = new StateValue(VOID_VALUE);
         const player = new TransitionAnimationPlayer(this.id, triggerName, element);
@@ -2835,7 +2790,7 @@ var AnimationTransitionNamespace = class {
         this._queue.push({
           element,
           triggerName,
-          transition: transition2,
+          transition,
           fromState,
           toState,
           player,
@@ -3003,9 +2958,9 @@ var TransitionAnimationEngine = class {
     }
     return ns;
   }
-  registerTrigger(namespaceId, name, trigger2) {
+  registerTrigger(namespaceId, name, trigger) {
     let ns = this._namespaceLookup[namespaceId];
-    if (ns && ns.register(name, trigger2)) {
+    if (ns && ns.register(name, trigger)) {
       this.totalAnimations++;
     }
   }
@@ -3304,9 +3259,9 @@ var TransitionAnimationEngine = class {
               const previousValue = details.previousTriggersValues.get(entry.triggerName);
               const triggersWithStates = this.statesByElement.get(entry.element);
               if (triggersWithStates && triggersWithStates.has(entry.triggerName)) {
-                const state2 = triggersWithStates.get(entry.triggerName);
-                state2.value = previousValue;
-                triggersWithStates.set(entry.triggerName, state2);
+                const state = triggersWithStates.get(entry.triggerName);
+                state.value = previousValue;
+                triggersWithStates.set(entry.triggerName, state);
               }
             }
             player.destroy();
@@ -3871,8 +3826,8 @@ var AnimationEngine = class {
   }
   registerTrigger(componentId, namespaceId, hostElement, name, metadata) {
     const cacheKey = componentId + "-" + name;
-    let trigger2 = this._triggerCache[cacheKey];
-    if (!trigger2) {
+    let trigger = this._triggerCache[cacheKey];
+    if (!trigger) {
       const errors = [];
       const warnings = [];
       const ast = buildAnimationAst(this._driver, metadata, errors, warnings);
@@ -3882,10 +3837,10 @@ var AnimationEngine = class {
       if (warnings.length) {
         warnTriggerBuild(name, warnings);
       }
-      trigger2 = buildTrigger(name, ast, this._normalizer);
-      this._triggerCache[cacheKey] = trigger2;
+      trigger = buildTrigger(name, ast, this._normalizer);
+      this._triggerCache[cacheKey] = trigger;
     }
-    this._transitionEngine.registerTrigger(namespaceId, name, trigger2);
+    this._transitionEngine.registerTrigger(namespaceId, name, trigger);
   }
   register(namespaceId, hostElement) {
     this._transitionEngine.register(namespaceId, hostElement);
@@ -4358,9 +4313,9 @@ function resolveElementFromTarget(target) {
 }
 function parseTriggerCallbackName(triggerName) {
   const dotIndex = triggerName.indexOf(".");
-  const trigger2 = triggerName.substring(0, dotIndex);
+  const trigger = triggerName.substring(0, dotIndex);
   const phase = triggerName.slice(dotIndex + 1);
-  return [trigger2, phase];
+  return [trigger, phase];
 }
 var AnimationRendererFactory = class {
   constructor(delegate, engine, _zone) {
@@ -4396,11 +4351,11 @@ var AnimationRendererFactory = class {
     const namespaceId = type.id + "-" + this._currentId;
     this._currentId++;
     this.engine.register(namespaceId, hostElement);
-    const registerTrigger = (trigger2) => {
-      if (Array.isArray(trigger2)) {
-        trigger2.forEach(registerTrigger);
+    const registerTrigger = (trigger) => {
+      if (Array.isArray(trigger)) {
+        trigger.forEach(registerTrigger);
       } else {
-        this.engine.registerTrigger(componentId, namespaceId, hostElement, trigger2.name, trigger2);
+        this.engine.registerTrigger(componentId, namespaceId, hostElement, trigger.name, trigger);
       }
     };
     const animationTriggers = type.data["animation"];
@@ -4599,13 +4554,6 @@ function provideNoopAnimations() {
 }
 
 export {
-  trigger,
-  animate,
-  style,
-  state,
-  transition,
-  animateChild,
-  query,
   InjectableAnimationEngine,
   BrowserAnimationsModule,
   provideAnimations,
@@ -4635,4 +4583,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-CESG22F6.js.map
+//# sourceMappingURL=chunk-IMCC7BWS.js.map
