@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-// import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatTooltipModule } from '@angular/material/tooltip';
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 // const routerOptions: ExtraOptions = {
 //   scrollPositionRestoration: 'enabled',
@@ -18,27 +10,89 @@ import { MenuItemComponent } from '../menu-item/menu-item.component';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, MenuItemComponent, RouterOutlet, FontAwesomeModule, FlexLayoutModule, FlexLayoutServerModule],
+  imports: [CommonModule, MenuItemComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.sass'
 })
 export class HeaderComponent {
-  faGithub = faGithub;
-  faLinkedin = faLinkedin;
-  faEnvelope = faEnvelope;
   HeaderTitle = "Luke Jones";
   menuItems = [
     {
       "title": "Home",
-      "linkPath": "/home/" 
+      "icon": null,
+      "target": null,
+      "linkPath": "/home/", 
+      "active": false
     },
     {
       "title": "Blog",
-      "linkPath": "/blog/" 
+      "icon": null,
+      "target": null,
+      "linkPath": "/blog/", 
+      "active": false
     },
     {
       "title": "CV/Resume",
-      "linkPath": "/cv/"
+      "icon": null,
+      "target": null,
+      "linkPath": "/cv/", 
+      "active": false
+    },
+    {
+      "title": "Research Projects",
+      "icon": null,
+      "target": null,
+      "linkPath": "/research/", 
+      "active": false
+    },
+    {
+      "title": "Tags",
+      "icon": null,
+      "target": null,
+      "linkPath": "/tags/", 
+      "active": false
+    },
+    {
+      "title": "Codebases",
+      "icon": null,
+      "target": null,
+      "linkPath": "/projects/", 
+      "active": false
+    },
+    {
+      "title": "Courses",
+      "icon": null,
+      "target": null,
+      "linkPath": "/courses/", 
+      "active": false
+    },
+    {
+      "title": "Contact",
+      "icon": null,
+      "target": null,
+      "linkPath": "/contact/", 
+      "active": false
+    }
+  ];
+  menuRightItems = [
+    {
+      "title": null,
+      "icon": "faGithub",
+      "linkPath": "https://k1n4kut4.github.io/",
+      "target": "_blank", 
+      "active": false
+    },{
+      "title": null,
+      "icon": "faLinkedin",
+      "linkPath": "https://www.linkedin.com/in/lukejones123/",
+      "target": "_blank", 
+      "active": false
+    },{
+      "title": null,
+      "icon": "faEnvelope",
+      "linkPath": "mailto:recruitlukejones@gmail.com",
+      "target": null, 
+      "active": false
     }
   ];
 

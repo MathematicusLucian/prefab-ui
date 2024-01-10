@@ -1,5 +1,14 @@
 <span routerLink="{{ linkPath$ }}" 
-    routerLinkActive="rounded-full bg-pink-700 text-white" 
-    class="text-sm px-4 py-2 leading-none rounded-full hover:bg-amber-500 hover:text-pink-950">
+    target="{{ target$ }}"
+    routerLinkActive="rounded-full bg-pink-700 text-white font-bold hover:bg-pink-700 hover:text-white" 
+    class="text-sm px-4 py-2 leading-none rounded-full font-semibold text-slate-950 hover:bg-amber-500 hover:text-slate-950">
+    
     {{ title$ }}
+    
+    <ng-container *ngIf="icon">
+        <fa-icon [icon]="faIconData"></fa-icon>
+    </ng-container>
+    
 </span>
+
+<!-- <a routerLink="/redirect" [queryParams]="{ url: 'https://angular.io'}">AAA</a> -->
