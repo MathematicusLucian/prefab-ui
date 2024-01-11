@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import projectData from '../../../assets/projects.json';
+// import projectData from '../../../assets/projects.json';
 import { CardComponent } from '../../components/card/card.component';
 import { of } from 'rxjs';
 import { TaglineComponent } from '../../components/tagline/tagline.component';
@@ -26,6 +26,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor() {}
 
   ngOnInit() {
+    let projectData: any[] = []; // temp
     of(projectData).subscribe(x => {
       this.projectData$ = x;
     }); 

@@ -4,7 +4,7 @@ import { BadgeComponent } from '../badge/badge.component';
 import { TextHeadingComponent } from '../text-heading/text-heading.component';
 import { TaglineSmallComponent } from '../tagline-small/tagline-small.component';
 import { TaglineComponent } from '../tagline/tagline.component';
-import skillsData from '../../../assets/skills.json';
+// import skillsData from '../../../assets/skills.json';
 
 interface SkillsData {
   name: string,
@@ -22,7 +22,7 @@ interface TagData {
   styleUrl: './skills.component.sass'
 })
 export class SkillsComponent {
-  skillsData: any = skillsData; //SkillsData
+  skillsData: any = []; //skillsData; //SkillsData
   tagData: any =  [
     "ALL",
     "Java",

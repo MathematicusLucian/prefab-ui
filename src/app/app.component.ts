@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ENV } from '../env/environment';
+import { ENV } from '../environments/environment';
 import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
