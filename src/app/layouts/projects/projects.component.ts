@@ -11,20 +11,8 @@ import { selectSiteGraph } from '../../shared/core-state'; //selectBlock
 
 @Component({
   selector: 'app-projects',
-  template: `<section class="relative block px-3 py-6 md:px-0 md:py-20 mx-1 my-1 md:mx-10 md:my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
-    
-  <div class="relative mx-auto max-w-5xl text-center">
-      <app-tagline-small taglineText="Experience"></app-tagline-small>
-      <app-text-heading headingText="GitHub scribbles" alignment="center" mb="4"></app-text-heading>
-      <app-tagline taglineText="Snippets, dabbles, and all that !"></app-tagline>
-  </div>
-
-  <ng-container *ngIf="projectsData$">
-    <cardblock [data$]="projectsData$"></cardblock>
-  </ng-container>
-
-</section>
-  `,
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.sass',
   standalone: true,
   imports: [CommonModule, TaglineComponent, TextHeadingComponent, TaglineSmallComponent, CardblockComponent ],
 })
