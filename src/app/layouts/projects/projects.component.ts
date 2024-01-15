@@ -1,38 +1,43 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import projectData from '../../../assets/projects.json';
-import { CardComponent } from '../../components/card/card.component';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { TaglineComponent } from '../../components/tagline/tagline.component';
-import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
-import { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';
-
-export interface Card {
-  project_url: string;
-  img_src: string;
-  title: string;
-  content: string;
-}
+import { map, switchMap } from "rxjs/operators";
+import { CardblockComponent } from '../../components/cardblock/containers/cardblock.component';
+import { selectSiteGraph } from '../../shared/core-state'; //selectBlock
 
 @Component({
   selector: 'app-projects',
+  template: `
+      <ng-container *ngIf="projectsData$">
+        <cardblock [data$]="projectsData$"></cardblock>
+      </ng-container>
+  `,
   standalone: true,
-  imports: [CommonModule, CardComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent, ProjectsComponent],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.sass'
+  imports: [CardblockComponent, CommonModule],
 })
-export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
-  projectData$: Card[] = [];
-  constructor() {}
+export class ProjectsComponent implements OnInit {
 
-  ngOnInit() {
-    let projectData: any[] = []; // temp
-    of(projectData).subscribe(x => {
-      this.projectData$ = x;
-    }); 
+  blockName = "projects";
+  projectsData$: any;
+  constructor(private store: Store) { 
   }
 
-  ngAfterViewInit() {}
+  ngOnInit() {
 
-  ngOnDestroy() {}
+    this.store.select(selectSiteGraph).subscribe((x: any) => {
+      const data = x.filter((y:any) => { if(y.name == this.blockName) return y.body });  
+      this.projectsData$ = of(data[0]['body']);
+    }); 
+
+    // this.projectsData$ = this.blockName$.pipe(
+    //   switchMap((name) => this.store.select(selectBlock({ name: name })))
+    // );
+
+    // this.projectsData$.subscribe((x: any) => {
+    //   console.log('x-1b', x);
+    // }); 
+
+  }
+
 }

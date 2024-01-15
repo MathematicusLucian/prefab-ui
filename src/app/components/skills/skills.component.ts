@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BadgeComponent } from '../badge/badge.component';
 import { TextHeadingComponent } from '../text-heading/text-heading.component';
 import { TaglineSmallComponent } from '../tagline-small/tagline-small.component';
 import { TaglineComponent } from '../tagline/tagline.component';
-// import skillsData from '../../../assets/skills.json';
+import { ActivatedRoute } from '@angular/router';
 
 interface SkillsData {
   name: string,
@@ -21,26 +21,27 @@ interface TagData {
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.sass'
 })
-export class SkillsComponent {
-  skillsData: any = []; //skillsData; //SkillsData
-  tagData: any =  [
-    "ALL",
-    "Java",
-    "Python",
-    "C#",
-    "C++",
-    "JavaScript/UI",
-    "Other",
-    "QA",
-    "CI/CD",
-    "Infra / DBs",
-    "AI",
-    "SDLC/Agile",
-    "Leadership"
-  ];
+export class SkillsComponent implements OnInit, OnDestroy {
+  private sub: any; 
+  siteGraph: any;
+  skillsData: any = [];
+  tagData: any = [];
   tagChosen = "ALL";
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {
+    this.siteGraph = {};
+  }
+
+  ngOnInit(): void {
+    this.sub = this.route.params.subscribe(params => {
+    this.skillsData = params['siteGraph'].skillsData;
+    this.tagData = params['siteGraph'].skillsTagsData;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
   setChosenTag(tagClicked: string) {
     this.tagChosen = tagClicked;

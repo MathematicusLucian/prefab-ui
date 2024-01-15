@@ -1,4 +1,7 @@
 import {
+  NoopAnimationsModule
+} from "./chunk-E4ZZHLZW.js";
+import {
   BREAKPOINTS,
   CLASS_NAME,
   LAYOUT_CONFIG,
@@ -7,20 +10,17 @@ import {
   SERVER_TOKEN,
   StylesheetMap,
   sortAscendingPriority
-} from "./chunk-ULRUBIB4.js";
-import {
-  NoopAnimationsModule
-} from "./chunk-IMCC7BWS.js";
+} from "./chunk-Q2JBH425.js";
 import {
   BrowserDomAdapter,
   BrowserModule,
   EVENT_MANAGER_PLUGINS,
   EventManagerPlugin
-} from "./chunk-2FA3W2V5.js";
+} from "./chunk-MZZ5QAHR.js";
 import {
   HTTP_ROOT_INTERCEPTOR_FNS,
   HttpClientModule
-} from "./chunk-SFJMZMPH.js";
+} from "./chunk-EHKLKERD.js";
 import {
   DOCUMENT,
   NullViewportScroller,
@@ -30,7 +30,7 @@ import {
   XhrFactory,
   getDOM,
   setRootDomAdapter
-} from "./chunk-6HBPEUVG.js";
+} from "./chunk-7HIBBP5U.js";
 import {
   ALLOW_MULTIPLE_PLATFORMS,
   APP_ID,
@@ -56,10 +56,12 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-S3NJ77LX.js";
+} from "./chunk-UYHU5JHP.js";
+import "./chunk-WI6LBH4V.js";
+import "./chunk-BQTYKBYB.js";
 import {
   Subject
-} from "./chunk-AFRS2OIU.js";
+} from "./chunk-KDOJNZN6.js";
 import {
   __async
 } from "./chunk-OXCW2X5T.js";
