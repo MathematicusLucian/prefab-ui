@@ -1,0 +1,8 @@
+{
+    "dataPipelineUrl": "http://127.0.0.1:8000",
+    "dataPaths": [
+      {"name": "skills", "path": "/get_skills_items/1"},
+      {"name": "skills_tags", "path": "/get_skills_categories/1"},
+      {"name": "projects", "path": "/get_projects/1"}
+    ]
+}

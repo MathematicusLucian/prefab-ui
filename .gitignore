@@ -85,6 +85,9 @@ web_modules/
 .cache
 .parcel-cache
 
+# Angular
+.angular/cache
+
 # Next.js build output
 .next
 out
