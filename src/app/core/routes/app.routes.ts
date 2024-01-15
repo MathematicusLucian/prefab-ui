@@ -15,7 +15,7 @@ export const APP_ROUTES: Route[] = [
     { 
         path: 'blog', 
         loadComponent: () => 
-            import('../../components/blog/blog.component').then(m => m.BlogComponent)
+            import('../../layouts/blog/blog.component').then(m => m.BlogComponent)
     },
     { 
         path: "contact",
