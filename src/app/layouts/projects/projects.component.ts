@@ -3,18 +3,30 @@ import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { map, switchMap } from "rxjs/operators";
+import { TaglineComponent } from '../../components/tagline/tagline.component';
+import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
+import { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';
 import { CardblockComponent } from '../../components/cardblock/containers/cardblock.component';
 import { selectSiteGraph } from '../../shared/core-state'; //selectBlock
 
 @Component({
   selector: 'app-projects',
-  template: `
-      <ng-container *ngIf="projectsData$">
-        <cardblock [data$]="projectsData$"></cardblock>
-      </ng-container>
+  template: `<section class="relative block px-3 py-6 md:px-0 md:py-20 mx-1 my-1 md:mx-10 md:my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
+    
+  <div class="relative mx-auto max-w-5xl text-center">
+      <app-tagline-small taglineText="Experience"></app-tagline-small>
+      <app-text-heading headingText="GitHub scribbles" alignment="center" mb="4"></app-text-heading>
+      <app-tagline taglineText="Snippets, dabbles, and all that !"></app-tagline>
+  </div>
+
+  <ng-container *ngIf="projectsData$">
+    <cardblock [data$]="projectsData$"></cardblock>
+  </ng-container>
+
+</section>
   `,
   standalone: true,
-  imports: [CardblockComponent, CommonModule],
+  imports: [CommonModule, TaglineComponent, TextHeadingComponent, TaglineSmallComponent, CardblockComponent ],
 })
 export class ProjectsComponent implements OnInit {
 

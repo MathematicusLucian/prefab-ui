@@ -2,9 +2,6 @@ import { Component, OnInit, AfterViewInit, OnDestroy, Input } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { CardComponent } from '../../card/card.component';
 import { of } from 'rxjs';
-import { TaglineComponent } from '../../tagline/tagline.component';
-import { TextHeadingComponent } from '../../text-heading/text-heading.component';
-import { TaglineSmallComponent } from '../../tagline-small/tagline-small.component';
 
 export interface Card {
   project_url: string;
@@ -16,7 +13,7 @@ export interface Card {
 @Component({
   selector: 'cardblock',
   standalone: true,
-  imports: [CommonModule, CardComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent, CardblockComponent],
+  imports: [CommonModule, CardComponent, CardblockComponent],
   templateUrl: './cardblock.component.html',
   styleUrl: './cardblock.component.sass'
 })
