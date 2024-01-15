@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppValues } from '../../core/config/enums';
+import { Observable, of } from 'rxjs';
+import { HeadingBlock } from '../../shared/models/heading-block.model';
+import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
 import { Store } from '@ngrx/store';
-import { of } from 'rxjs';
-import { map, switchMap } from "rxjs/operators";
-import { TaglineComponent } from '../../components/tagline/tagline.component';
-import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
-import { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';
 import { CardblockComponent } from '../../components/cardblock/containers/cardblock.component';
 import { selectSiteGraph } from '../../shared/core-state'; //selectBlock
 
@@ -14,14 +13,21 @@ import { selectSiteGraph } from '../../shared/core-state'; //selectBlock
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.sass',
   standalone: true,
-  imports: [CommonModule, TaglineComponent, TextHeadingComponent, TaglineSmallComponent, CardblockComponent ],
+  imports: [CommonModule, HeadingBlockComponent, CardblockComponent ],
 })
 export class ProjectsComponent implements OnInit {
-
+  appValues = AppValues;
+  headingData$: Observable<HeadingBlock> = of({
+    headingText: this.appValues.PROJECTS_HEADING_TEXT,
+    taglineText: this.appValues.PROJECTS_TAGLINE,
+    taglineSmallText: this.appValues.PROJECTS_TAGLINE_SMALL,
+    alignment: this.appValues.HEADERBLOCK_ALIGNMENT_NONE,
+    mb: this.appValues.HEADERBLOCK_MB
+  });
   blockName = "projects";
   projectsData$: any;
-  constructor(private store: Store) { 
-  }
+
+  constructor(private store: Store) {}
 
   ngOnInit() {
 

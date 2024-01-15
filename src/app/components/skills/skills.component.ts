@@ -1,5 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppValues } from '../../core/config/enums';
+import { Observable, of } from 'rxjs';
+import { HeadingBlock } from '../../shared/models/heading-block.model';
+import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
 import { BadgeComponent } from '../badge/badge.component';
 import { TextHeadingComponent } from '../text-heading/text-heading.component';
 import { TaglineSmallComponent } from '../tagline-small/tagline-small.component';
@@ -17,11 +21,19 @@ interface TagData {
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule, BadgeComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],
+  imports: [CommonModule, HeadingBlockComponent, BadgeComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.sass'
 })
 export class SkillsComponent implements OnInit, OnDestroy {
+  appValues = AppValues;
+  headingData$: Observable<HeadingBlock> = of({
+    headingText: this.appValues.SKILLS_HEADING_TEXT,
+    taglineText: this.appValues.SKILLS_TAGLINE,
+    taglineSmallText: this.appValues.SKILLS_TAGLINE_SMALL,
+    alignment: this.appValues.HEADERBLOCK_ALIGNMENT_NONE,
+    mb: this.appValues.HEADERBLOCK_MB
+  });
   private sub: any; 
   siteGraph: any;
   skillsData: any = [];

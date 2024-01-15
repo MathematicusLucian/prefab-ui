@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './text-heading.component.sass'
 })
 export class TextHeadingComponent {
-  @Input() headingText: string = "";
+  @Input() headingText: any = "";
   @Input() alignment: string = "center";
   @Input() mb: string = "0";
 }

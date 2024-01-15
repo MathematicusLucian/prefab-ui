@@ -1,16 +1,23 @@
 import { Component } from '@angular/core';
-import { BlogPostComponent } from '../../components/blog-post/blog-post.component';
-import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
-import { TaglineComponent } from '../../components/tagline/tagline.component';
-import { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';
+import { AppValues } from '../../core/config/enums';
+import { Observable, of } from 'rxjs';
+import { HeadingBlock } from '../../shared/models/heading-block.model';
+import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [BlogPostComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],
+  imports: [HeadingBlockComponent],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.sass'
 })
 export class CoursesComponent {
-
+  appValues = AppValues;
+  headingData$: Observable<HeadingBlock> = of({
+    headingText: this.appValues.COURSES_HEADING_TEXT,
+    taglineText: this.appValues.COURSES_TAGLINE,
+    taglineSmallText: this.appValues.COURSES_TAGLINE_SMALL,
+    alignment: this.appValues.HEADERBLOCK_ALIGNMENT_NONE,
+    mb: this.appValues.HEADERBLOCK_MB
+  });
 }

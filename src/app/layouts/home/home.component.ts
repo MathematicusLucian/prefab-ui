@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppValues } from '../../core/config/enums';
 import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
 import { TaglineComponent } from '../../components/tagline/tagline.component';
 import { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';
@@ -17,6 +18,7 @@ import { ButtonComponent } from '../../components/button/button.component';
   styleUrl: './home.component.sass'
 })
 export class HomeComponent implements OnInit{
+  appValues = AppValues;
   menuRightItems = [
     {
       "title": null,
@@ -40,6 +42,9 @@ export class HomeComponent implements OnInit{
   ];
   faBriefcase = faBriefcase;
   faGlobe = faGlobe;
+  
+  constructor() {
+  }
 
   ngOnInit() {
   }

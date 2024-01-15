@@ -1,11 +1,7 @@
-<section class="relative block px-6 py-10 md:py-20 md:px-10 mx-10 my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
+<app-heading-block [headingData$]=[headingData$]></app-heading-block>
 
-    <div class="relative mx-auto max-w-5xl text-center">
-      <app-tagline-small taglineText="Experience"></app-tagline-small>
-      <app-text-heading headingText="Skills" alignment="center" mb="5"></app-text-heading>
-      <app-tagline taglineText="Click one of the pink buttons"></app-tagline>
-    </div>
-   
+<section class="relative block px-6 py-10 md:py-0 md:px-10 mx-10 my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
+
     <div class="mt-6 flex-row items-center text-center justify-center">
         <a *ngFor="let tag of tagData" class="inline-flex rounded-lg bg-pink-600 my-2 px-4 py-15 mx-2 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700"
             (click)="setChosenTag(tag)">
