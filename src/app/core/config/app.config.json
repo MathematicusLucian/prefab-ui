@@ -1,8 +1,8 @@
 {
     "dataPipelineUrl": "http://0.0.0.0:80",
     "dataPaths": [
-      {"name": "menu_main", "path": "/get_menu/main/1"},
-      {"name": "menu_links", "path": "/get_menu/links/1"},
+      {"name": "menu_main", "path": "/get_menu_main/1"},
+      {"name": "menu_links", "path": "/get_menu_links/1"},
       {"name": "skills", "path": "/get_skills_items/1"},
       {"name": "skills_tags", "path": "/get_skills_categories/1"},
       {"name": "projects", "path": "/get_projects/1"}
