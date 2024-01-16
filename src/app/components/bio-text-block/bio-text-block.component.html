@@ -1,8 +1,13 @@
 <div class="mt-8">
-    <app-text-heading headingText="Luke Jones" alignment="left" mb="0"></app-text-heading>
-    <p class="text-slate-500 font-medium uppercase tracking-wider">MSC (Dist), CSM</p>
-    <p class="mt-4 mb-5 text-sm text-slate-100">Quant, data, and UI developer / architect with 20+ years experience (Python, Java, C#, C++, JavaScript, Angular, React, SQL)</p> 
-    <p class="my-4 mt-2 text-xs text-slate-400"><span class="font-bold text-slate-200">Education:</span> Master&apos;s in Computer Science. University of Oxford Algorithmic Trading Programme. Studying for the CFA.</p>
-    <p class="my-4 mt-2 text-xs text-slate-400"><span class="font-bold text-slate-200">Experience:</span> Rich problem-solving/systemising ability, and a background in highly-regulated prop-trading/ financial services, as a principal engineer to several teams (60+ devs; on-site, remote, offshore.) Familiar with ESG, DevOps, QA automation, AWS/Azure, DevEx, diversity, Six Sigma, and Agile (Certified Scrum Master.) Focuses on value to business, security, and code reusability (microservices, micro-frontends, OOP, design patterns.)</p>
-    <p class="my-4 mt-2 text-xs text-slate-400"><span class="font-bold text-slate-200">Interests:</span> AI models, neuroscience, and checking the value of cryptocurrency investments. I'm somewhere in a corner of these rainy isles, drinking lethal quantities of coffee, while hacking up a Raspberry Pi, wishing Bletchley Park was my office, redesigning workflows, or experimenting with Lora LLM AI models. Otherwise, catching up on the work of <a class="text-slate-300" href="https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi">al-Khwarizmi</a>, Isaac Newton, <a class="text-slate-300" href="">Turing</a>, <a class="text-slate-300" href="https://en.wikipedia.org/wiki/Colossus_computer">Tommy Flowers</a>, Martin Fowler, Prof. Sir Baron-Cohen, David Farley, Bob Martin, Colin Furze, Sir Tim Berners-Lee, and <a class="text-slate-300" href="https://www.hannahfry.co.uk/">Hannah Fry</a>.</p>
+   
+    <app-text-heading [headingText]="headingText" alignment="left" mb="0"></app-text-heading>
+   
+    <p class="text-slate-500 font-medium uppercase tracking-wider">{{ postnominals }}</p>
+   
+    <p class="mt-4 mb-5 text-sm text-slate-100">{{ elevator }}</p> 
+  
+    <ng-container *ngFor="let paragraph of paragraphs$ | async">
+        <app-paragraph title="{{ paragraph.title }}" body="{{ paragraph.body }}"></app-paragraph>
+    </ng-container>
+
 </div>

@@ -1,6 +1,6 @@
 export enum AppValues {
     PORTFOLIO_OWNER = 'Luke Jones',
-    PORTFOLIO_OWNER_POSTNOMINALS = 'MSC (Dist), CSM',
+    PORTFOLIO_OWNER_POSTNOMINALS = 'MSc (Dist), CSM',
     PORTFOLIO_TAGLINE = 'The Engineer You Need',
     PORTFOLIO_JOB_TITLE = 'Software engineer and architect (quant, data, and UI)',
     PORTFOLIO_ELEVATOR = '20+ years experience (Python, Java, C#, C++, JavaScript, Angular, React, SQL)',
