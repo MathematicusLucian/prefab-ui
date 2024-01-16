@@ -1,4 +1,5 @@
 export enum AppValues {
+    WEBSITE_NAME = 'MathematicusLucian',
     PORTFOLIO_OWNER = 'Luke Jones',
     PORTFOLIO_OWNER_POSTNOMINALS = 'MSc (Dist), CSM',
     PORTFOLIO_TAGLINE = 'The Engineer You Need',

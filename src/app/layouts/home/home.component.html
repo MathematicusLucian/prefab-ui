@@ -10,7 +10,11 @@
             <app-tagline-small [taglineText]=[appValues.PORTFOLIO_TAGLINE]></app-tagline-small>
             <app-text-heading [headingText]=[appValues.PORTFOLIO_OWNER] alignment="center" mb="4"></app-text-heading>
             <app-tagline [taglineText]=[appValues.PORTFOLIO_OWNER_POSTNOMINALS]></app-tagline>
-            
+
+			<p class="pt-4 md:pt-7 pb-1 text-sm md:text-sm text-gray-300 font-bold text-center">
+				{{ appValues.WEBSITE_NAME }}
+            </p>
+			
 			<div class="mx-auto lg:mx-0 w-5/5 pt-3 md:pt-8 border-b-2 border-amber-500"></div>
 
 			<p class="pt-4 text-base text-sm md:text-base text-white font-bold flex">
@@ -22,7 +26,7 @@
 				{{ appValues.PORTFOLIO_LOCATION }}
             </p>
 
-			<p class="pt-4 md:pt-7 pb-1 text-sm md:text-sm text-gray-500 font-bold text-center">
+			<p class="pt-4 md:pt-8 pb-2 text-sm md:text-sm text-gray-500 font-bold text-center">
 				{{ appValues.PORTFOLIO_ELEVATOR }}
             </p>
 
