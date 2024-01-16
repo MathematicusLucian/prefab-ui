@@ -35,6 +35,7 @@ module.exports = {
     container: {
       center: true,
       padding: '1rem',
+      margin: 0
     },
     extend: {
       spacing: {
