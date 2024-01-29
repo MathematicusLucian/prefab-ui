@@ -33,13 +33,7 @@ export class ProjectsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
  
-    this.projectsData$ = this.siteGraphService.fetchSiteGraph().pipe(
-      mergeMap( val => {
-        const data: any = val.filter((y:any) => { if(y.name == this.blockName) return y.body });
-        console.log('testing x-1b',(data[0]) ? data[0].body : "a");
-        return of((data[0]) ? data[0].body : [])
-      })
-    );
+    this.projectsData$ = this.siteGraphService.fetchBlocks(this.blockName);
 
   }
 

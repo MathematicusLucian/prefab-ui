@@ -5,6 +5,7 @@ import { addBlock } from '../../../shared/core-state/actions';
 import { FirebaseService } from '../firebase/firebase.service';
 import { Observable, of } from 'rxjs';
 import { selectSiteGraph } from '../../../shared/core-state'; //selectBlock
+import { flatMap, mergeMap } from 'rxjs';
 
 import appConfig from "../../config/app.config.json";
 
@@ -83,6 +84,16 @@ export class SiteGraphService {
 
   fetchSiteGraph() {
     return this.store.select(selectSiteGraph);
+  }
+
+  fetchBlocks(blockName: string) {
+    return this.fetchSiteGraph().pipe(
+      mergeMap((val: any) => {
+        const data: any = val.filter((y:any) => { if(y.name == blockName) return y.body });
+        console.log('testing x-1b',(data[0]) ? data[0].body : "a");
+        return of((data[0]) ? data[0].body : [])
+      })
+    );
   }
 
 }
