@@ -37,6 +37,7 @@
     "@ngrx/store": "^17.0.1",
     "@ngrx/store-devtools": "^17.0.1",
     "express": "^4.18.2",
+    "firebase": "^10.7.2",
     "imagesloaded": "^5.0.0",
     "magic-grid": "^3.2.4",
     "tslib": "^2.3.0",
