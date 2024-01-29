@@ -46,8 +46,8 @@ export class SkillsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
-    this.skillsData = params['siteGraph'].skillsData;
-    this.tagData = params['siteGraph'].skillsTagsData;
+      this.skillsData = params['siteGraph'].skillsData;
+      this.tagData = params['siteGraph'].skillsTagsData;
     });
   }
 

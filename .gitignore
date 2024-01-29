@@ -1,5 +1,5 @@
 CNAME 
-firebase
+firebase_config.ts
 
 # Logs
 logs
@@ -137,3 +137,7 @@ dist
 
 # Storybook
 storybook-static/
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

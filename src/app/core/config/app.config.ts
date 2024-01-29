@@ -7,7 +7,7 @@ import {
   withRouterConfig 
 } 
 from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -20,8 +20,25 @@ import {
 import { itemsReducer, siteGraphFeatureKey } from '../../shared/core-state/reducers';
 import { cardblockFeatureKey, cardblockReducer } from '../../components/cardblock/state/cardblock.reducers';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import {
+  ScreenTrackingService,
+  UserTrackingService,
+  getAnalytics,
+  provideAnalytics,
+} from '@angular/fire/analytics';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { connectFirestoreEmulator, enableIndexedDbPersistence, getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getFunctions, provideFunctions } from '@angular/fire/functions';
+import { getMessaging, provideMessaging } from '@angular/fire/messaging';
+import { getPerformance, providePerformance } from '@angular/fire/performance';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { AngularFireModule } from 'angularfire2';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { ENV } from './../../../environments/environment';
 
 export const appConfig: ApplicationConfig = {
+  // provideHttpClient(withFetch())
   providers: [
     importProvidersFrom(HttpClientModule),
     provideRouter(APP_ROUTES, withPreloading(PreloadAllModules), withDebugTracing()),
@@ -34,6 +51,15 @@ export const appConfig: ApplicationConfig = {
     provideState({ name: 'siteGraph', reducer: itemsReducer }),
     provideStore({ [cardblockFeatureKey]: cardblockReducer }),
     provideState({ name: 'loading', reducer: cardblockReducer }),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    importProvidersFrom(
+      [
+      provideFirebaseApp(() => initializeApp(ENV.firebase)),
+      provideFirestore(() => getFirestore()),
+      provideAnalytics(() => getAnalytics()),
+      provideAuth(() => getAuth()),
+    ]),
+    ScreenTrackingService,
+    UserTrackingService,
 ]
 };

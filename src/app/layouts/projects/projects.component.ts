@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppValues } from '../../core/config/enums';
 import { Observable, of, switchMap } from 'rxjs';
@@ -6,7 +6,8 @@ import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
 import { Store } from '@ngrx/store';
 import { CardblockComponent } from '../../components/cardblock/containers/cardblock.component';
-import { selectSiteGraph } from '../../shared/core-state'; //selectBlock
+import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
+import { flatMap, mergeMap } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -15,7 +16,7 @@ import { selectSiteGraph } from '../../shared/core-state'; //selectBlock
   standalone: true,
   imports: [CommonModule, HeadingBlockComponent, CardblockComponent ],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, OnChanges {
   appValues = AppValues;
   headingData$: Observable<HeadingBlock> = of({
     headingText: this.appValues.PROJECTS_HEADING_TEXT,
@@ -26,25 +27,28 @@ export class ProjectsComponent implements OnInit {
   });
   blockName = "projects";
   blockName$ = of("projects");
-  projectsData$: any;
+  projectsData$!: any;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private siteGraphService: SiteGraphService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
+ 
+    this.projectsData$ = this.siteGraphService.fetchSiteGraph().pipe(
+      mergeMap( val => {
+        const data: any = val.filter((y:any) => { if(y.name == this.blockName) return y.body });
+        console.log('testing x-1b',(data[0]) ? data[0].body : "a");
+        return of((data[0]) ? data[0].body : [])
+      })
+    );
 
-    this.store.select(selectSiteGraph).subscribe((x: any) => {
-      const data = x.filter((y:any) => { if(y.name == this.blockName) return y.body });  
-      this.projectsData$ = of(data[0]['body']);
-    }); 
+  }
+
+  ngOnChanges() {
 
     // this.projectsData$ = this.blockName$.pipe(
     //   switchMap((name) => this.store.select(selectBlock({ name: name })))
     // );
-
-    // this.projectsData$.subscribe((x: any) => {
-    //   console.log('x-1b', x);
-    // }); 
-
+  
   }
 
 }

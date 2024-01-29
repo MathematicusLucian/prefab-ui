@@ -1,7 +1,8 @@
+// // TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { app } from '../../server';
-import { ENV } from '../environments/environment';
 import { APIService } from './core/services/api/api.service';
 import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
@@ -11,11 +12,18 @@ import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { Store } from '@ngrx/store';
 import { SiteGraphService } from './core/services/site-graph/site-graph.service';
 import { appLoaded } from "./shared/core-state";
+import { getAnalytics } from "firebase/analytics";
+
+interface Item {
+  name: string,
+};
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, FlexLayoutModule, FlexLayoutServerModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, 
+    FlexLayoutModule, FlexLayoutServerModule, HeaderComponent, FooterComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
@@ -25,7 +33,10 @@ export class AppComponent implements OnInit, AfterViewInit{
   dataPaths: any;
   error: any;
 
-  constructor(private apiService: APIService, private siteGraphService: SiteGraphService, private store: Store) {}
+  constructor(private apiService: APIService, 
+    private siteGraphService: SiteGraphService, 
+    private store: Store
+  ) {}
   
   ngOnInit(): void {
     this.siteGraphService.loadSiteGraph();
