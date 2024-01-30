@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 
@@ -10,5 +10,6 @@ import { FlexLayoutServerModule } from '@angular/flex-layout/server';
   styleUrl: './footer.component.sass'
 })
 export class FooterComponent {
+  @Input() footerData: any; 
   currentYear: number = new Date().getFullYear();
 }

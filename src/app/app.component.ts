@@ -1,7 +1,7 @@
 // // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { APIService } from './core/services/api/api.service';
 import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
@@ -27,21 +27,28 @@ interface Item {
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
-export class AppComponent implements OnInit, AfterViewInit{
+export class AppComponent implements OnInit {
   title = 'personal-porfolio';
   dataPipelineUrl: any;
   dataPaths: any;
   error: any;
+  headerData$: any;
+  mainMenuData$: any;
+  linksMenuData$: any;
+  skillsData$: any;
+  footerData$: any;
 
   constructor(private apiService: APIService, 
     private siteGraphService: SiteGraphService, 
     private store: Store
   ) {}
-  
-  ngOnInit(): void {
+
+  ngOnInit() {
     this.siteGraphService.loadSiteGraph();
     this.store.dispatch(appLoaded());
+    this.headerData$ = this.siteGraphService.fetchBlocks('header');
+    this.mainMenuData$ = this.siteGraphService.fetchBlocks('menu_main');
+    this.linksMenuData$ = this.siteGraphService.fetchBlocks('menu_links');
+    this.footerData$ = this.siteGraphService.fetchBlocks('footer');
   }
-
-  ngAfterViewInit() {}
 }

@@ -29,7 +29,7 @@ export class SiteGraphService {
   }
 
   loadApiBlockToGraph(dataPath: any) { 
-    console.log('x-2a', dataPath.name);
+    // console.log('x-2a', dataPath.name);
 
     const apiPath = appConfig.dataPipelineUrl + dataPath.path;
 
@@ -45,8 +45,7 @@ export class SiteGraphService {
       this.items$ = (dataSourceType === "firebase") ? this.loadFirebaseBlockToGraph(dataPath) : this.loadApiBlockToGraph(dataPath);
 
       this.items$.subscribe((data:any) => {
-
-        // console.log('testing x-2b', data);
+        console.log('testing x-2b', data);
 
         const blockToAdd = (dataSourceType === "firebase") ?
           {block: {
@@ -58,23 +57,9 @@ export class SiteGraphService {
             name: dataPath.name,
             body: data.body
           }};
-
-        // console.log('testing x-2c', blockToAdd);
+        console.log('testing x-2c', blockToAdd);
         
         this.store.dispatch(addBlock(blockToAdd));
-
-        const blockToAdd2 = (dataSourceType === "firebase") ?
-          {block: {
-            name: 'bongo',
-            body: data
-          }}
-          :
-          {block: {
-            name: dataPath.name,
-            body: data.body
-          }};
-        
-        this.store.dispatch(addBlock(blockToAdd2));
 
       });
 
@@ -85,21 +70,25 @@ export class SiteGraphService {
   fetchSiteGraph() {
     return this.store.select(selectSiteGraph);
   }
-
+  
   fetchBlocks(blockName: string) {
+    // this.projectsData$ = this.blockName$.pipe(
+    //   switchMap((name) => this.store.select(selectBlock({ name: name })))
+    // );
+    
     return this.fetchSiteGraph().pipe(
       mergeMap((val: any) => {
         const data: any = val.filter((y:any) => { if(y.name == blockName) return y.body });
+        console.log('testing: data', data);
         console.log('testing x-1b',(data[0]) ? data[0].body : "a");
         return of((data[0]) ? data[0].body : [])
       })
     );
   }
 
-}
+  async addBlockItemToFireBase(collectionName: string, newData: object) {
+    console.log('testing sgSrv' + collectionName + ': ', newData);
+    await this.firebaseService.addBlockItemToFireBase(collectionName, newData);
+  }
 
-// {"name": "menu_main", "path": "/get_menu_main/1"},
-// {"name": "menu_links", "path": "/get_menu_links/1"},
-// {"name": "skills", "path": "/get_skills_items/1"},
-// {"name": "skills_tags", "path": "/get_skills_categories/1"},
-// {"name": "projects", "path": "/get_projects/1"}
+}
