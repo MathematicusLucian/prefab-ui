@@ -1,22 +1,23 @@
-import { ChangeDetectorRef, Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppValues } from '../../core/config/enums';
 import { Observable, of, switchMap } from 'rxjs';
-import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
 import { Store } from '@ngrx/store';
 import { CardblockComponent } from '../../components/cardblock/containers/cardblock.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
 import { flatMap, mergeMap } from 'rxjs';
+import { serverTimestamp } from 'firebase/firestore';
+import { HeadingBlock } from '../../shared/models/heading-block.model';
+import { AppValues } from '../../core/config/enums';
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.sass',
   standalone: true,
-  imports: [CommonModule, HeadingBlockComponent, CardblockComponent ],
+  imports: [CommonModule, HeadingBlockComponent, CardblockComponent],
 })
-export class ProjectsComponent implements OnInit, OnChanges {
+export class ProjectsComponent implements OnInit {
   appValues = AppValues;
   headingData$: Observable<HeadingBlock> = of({
     headingText: this.appValues.PROJECTS_HEADING_TEXT,
@@ -26,23 +27,18 @@ export class ProjectsComponent implements OnInit, OnChanges {
     mb: this.appValues.HEADERBLOCK_MB
   });
   blockName = "projects";
-  blockName$ = of("projects");
   projectsData$!: any;
 
-  constructor(private store: Store, private siteGraphService: SiteGraphService, private cdr: ChangeDetectorRef) {}
+  constructor(private siteGraphService: SiteGraphService) {}
 
   ngOnInit() {
+    console.log('testing: blockName', this.blockName);
  
     this.projectsData$ = this.siteGraphService.fetchBlocks(this.blockName);
+    this.projectsData$.subscribe((x:any) => {
+      console.log('testing', x);
+    })
 
-  }
-
-  ngOnChanges() {
-
-    // this.projectsData$ = this.blockName$.pipe(
-    //   switchMap((name) => this.store.select(selectBlock({ name: name })))
-    // );
-  
   }
 
 }

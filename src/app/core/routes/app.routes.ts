@@ -4,14 +4,24 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class IsAdminGuard implements CanActivate {
-  
-  canActivate(route: ActivatedRouteSnapshot) {
-      window.location.href = route.data['externalUrl'];
-      return false;
-  }
+
+    canActivate(route: ActivatedRouteSnapshot) {
+        window.location.href = route.data['externalUrl'];
+        return false;
+    }
 }
 
 export const APP_ROUTES: Route[] = [
+    { 
+        path: "import",
+        loadComponent: () => 
+            import('../../layouts/add-content/add-content.component').then(m => m.AddContentComponent),
+    },
+    { 
+        path: "newpage",
+        loadComponent: () => 
+            import('../../layouts/add-page/add-page.component').then(m => m.AddPageComponent),
+    },
     { 
         path: 'blog', 
         loadComponent: () => 

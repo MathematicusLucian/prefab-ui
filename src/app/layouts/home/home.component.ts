@@ -9,6 +9,7 @@ import { MenuItemComponent } from '../../components/menu-item/menu-item.componen
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGlobe, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { ButtonComponent } from '../../components/button/button.component';
+import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
 
 @Component({
   selector: 'app-home',
@@ -42,10 +43,18 @@ export class HomeComponent implements OnInit{
   ];
   faBriefcase = faBriefcase;
   faGlobe = faGlobe;
-  
-  constructor() {
-  }
+  blockName = "home";
+  homeData$: any;
+  skillsData$: any;
+  tagData$: any;
+
+  constructor(private siteGraphService: SiteGraphService) {}
 
   ngOnInit() {
+ 
+    this.homeData$ = this.siteGraphService.fetchBlocks(this.blockName);
+    this.skillsData$ = this.siteGraphService.fetchBlocks('skills');
+    this.tagData$ = this.siteGraphService.fetchBlocks('skills_tags');
+
   }
 }
