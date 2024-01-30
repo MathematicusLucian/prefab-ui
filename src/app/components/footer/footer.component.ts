@@ -11,5 +11,7 @@ import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 })
 export class FooterComponent {
   @Input() footerData: any; 
+  copyrightHolder: any = ""; 
+  footerLine: any = "";
   currentYear: number = new Date().getFullYear();
 }

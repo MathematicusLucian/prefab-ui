@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Observable, of, switchMap } from 'rxjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { FormBuilder } from '@angular/forms';
-import { serverTimestamp } from 'firebase/firestore';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
 import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
-import { CommonModule } from '@angular/common';
+import { encode } from 'html-entities';
 import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { AppValues } from '../../core/config/enums';
 
@@ -32,7 +32,9 @@ export class AddContentComponent {
   });
   newContentForm = this.formBuilder.group({
     collectionName: '',
-    collectionDataJSON: ''
+    collectionDataJSON: '',
+    encode_key: '',
+    encode_value: ''
   });
 
   constructor(
@@ -45,6 +47,12 @@ export class AddContentComponent {
   addContent() {
     let contentStr = this.newContentForm.value.collectionDataJSON || "";
     let contentObj = JSON.parse(contentStr);
+    if(this.newContentForm.value.encode_key != ''){
+      const k: string = this.newContentForm.value.encode_key || 'a';
+      const valueEncoded = encode(this.newContentForm.value.encode_value, {mode: 'specialChars'});
+      const encodedKeyPair = {[k]: valueEncoded};
+      contentObj = {...contentObj, ...encodedKeyPair};
+    }
     const collectionNewDataBelongsTo: string = this.newContentForm.value.collectionName || "";
     this.siteGraphService.addBlockItemToFireBase(collectionNewDataBelongsTo, contentObj);
     this.newContentForm.reset();

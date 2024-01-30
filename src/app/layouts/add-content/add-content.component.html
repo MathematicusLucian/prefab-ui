@@ -4,17 +4,29 @@
 
     <form [formGroup]="newContentForm" (ngSubmit)="addContent()">
 
-        <div>
+        <div class="py-1">
             <label for="collectionName" class="pb-1">
             CollectionName
-            </label>
-            <br>
+            </label>&nbsp;
             <input id="collectionName" type="text" formControlName="collectionName" class="p-2 text-black">
         </div>
 
         <br>
 
-        <div>
+        <div class="py-1">
+            <label for="encode_key" class="pb-1">
+            encode_key
+            </label>&nbsp;
+            <input id="encode_key" type="text" formControlName="encode_key" class="p-2 text-black">
+            <label for="encode_value" class="pb-1">
+            encode_value
+            </label>&nbsp;
+            <input id="encode_value" type="text" formControlName="encode_value" class="p-2 text-black">
+        </div>
+
+        <br>
+
+        <div class="py-1">
             <label for="collectionDataJSON" class="pb-1">
             New Data (JSON)
             </label>

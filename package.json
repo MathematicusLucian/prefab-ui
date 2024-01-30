@@ -41,6 +41,7 @@
     "angularfire2": "^5.4.2",
     "express": "^4.18.2",
     "firebase": "^10.7.2",
+    "html-entities": "^2.4.0",
     "imagesloaded": "^5.0.0",
     "magic-grid": "^3.2.4",
     "tinymce": "^6.8.2",
