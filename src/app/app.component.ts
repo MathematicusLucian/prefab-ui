@@ -33,10 +33,10 @@ export class AppComponent implements OnInit {
   dataPaths: any;
   error: any;
   headerData$: any;
+  footerData$: any;
   mainMenuData$: any;
   linksMenuData$: any;
   skillsData$: any;
-  footerData$: any;
 
   constructor(private apiService: APIService, 
     private siteGraphService: SiteGraphService, 
@@ -47,8 +47,8 @@ export class AppComponent implements OnInit {
     this.siteGraphService.loadSiteGraph();
     this.store.dispatch(appLoaded());
     this.headerData$ = this.siteGraphService.fetchBlocks('header');
+    this.footerData$ = this.siteGraphService.fetchBlocks('footer');
     this.mainMenuData$ = this.siteGraphService.fetchBlocks('menu_main');
     this.linksMenuData$ = this.siteGraphService.fetchBlocks('menu_links');
-    this.footerData$ = this.siteGraphService.fetchBlocks('footer');
   }
 }

@@ -32,13 +32,8 @@ export class ProjectsComponent implements OnInit {
   constructor(private siteGraphService: SiteGraphService) {}
 
   ngOnInit() {
-    console.log('testing: blockName', this.blockName);
- 
     this.projectsData$ = this.siteGraphService.fetchBlocks(this.blockName);
-    this.projectsData$.subscribe((x:any) => {
-      console.log('testing', x);
-    })
-
+    this.siteGraphService.fetchAllBlocks().subscribe();
   }
 
 }
