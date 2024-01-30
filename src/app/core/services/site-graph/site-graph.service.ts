@@ -22,49 +22,41 @@ export class SiteGraphService {
   ) {}
 
   loadFirebaseBlockToGraph(dataPath: any){
-    console.log('testing x-2a', dataPath.name);
-    console.log('testing x-2a-2', dataPath.collectionName);
+    const p_id = (dataPath.parent_id) ? dataPath.parent_id : "";
 
-    return this.firebaseService.getCollection(dataPath.collectionName);
+    return this.firebaseService.getCollection(dataPath.collectionName, p_id);
   }
 
   loadApiBlockToGraph(dataPath: any) { 
-    // console.log('x-2a', dataPath.name);
-
     const apiPath = appConfig.dataPipelineUrl + dataPath.path;
 
     return this.apiService.callAPI(apiPath);
   }
 
-  loadSiteGraph(){
+  saveToSiteGraph(dataSourceType: any, dataPath: any) {
+    this.items$ = (dataSourceType === "firebase") ? this.loadFirebaseBlockToGraph(dataPath) : this.loadApiBlockToGraph(dataPath);
+    this.items$.subscribe((data:any) => {
 
-    const dataSourceType = appConfig.dataSourceType;
-    console.log('testing', dataSourceType);
-
-    appConfig.dataPaths.forEach((dataPath:any) => {
-      this.items$ = (dataSourceType === "firebase") ? this.loadFirebaseBlockToGraph(dataPath) : this.loadApiBlockToGraph(dataPath);
-
-      this.items$.subscribe((data:any) => {
-        console.log('testing x-2b', data);
-
-        const blockToAdd = (dataSourceType === "firebase") ?
-          {block: {
-            name: dataPath.name,
-            body: data
-          }}
-          :
-          {block: {
-            name: dataPath.name,
-            body: data.body
-          }};
-        console.log('testing x-2c', blockToAdd);
+      const blockToAdd = (dataSourceType === "firebase") ?
+        {block: {
+          name: dataPath.name,
+          body: data
+        }}
+        :
+        {block: {
+          name: dataPath.name,
+          body: data.body
+        }};        
         
-        this.store.dispatch(addBlock(blockToAdd));
+      this.store.dispatch(addBlock(blockToAdd));
+    });
+  }
 
-      });
-
+  loadSiteGraph(){
+    const dataSourceType = appConfig.dataSourceType;
+    appConfig.dataPaths.forEach((dataPath:any) => {
+      this.saveToSiteGraph(dataSourceType, dataPath);
     }, (error: any) => this.error = error); 
-
   }
 
   fetchSiteGraph() {
@@ -72,22 +64,25 @@ export class SiteGraphService {
   }
   
   fetchBlocks(blockName: string) {
-    // this.projectsData$ = this.blockName$.pipe(
-    //   switchMap((name) => this.store.select(selectBlock({ name: name })))
-    // );
-    
     return this.fetchSiteGraph().pipe(
       mergeMap((val: any) => {
         const data: any = val.filter((y:any) => { if(y.name == blockName) return y.body });
-        console.log('testing: data', data);
-        console.log('testing x-1b',(data[0]) ? data[0].body : "a");
+        return of((data[0]) ? data[0].body : [])
+      })
+    );
+  }
+  
+  fetchAllBlocks() {
+    return this.fetchSiteGraph().pipe(
+      mergeMap((val: any) => {
+        const data: any = val;
+        console.log('testing: 111data', data);
         return of((data[0]) ? data[0].body : [])
       })
     );
   }
 
   async addBlockItemToFireBase(collectionName: string, newData: object) {
-    console.log('testing sgSrv' + collectionName + ': ', newData);
     await this.firebaseService.addBlockItemToFireBase(collectionName, newData);
   }
 
