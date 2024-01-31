@@ -2,19 +2,20 @@
     "dataSourceType": "firebase",
     "dataPipelineUrl": "http://0.0.0.0:80",
     "dataPaths": [
-      {"blockType": "header", "name": "header", "collectionName": "header"},
+      {"blockType": "config", "name": "app_config", "collectionName": "app_config"},
+      {"blockType": "cardblock", "name": "blog", "collectionName": "blog_posts", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
+      {"blockType": "contact", "name": "contact", "collectionName": "contact", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
+      {"blockType": "group_list", "name": "courses", "collectionName": "blog_groupings", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
       {"blockType": "footer", "name": "footer", "collectionName": "footer"},
-      {"blockType": "blog", "name": "blog", "collectionName": "blog_posts", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
-      {"blockType": "contact", "name": "contact", "collectionName": "blog_posts", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
-      {"blockType": "blog_multilevel", "name": "courses", "collectionName": "blog_posts", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
-      {"blockType": "landing", "name": "home", "collectionName": "app_config"},
+      {"blockType": "header", "name": "header", "collectionName": "header"},
+      {"blockType": "landing", "name": "home", "collectionName": "home"},
       {"blockType": "menu", "name": "menu_main", "collectionName": "menu_items", "parent_id": "Athy4mCpsIMnIy0wZkAt"},
       {"blockType": "menu", "name": "menu_links", "collectionName": "menu_items", "parent_id": "dk5rpiWtW6DVqjtrWZy2"},
-      {"blockType": "blog", "name": "projects", "collectionName": "blog_posts", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
-      {"blockType": "blog", "name": "research", "collectionName": "blog_posts", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
-      {"blockType": "blog", "name": "resume", "collectionName": "blog_posts", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
-      {"blockType": "categories", "name": "skills", "collectionName": "skills"},
-      {"blockType": "tags", "name": "skills_tags", "collectionName": "skills_tags"}
+      {"blockType": "cardblock", "name": "projects", "collectionName": "blog_posts", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
+      {"blockType": "group_list", "name": "research", "collectionName": "blog_groupings", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
+      {"blockType": "group_list", "name": "resume", "collectionName": "resume_item", "parent_id": "QTp0byjGj0f9ZLVNWy2b"},
+      {"blockType": "categories", "name": "skills", "collectionName": "categories", "parent_id": "1"},
+      {"blockType": "tags", "name": "skills_tags", "collectionName": "tags", "parent_id": "1"}
     ],
     "experimentalForceLongPolling": true
 }

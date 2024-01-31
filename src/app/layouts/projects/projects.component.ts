@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable, of, switchMap } from 'rxjs';
 import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
-import { Store } from '@ngrx/store';
 import { CardblockComponent } from '../../components/cardblock/containers/cardblock.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
-import { flatMap, mergeMap } from 'rxjs';
-import { serverTimestamp } from 'firebase/firestore';
 import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { AppValues } from '../../core/config/enums';
 

@@ -52,4 +52,6 @@
 
 </div>
 
-<!-- <app-skills [skillsData]=[skillsData$] [tagData]=[tagData$]></app-skills> -->
+<ng-container *ngIf="skillsData$">
+	<app-skills [skillsData]="skillsData$" [tagData]="tagData$"></app-skills>
+</ng-container>
