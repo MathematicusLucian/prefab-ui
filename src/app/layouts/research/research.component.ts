@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppValues } from '../../core/config/enums';
 import { Observable, of } from 'rxjs';
 import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
 import { BlogPostComponent } from '../../components/blog-post/blog-post.component';
+import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
 
 @Component({
   selector: 'app-research',
@@ -12,7 +13,7 @@ import { BlogPostComponent } from '../../components/blog-post/blog-post.componen
   templateUrl: './research.component.html',
   styleUrl: './research.component.sass'
 })
-export class ResearchComponent {
+export class ResearchComponent implements OnInit {
   appValues = AppValues;
   headingData$: Observable<HeadingBlock> = of({
     headingText: this.appValues.RESEARCH_HEADING_TEXT,
@@ -21,4 +22,14 @@ export class ResearchComponent {
     alignment: this.appValues.HEADERBLOCK_ALIGNMENT_NONE,
     mb: this.appValues.HEADERBLOCK_MB
   });
+  blockName = "research";
+  researchData$: any;
+
+  constructor(private siteGraphService: SiteGraphService) {}
+
+  ngOnInit() {
+ 
+    this.researchData$ = this.siteGraphService.fetchBlocks(this.blockName);
+
+  }
 }

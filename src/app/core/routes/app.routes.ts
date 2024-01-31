@@ -1,17 +1,40 @@
-import { Route, ActivatedRouteSnapshot, CanActivate } from '@angular/router';
+import { Route, ActivatedRouteSnapshot, CanActivate, CanLoad, UrlSegment } from '@angular/router';
 // import { RedirectGuard } from './redirect.guard';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { ENV } from './../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class IsAdminGuard implements CanActivate {
-  
-  canActivate(route: ActivatedRouteSnapshot) {
-      window.location.href = route.data['externalUrl'];
-      return false;
+
+    canActivate(route: ActivatedRouteSnapshot) {
+        window.location.href = route.data['externalUrl'];
+        return false;
+    }
+}
+
+@Injectable()
+class DevEnvGuard implements CanLoad {
+  constructor() {}
+  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean>|Promise<boolean>|boolean {
+    return !ENV.production; // if prod = false it will load module
   }
 }
 
 export const APP_ROUTES: Route[] = [
+    { 
+        path: "import",
+        loadComponent: () => 
+            import('../../layouts/add-content/add-content.component').then(m => m.AddContentComponent),
+        canLoad: [DevEnvGuard]
+    },
+    { 
+        path: "newpage",
+        loadComponent: () => 
+            import('../../layouts/add-page/add-page.component').then(m => m.AddPageComponent),
+        canLoad: [DevEnvGuard]
+    },
     { 
         path: 'blog', 
         loadComponent: () => 

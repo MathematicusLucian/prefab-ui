@@ -17,7 +17,7 @@
       <ul class="block md:inline-block font-medium p-4 md:p-0 mt-4 
       md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0"> 
         <li>
-          <ng-container *ngFor="let menuItem of menuItems">
+          <ng-container *ngFor="let menuItem of mainMenu">
             <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
           </ng-container>
         </li>
@@ -28,7 +28,7 @@
       md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0
       lg:flex-1 lg:justify-end space-x-4"> 
         <li>
-          <ng-container *ngFor="let menuItem of menuRightItems">
+          <ng-container *ngFor="let menuItem of linksMenu">
             <app-menu-item colorScheme="dark" menuItem="{{ menuItem | json }}"></app-menu-item>
           </ng-container>
         </li>

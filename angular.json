@@ -74,7 +74,7 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": false
             }
           },
           "defaultConfiguration": "production"
@@ -152,6 +152,23 @@
             ],
             "outputDir": "storybook-static"
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "personal-porfolio:build:production",
+              "serveTarget": "personal-porfolio:serve:production"
+            },
+            "development": {
+              "buildTarget": "personal-porfolio:build:development",
+              "serveTarget": "personal-porfolio:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

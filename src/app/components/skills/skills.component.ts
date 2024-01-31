@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppValues } from '../../core/config/enums';
 import { Observable, of } from 'rxjs';
@@ -26,6 +26,8 @@ interface TagData {
   styleUrl: './skills.component.sass'
 })
 export class SkillsComponent implements OnInit, OnDestroy {
+  @Input() skillsData: any = [];
+  @Input() tagData: any = [];
   appValues = AppValues;
   headingData$: Observable<HeadingBlock> = of({
     headingText: this.appValues.SKILLS_HEADING_TEXT,
@@ -36,20 +38,13 @@ export class SkillsComponent implements OnInit, OnDestroy {
   });
   private sub: any; 
   siteGraph: any;
-  skillsData: any = [];
-  tagData: any = [];
   tagChosen = "ALL";
 
   constructor(private route: ActivatedRoute) {
     this.siteGraph = {};
   }
 
-  ngOnInit(): void {
-    this.sub = this.route.params.subscribe(params => {
-    this.skillsData = params['siteGraph'].skillsData;
-    this.tagData = params['siteGraph'].skillsTagsData;
-    });
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
@@ -60,6 +55,7 @@ export class SkillsComponent implements OnInit, OnDestroy {
   }
 
   hasChosenTag(skill: any): boolean {
-    return skill.tag.includes(this.tagChosen) || this.tagChosen == "ALL";
+    return false;
+    // return skill.tag.includes(this.tagChosen) || this.tagChosen == "ALL";
   }
 }
