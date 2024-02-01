@@ -2,9 +2,7 @@
 
 ## Example
 
-https://portfolio-mathematicus-lucian.web.app/
-
-***^ Not currently live ...MVP almost ready***
+https://portfolio-mathematicus-lucian.web.app/home
 
 ## Problem Statement
 

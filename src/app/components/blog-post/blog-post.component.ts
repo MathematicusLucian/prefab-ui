@@ -2,11 +2,12 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { decode } from 'html-entities';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-blog-post',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './blog-post.component.html',
   styleUrl: './blog-post.component.sass'
 })

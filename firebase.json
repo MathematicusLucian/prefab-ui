@@ -1,23 +1,10 @@
 {
-  "hosting": [
-    {
-      "target": "personal-porfolio",
-      "source": ".",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "frameworksBackend": {
-        "region": "europe-west1"
-      }
-    },
-    {
-      "target": "personal-porfolio",
-      "source": ".",
-      "frameworksBackend": {
-        "region": "europe-west1"
-      }
-    }
-  ]
+  "hosting": {
+    "public": "docs/browser/",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
 }
