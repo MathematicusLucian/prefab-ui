@@ -22,7 +22,6 @@ export class BlogPostComponent implements OnInit, OnDestroy {
       .pipe(map(() => window.history.state))
       .subscribe((x:any) => {
         this.postDetails = x.blog_data;
-        console.log(this.postDetails.img_src);
       });
   }
 

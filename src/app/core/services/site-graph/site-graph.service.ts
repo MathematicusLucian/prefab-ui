@@ -77,7 +77,6 @@ export class SiteGraphService {
     return this.fetchSiteGraph().pipe(
       mergeMap((val: any) => {
         const data: any = val;
-        console.log('testing: 111data', data);
         return of((data[0]) ? data[0].body : [])
       })
     );

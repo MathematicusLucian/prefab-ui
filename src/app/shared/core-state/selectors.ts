@@ -9,7 +9,7 @@ export const selectBlocks = createFeatureSelector<SiteGraphState>("siteGraph"); 
 export const selectSiteGraph = createSelector( //select siteGraph from core
   selectBlocks,
   (state: SiteGraphState) => {
-    console.log('x state', state);
+    // console.log('x state', state);
     return state.siteGraph;
   }
 );

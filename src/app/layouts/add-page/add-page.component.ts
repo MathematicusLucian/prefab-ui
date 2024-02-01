@@ -43,18 +43,16 @@ export class AddPageComponent {
   constructor(
     private siteGraphService: SiteGraphService,
     private formBuilder: FormBuilder
-  ){
-    console.log('new page constructor');
-  }
+  ){}
 
   // handleEvent($event: any) {
   //   console.log('$event', $event);
   // }
 
   addContent() {
-    console.log('MCE', this.html);
+    // console.log('MCE', this.html);
     let contentStr = this.html || "";
-    console.log(this.newContentForm.value);
+    // console.log(this.newContentForm.value);
     const title: string = this.newContentForm.value.title || "";
     const slug: string = this.newContentForm.value.slug || "";
     let contentObj = {
@@ -64,7 +62,7 @@ export class AddPageComponent {
       "author": 1,
       "category": 1
     };
-    console.log('mceDataModel', this.mceDataModel);
+    // console.log('mceDataModel', this.mceDataModel);
     const collectionNewDataBelongsTo: string = this.newContentForm.value.collectionName || "";
     this.siteGraphService.addBlockItemToFireBase(collectionNewDataBelongsTo, contentObj);
     this.newContentForm.reset();
