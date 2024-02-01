@@ -32,8 +32,12 @@ export class HeaderComponent implements OnInit {
   
   ngOnChanges(changes: any) {
     this.mainMenuData.subscribe((x: any) => {
-      if(x.length>0) this.mainMenu = x;
-    })
+      if(x.length>0) {
+        let clone = JSON.parse(JSON.stringify(x));
+        clone.sort((a:any, b:any) => a.order - b.order)
+        this.mainMenu = clone;
+      }
+    });
     this.linksMenuData.subscribe((x: any) => {
       if(x.length>0) this.linksMenu = x;
     })

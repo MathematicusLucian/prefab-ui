@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AppValues } from '../../core/config/enums';
 import { Observable, of } from 'rxjs';
 import { HeadingBlock } from '../../shared/models/heading-block.model';
@@ -7,16 +8,18 @@ import { SkillsComponent } from '../../components/skills/skills.component';
 import { BioComponent } from '../../components/bio/bio.component';
 import { BlockExperienceComponent } from '../../components/block-experience/block-experience.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
-import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-resume',
   standalone: true,
-  imports: [CommonModule, HeadingBlockComponent, BioComponent, SkillsComponent, BlockExperienceComponent],
+  imports: [CommonModule, HeadingBlockComponent, BioComponent, SkillsComponent, BlockExperienceComponent, FontAwesomeModule],
   templateUrl: './resume.component.html',
   styleUrl: './resume.component.sass'
 })
 export class ResumeComponent implements OnInit, OnChanges {
+  faLinkedin = faLinkedin;
   appValues = AppValues;
   headingData$: Observable<HeadingBlock> = of({
     headingText: this.appValues.CV_HEADING_TEXT,

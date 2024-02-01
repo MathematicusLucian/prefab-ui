@@ -7,7 +7,7 @@ import { TaglineSmallComponent } from '../../components/tagline-small/tagline-sm
 import { SkillsComponent } from '../../components/skills/skills.component';
 import { MenuItemComponent } from '../../components/menu-item/menu-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGlobe, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faLocationPin, faBriefcase, faCode, faUserPlus, faFileLines } from '@fortawesome/free-solid-svg-icons';
 import { ButtonComponent } from '../../components/button/button.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
 
@@ -43,6 +43,10 @@ export class HomeComponent implements OnInit{
   ];
   faBriefcase = faBriefcase;
   faGlobe = faGlobe;
+  faLocationPin = faLocationPin;
+  faCode = faCode;
+  faUserPlus = faUserPlus;
+  faFileLines = faFileLines
   blockName = "home";
   homeData$!: any;
   skillsData$!: any;
