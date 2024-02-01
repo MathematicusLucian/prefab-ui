@@ -1,1 +1,8 @@
-<p>hamburger-button works!</p>
+<button title="hamburger-button" (click)="toggleHamburger()" 
+    data-collapse-toggle="navbar-dropdown" type="button" 
+    class="absolute top-0 right-2 items-center p-2 w-10 h-10 justify-center
+    text-lg text-pink-500 rounded-lg 
+    hover:bg-amber-500 focus:ring-amber-500 focus:outline-none focus:ring-2
+    md:hidden">
+    <fa-icon [icon]="faHamburger"></fa-icon>
+</button>
