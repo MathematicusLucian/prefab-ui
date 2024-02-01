@@ -10,9 +10,16 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { Store } from '@ngrx/store';
+import { Location } from '@angular/common'
+import { BackButtonDirective } from "./core/services/navigation/back-button.directive";
+import { NavigationService } from './core/services/navigation/navigation.service';
 import { SiteGraphService } from './core/services/site-graph/site-graph.service';
 import { appLoaded } from "./shared/core-state";
 import { getAnalytics } from "firebase/analytics";
+import { Event as NavigationEvent } from "@angular/router";
+import { filter } from "rxjs/operators";
+import { NavigationStart } from "@angular/router";
+import { Router } from "@angular/router";
 
 interface Item {
   name: string,
@@ -39,11 +46,37 @@ export class AppComponent implements OnInit {
   skillsData$: any;
 
   constructor(private apiService: APIService, 
+    private location: Location,
+    // private backButtonDirective: BackButtonDirective,
+    private navigationService: NavigationService,
     private siteGraphService: SiteGraphService, 
-    private store: Store
-  ) {}
+    private store: Store,
+    private router: Router
+  ) {
+
+		router.events
+    .pipe(
+      filter(
+        ( event: NavigationEvent ) => {
+          return( event instanceof NavigationStart );
+        }
+      )
+    )
+    .subscribe(
+      (event: any) => {
+        console.group( "NavigationStart Event" );
+        console.log( "navigation id:", event.id );
+        console.log( "route:", event.url );
+        console.log( "trigger:", event.navigationTrigger );
+        console.log( "event.restoredState", event.restoredState );
+        if ( event.restoredState ) {
+          console.log( "restoring navigation id:", event.restoredState.navigationId );
+        }
+    });
+  }
 
   ngOnInit() {
+    this.navigationService.commenceHistoryStorage();
     this.siteGraphService.loadSiteGraph();
     this.store.dispatch(appLoaded());
     // this.headerData$ = this.siteGraphService.fetchBlocks('header');
