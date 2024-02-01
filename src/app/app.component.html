@@ -5,8 +5,8 @@
 
 <main class="main mx-auto min-w-full overflow-x-hidden bg-gradient-to-r from-rose-700 via-fuchsia-950 to-indigo-950 mix-blend-screen ">
 
-  <app-header [headerData]="headerData$" [mainMenuData]="mainMenuData$" [linksMenuData]="linksMenuData$"></app-header>
-
+  <app-header [mainMenuData]="mainMenuData$" [linksMenuData]="linksMenuData$"></app-header>
+  <!-- [headerData]="headerData$"  -->
   <router-outlet></router-outlet>
 
   <app-footer [footerData$]="footerData$"></app-footer>

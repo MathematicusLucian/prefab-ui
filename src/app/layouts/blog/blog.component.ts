@@ -5,11 +5,13 @@ import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
 import { BlogPostComponent } from '../../components/blog-post/blog-post.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
+import { CardblockComponent } from '../../components/cardblock/containers/cardblock.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [HeadingBlockComponent, BlogPostComponent],
+  imports: [CommonModule, HeadingBlockComponent, BlogPostComponent, CardblockComponent],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.sass'
 })
@@ -22,7 +24,7 @@ export class BlogComponent implements OnInit {
     alignment: this.appValues.HEADERBLOCK_ALIGNMENT_NONE,
     mb: this.appValues.HEADERBLOCK_MB
   });
-  blockName = "blog";
+  blockName = "news";
   blogData$: any;
 
   constructor(private siteGraphService: SiteGraphService) {}

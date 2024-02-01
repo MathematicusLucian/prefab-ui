@@ -5,8 +5,8 @@
     </div>
     
     <h3 class="mt-4 font-semibold leading-5 text-base md:text-1xl tracking-wide text-white">{{ cardDetails$.title }}</h3>
-    <p class="my-2 mb-0 text-xs leading-relaxed tracking-wide text-slate-400">{{ cardDetails$.content }}</p>
+    <p class="my-2 mb-0 text-xs leading-relaxed tracking-wide text-slate-400" [innerHtml]="shortenTextToPreview(decode(cardDetails$.content))"></p>
 
-    <app-button buttonText="Read more" buttonURL="{{ cardDetails$.project_url }}"></app-button>
+    <app-button buttonText="Read more" buttonURL="{{ readmore_url }}" [postData]="cardDetails$"></app-button>
 
 </div>

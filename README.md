@@ -1,4 +1,4 @@
-# Prefab-UI
+# prefab-ui
 
 ## Example
 
@@ -8,13 +8,13 @@ https://portfolio-mathematicus-lucian.web.app/
 
 ## Problem Statement
 
-**Avoiding Duplication of Effort:** As I worked with the component-driven architecture approach of systems like [React](https://react.dev/), [Angular](https://angular.io/), Vue, Svelte, etc. it struck me that these components, for example, a button component, are akin to ['Lego blocks'](https://en.wikipedia.org/wiki/Lego) in that they are grouped together to form websites. I noticed that these were nonetheless often assembled for only one purpose. Different teams in the same organisation would create their own series of bespoke blocks, when they could, for example, have used the same button component, especially as the company ideally would have a common colour scheme, etc. for their websites. Working over the last two decades as a software engineer, and a Head of Engineering, too often I have seen short-tempered project managers pressuring developers to do extreme overtime, while essentially directing they write the same code over and over. 
+**Avoiding Duplication of Effort:** Working over the last two decades as a software engineer, and a Head of Engineering, too often I have seen short-tempered project managers pressuring developers to do extreme overtime, while essentially directing they write the same code over and over. I noticed that these were nonetheless often assembled for only one purpose. Different teams in the same organisation would create their own series of bespoke blocks, when they could, for example, have used the same button component, especially as the company ideally would have a common colour scheme, etc. for their websites. There are vast opportunities for 'economies of scale' to be achieved.
 
 ![lego movie](./src/assets/imgs/lego.jpeg)
 
 ## The Concept
 
-As a small child, I was fascinated by the toy Lego, where a range of blocks could be used to build cars, houses, and combined with electronics, even more potential. The blocks were for example 2 dots by 4 dots in size. Another was 1 dot by 8 dots. These can be assembled to create by a young engineer to create a great number of inventions unique in his/her nascent, growing mind. A cable car to climb to the upstairs of our home. A motorised, 'remote control' truck. Etc. Etc. All built from the same reusable blocks.
+As I worked with the component-driven architecture approach of systems like [React](https://react.dev/), [Angular](https://angular.io/), Vue, Svelte, etc. it struck me that these components, for example, a button component, are akin to ['Lego blocks'](https://en.wikipedia.org/wiki/Lego) in that they are grouped together to form websites. As a small child, I was fascinated by the toy Lego, where a range of blocks could be used to build cars, houses, and combined with electronics, even more potential. The blocks were for example 2 dots by 4 dots in size. Another was 1 dot by 8 dots. These can be assembled to create by a young engineer to create a great number of inventions unique in his/her nascent, growing mind. A cable car to climb to the upstairs of our home. A motorised, 'remote control' truck. Etc. Etc. All built from the same reusable blocks.
 
 ![lego_instructions](./src/assets/imgs/lego_instructions.png)
 

@@ -23,8 +23,9 @@ export class SiteGraphService {
 
   loadFirebaseBlockToGraph(dataPath: any){
     const p_id = (dataPath.parent_id) ? dataPath.parent_id : "";
+    const parent_grouping_id = (dataPath.parent_grouping_id) ? dataPath.parent_grouping_id : "";
 
-    return this.firebaseService.getCollection(dataPath.collectionName, p_id);
+    return this.firebaseService.getCollection(dataPath.collectionName, p_id, parent_grouping_id);
   }
 
   loadApiBlockToGraph(dataPath: any) { 

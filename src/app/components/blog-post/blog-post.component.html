@@ -1,13 +1,20 @@
-<div class="rounded-lg border border-white-800 bg-neutral-700/40 p-8 text-center shadow">
-    <div class="mx-auto flex h-200 w-200 items-center justify-center rounded-lg border">
-        <img src="./assets/imgs/{{ postDetails.img_src }}" alt="{{ postDetails.title }}">
+<div class="rounded-lg bg-slate-900 mx-5 my-7 p-8 items-left text-left justify-left shadow">
+    <div 
+        class="bg-cover mx-auto flex w-200 rounded-lg"
+        style="background-image: url('./assets/imgs/{{ postDetails.img_src }}'); height: 350px; background-repeat: no-repeat; 
+        background-attachment: fixed; background-position: 50% -20%; background-size: contain !important;">
     </div>
-    <h3 class="mt-6 font-semibold leading-relaxed tracking-wide text-white">{{ postDetails.title }}</h3>
-    <p class="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">{{ postDetails.content }}</p>
-    <div class="mt-6">
+
+    <h1 class="mt-6 font-semibold text-3xl text-stone-300 leading-relaxed tracking-wide">{{ postDetails.title }}</h1>
+
+    <p class="my-4 mb-0 font-normal text-stone-300 leading-relaxed tracking-wide space-y-10"
+        [innerHtml]="decode(postDetails.content)">
+    </p>
+    
+    <!-- <div class="mt-6">
         <a class="inline-flex rounded-lg bg-pink-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700"
             href="{{ postDetails.post_url }}">
             Read More
         </a>
-    </div>
+    </div> -->
 </div>

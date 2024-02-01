@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.siteGraphService.loadSiteGraph();
     this.store.dispatch(appLoaded());
-    this.headerData$ = this.siteGraphService.fetchBlocks('header');
+    // this.headerData$ = this.siteGraphService.fetchBlocks('header');
     this.footerData$ = this.siteGraphService.fetchBlocks('footer');
     this.mainMenuData$ = this.siteGraphService.fetchBlocks('menu_main');
     this.linksMenuData$ = this.siteGraphService.fetchBlocks('menu_links');

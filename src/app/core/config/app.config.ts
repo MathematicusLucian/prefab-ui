@@ -41,7 +41,7 @@ export const appConfig: ApplicationConfig = {
   // provideHttpClient(withFetch())
   providers: [
     importProvidersFrom(HttpClientModule),
-    provideRouter(APP_ROUTES, withPreloading(PreloadAllModules), withDebugTracing()),
+    provideRouter(APP_ROUTES, withPreloading(PreloadAllModules)), //withDebugTracing()
     RedirectGuard,
     provideAnimations(),
     importProvidersFrom(LayoutModule),
@@ -50,7 +50,7 @@ export const appConfig: ApplicationConfig = {
     provideStore({ [siteGraphFeatureKey]: itemsReducer }),
     provideState({ name: 'siteGraph', reducer: itemsReducer }),
     provideStore({ [cardblockFeatureKey]: cardblockReducer }),
-    provideState({ name: 'loading', reducer: cardblockReducer }),
+    provideState({ name: 'loading', reducer: cardblockReducer }), 
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     importProvidersFrom(
       [

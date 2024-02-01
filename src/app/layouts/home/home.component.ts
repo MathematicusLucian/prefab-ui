@@ -44,17 +44,17 @@ export class HomeComponent implements OnInit{
   faBriefcase = faBriefcase;
   faGlobe = faGlobe;
   blockName = "home";
-  homeData$: any;
-  skillsData$: any;
-  tagData$: any;
+  homeData$!: any;
+  skillsData$!: any;
+  skillsCategoriesData$!: any;
 
   constructor(private siteGraphService: SiteGraphService) {}
 
   ngOnInit() {
  
-    this.homeData$ = this.siteGraphService.fetchBlocks(this.blockName);
-    this.skillsData$ = this.siteGraphService.fetchBlocks('skills');
-    this.tagData$ = this.siteGraphService.fetchBlocks('skills_tags');
+    // this.homeData$ = this.siteGraphService.fetchBlocks(this.blockName);
+    this.skillsData$ = this.siteGraphService.fetchBlocks('tags');
+    this.skillsCategoriesData$ = this.siteGraphService.fetchBlocks('categories');
 
   }
 }

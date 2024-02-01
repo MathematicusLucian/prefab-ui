@@ -40,9 +40,7 @@ export class AddContentComponent {
   constructor(
     private siteGraphService: SiteGraphService,
     private formBuilder: FormBuilder
-  ){
-    console.log('addc');
-  }
+  ){}
 
   addContent() {
     let contentStr = this.newContentForm.value.collectionDataJSON || "";
