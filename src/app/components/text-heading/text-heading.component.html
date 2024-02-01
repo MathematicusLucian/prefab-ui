@@ -1,3 +1,7 @@
-<h1 class="mb-{{ mb }} text-1xl font-semibold text-white md:text-{{ alignment }} md:text-3xl">
+<span 
+    class="mb-{{ mb }} text-1xl font-semibold block text-{{textColor}}
+    text-lg tracking-narrow md:text-{{ alignment }} md:text-3xl {{ isHover() }}"
+    routerLink="isRouterLink() ? [routerLink] : []">
     {{ headingText }}
-</h1>
+</span>
+<!-- enable fetch -->

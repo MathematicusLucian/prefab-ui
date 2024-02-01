@@ -5,11 +5,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHamburger } from '@fortawesome/free-solid-svg-icons';
 import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
+import { TextHeadingComponent } from '../text-heading/text-heading.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, MenuBlockComponent, FontAwesomeModule],
+  imports: [CommonModule, RouterLink, MenuBlockComponent, TextHeadingComponent, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.sass'
 })
@@ -21,8 +22,6 @@ export class HeaderComponent implements OnInit {
   hamburgerOpen = false;
   headerTitle = "Luke Jones";
   faHamburger = faHamburger;
-  // mainMenu: any;
-  // linksMenu: any;
 
   constructor(private router: Router) {
     this.router.events.subscribe((val: any) => this.hamburgerOpen = false);
