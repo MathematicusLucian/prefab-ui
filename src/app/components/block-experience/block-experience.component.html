@@ -1,1 +1,7 @@
-<p>{{ experienceItem }}</p>
+<section class="relative block px-3 py-6 md:px-0 md:pt-2 md:pb-1 mx-1 my-1 md:mx-10 md:my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
+    <div class="relative mx-auto max-w-5xl text-center grid gap:0 lg:gap-7 grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 gt-lg:grid-cols-6">        
+
+        <app-tagline-small [taglineText]="[experienceItemDetails[0].name]"></app-tagline-small>
+        <app-tagline [taglineText]="[experienceItemDetails[0].details]"></app-tagline>
+    </div>
+</section>

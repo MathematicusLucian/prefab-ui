@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppValues } from '../../core/config/enums';
 import { Observable, of } from 'rxjs';
@@ -25,9 +25,9 @@ interface TagData {
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.sass'
 })
-export class SkillsComponent implements OnInit, OnDestroy {
-  @Input() skillsData: any = [];
-  @Input() tagData: any = [];
+export class SkillsComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() skillsData$: any;
+  @Input() skillsCategoriesData$: any;
   appValues = AppValues;
   headingData$: Observable<HeadingBlock> = of({
     headingText: this.appValues.SKILLS_HEADING_TEXT,
@@ -36,26 +36,38 @@ export class SkillsComponent implements OnInit, OnDestroy {
     alignment: this.appValues.HEADERBLOCK_ALIGNMENT_NONE,
     mb: this.appValues.HEADERBLOCK_MB
   });
-  private sub: any; 
-  siteGraph: any;
-  tagChosen = "ALL";
+  skills$: any[] = [];
+  skillsCategories$: any[] = []; 
+  skillsCategoryChosenID = "ALL";
 
   constructor(private route: ActivatedRoute) {
-    this.siteGraph = {};
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.skillsData$.subscribe((x: any) => {
+      this.skills$ = x;
+    }); 
+    this.skillsCategoriesData$.subscribe((x: any) => {
+      this.skillsCategories$ = x;
+    }); 
+  }
+  
+  ngOnChanges(): void {
+    // this.skillsData$.subscribe((x: any) => this.skills$.push(x));
+    // console.log(this.skills);
+    // this.skillsCategoriesData$.subscribe((x: any) => this.skillsCategories$.push(x));
+  }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    // this.skillsData$.unsubscribe();
+    // this.skillsCategoriesData$.unsubscribe();
   }
 
-  setChosenTag(tagClicked: string) {
-    this.tagChosen = tagClicked;
+  setChosenSkillsCategory(skillsCategoryClickedID: string) {
+    this.skillsCategoryChosenID = skillsCategoryClickedID;
   }
 
-  hasChosenTag(skill: any): boolean {
-    return false;
-    // return skill.tag.includes(this.tagChosen) || this.tagChosen == "ALL";
+  hasChosenSkillsCategory(chosenSkillsParent: any): boolean {
+    return chosenSkillsParent.includes(this.skillsCategoryChosenID) || this.skillsCategoryChosenID == "ALL";
   }
 }

@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
+import { decode } from 'html-entities';
+import { Router } from '@angular/router';
 
 export interface Card {
-  project_url: string;
+  readmore_url: string;
   img_src: string;
   title: string;
   content: string;
@@ -17,17 +19,22 @@ export interface Card {
   styleUrl: './card.component.sass'
 })
 export class CardComponent implements OnInit, AfterViewInit, OnChanges {
-  cardDetails$!: Card;
   @Input() cardDetails!: Card | any;
+  cardDetails$!: Card;
+  readmore_url: any;
   
-  constructor() { }
+  constructor(public router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit() { }
         
   ngOnChanges(changes: any) {
     this.cardDetails$ = JSON.parse(changes.cardDetails.currentValue);
+    this.readmore_url = (this.cardDetails$.readmore_url != null) ? this.cardDetails$.readmore_url : "#";
   }
+
+  decode = (x: any) => decode(x);
+
+  shortenTextToPreview = (x: any) => x.substring(0,190) + " ...";
 }

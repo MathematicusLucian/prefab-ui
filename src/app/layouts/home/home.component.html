@@ -35,11 +35,11 @@
 			</div>
 
 			<!-- home: social icons -->
-			<div class="mt-6 pb-16 lg:pb-0 w-5/5 lg:w-full mx-auto flex flex-wrap items-center justify-center">
+			<!-- <div class="mt-6 pb-16 lg:pb-0 w-5/5 lg:w-full mx-auto flex flex-wrap items-center justify-center">
                 <ng-container *ngFor="let menuItem of menuRightItems">
                     <app-menu-item colorScheme="light" menuItem="{{ menuItem | json }}"></app-menu-item>
                 </ng-container>
-			</div>
+			</div> -->
 
 		</div>
 
@@ -47,11 +47,11 @@
 	
 	<!--img: desktop view -->
 	<div class="w-full lg:w-2/5">
-		<img alt="profile" src="./../../../assets/imgs/lj.png" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+		<img alt="profile" src="./../../../assets/imgs/type-away-numero-dos.avif" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
 	</div>
 
 </div>
 
 <ng-container *ngIf="skillsData$">
-	<app-skills [skillsData]="skillsData$" [tagData]="tagData$"></app-skills>
+	<app-skills [skillsData$]="skillsData$" [skillsCategoriesData$]="skillsCategoriesData$"></app-skills>
 </ng-container>

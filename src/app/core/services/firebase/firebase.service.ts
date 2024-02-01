@@ -14,14 +14,16 @@ export class FirebaseService {
         private readonly afs: Firestore
     ) {}
 
-  getCollection(collectionName: any, parent_id: any): Observable<any[]> {
+  getCollection(collectionName: any, parent_id: any, parent_grouping_id: any): Observable<any[]> {
     if (!collectionName) return of();
 
-    let retrievedCollection = (parent_id!="") ?
+    let retrievedCollection = (parent_grouping_id!="") ?
+      query(collection(this.afs, collectionName), where("parent_grouping_id", "==", parent_grouping_id))
+    : (parent_id!="") ?
       query(collection(this.afs, collectionName), where("parent_id", "==", parent_id))
     :
       collection(this.afs, collectionName);
-    // const res = await collection(this.afs, "blog").orderBy('updated_at').get()
+      // const res = await collection(this.afs, "blog").orderBy('updated_at').get()
     return collectionData(retrievedCollection) as Observable<any>;
   }
 

@@ -1,14 +1,12 @@
 {
   "routes": [
-    "/blog",
     "/contact",
-    "/courses",
     "/cv",
     "/github",
     "/home",
     "/linkedin",
-    "/projects",
-    "/research",
-    "/tags"
+    "/news",
+    "/post",
+    "/projects"
   ]
 }

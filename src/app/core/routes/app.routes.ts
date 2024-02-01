@@ -23,33 +23,38 @@ class DevEnvGuard implements CanLoad {
 }
 
 export const APP_ROUTES: Route[] = [
+    // { 
+    //     path: "import",
+    //     loadComponent: () => 
+    //         import('../../layouts/add-content/add-content.component').then(m => m.AddContentComponent),
+    //     canLoad: [DevEnvGuard]
+    // },
+    // { 
+    //     path: "newpage",
+    //     loadComponent: () => 
+    //         import('../../layouts/add-page/add-page.component').then(m => m.AddPageComponent),
+    //     canLoad: [DevEnvGuard]
+    // },
     { 
-        path: "import",
-        loadComponent: () => 
-            import('../../layouts/add-content/add-content.component').then(m => m.AddContentComponent),
-        canLoad: [DevEnvGuard]
-    },
-    { 
-        path: "newpage",
-        loadComponent: () => 
-            import('../../layouts/add-page/add-page.component').then(m => m.AddPageComponent),
-        canLoad: [DevEnvGuard]
-    },
-    { 
-        path: 'blog', 
+        path: 'news', 
         loadComponent: () => 
             import('../../layouts/blog/blog.component').then(m => m.BlogComponent)
+    },
+    { 
+        path: 'post', 
+        loadComponent: () => 
+            import('../../components/blog-post/blog-post.component').then(m => m.BlogPostComponent),
     },
     { 
         path: "contact",
         loadComponent: () => 
             import('../../layouts/contact/contact.component').then(m => m.ContactComponent),
     },
-    { 
-        path: "courses",
-        loadComponent: () => 
-            import('../../layouts/courses/courses.component').then(m => m.CoursesComponent),
-    },
+    // { 
+    //     path: "courses",
+    //     loadComponent: () => 
+    //         import('../../layouts/courses/courses.component').then(m => m.CoursesComponent),
+    // },
     {   
         path: 'cv', 
         loadComponent: () => 
@@ -61,7 +66,7 @@ export const APP_ROUTES: Route[] = [
             import('../../layouts/resume/resume.component').then(m => m.ResumeComponent),
         canActivate: [IsAdminGuard],
         data: {
-            externalUrl: "https://https://k1n4kut4.github.io/"
+            externalUrl: "https://github.com/MathematicusLucian"
         }
     },
     { 
@@ -83,16 +88,16 @@ export const APP_ROUTES: Route[] = [
         loadComponent: () => 
             import('../../layouts/projects/projects.component').then(m => m.ProjectsComponent),
     },
-    { 
-        path: "tags",
-        loadComponent: () => 
-            import('../../layouts/tags/tags.component').then(m => m.TagsComponent),
-    },
-    { 
-        path: "research",
-        loadComponent: () => 
-            import('../../layouts/research/research.component').then(m => m.ResearchComponent),
-    },
+    // { 
+    //     path: "tags",
+    //     loadComponent: () => 
+    //         import('../../layouts/tags/tags.component').then(m => m.TagsComponent),
+    // },
+    // { 
+    //     path: "research",
+    //     loadComponent: () => 
+    //         import('../../layouts/research/research.component').then(m => m.ResearchComponent),
+    // },
     { 
         path: '', 
         redirectTo: '/home', 
