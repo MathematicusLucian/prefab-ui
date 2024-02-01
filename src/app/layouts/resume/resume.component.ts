@@ -9,7 +9,7 @@ import { BioComponent } from '../../components/bio/bio.component';
 import { BlockExperienceComponent } from '../../components/block-experience/block-experience.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-resume',
@@ -19,7 +19,7 @@ import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
   styleUrl: './resume.component.sass'
 })
 export class ResumeComponent implements OnInit, OnChanges {
-  faXTwitter = faXTwitter;
+  faLinkedin = faLinkedin;
   appValues = AppValues;
   headingData$: Observable<HeadingBlock> = of({
     headingText: this.appValues.CV_HEADING_TEXT,
