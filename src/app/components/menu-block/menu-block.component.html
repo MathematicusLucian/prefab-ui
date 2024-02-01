@@ -1,0 +1,9 @@
+<ul [ngClass]="menuItemCSS"> 
+
+    <li>
+        <ng-container *ngFor="let menuItem of menuData">
+            <app-menu-item colorScheme="{{ colorScheme }}" menuItem="{{ menuItem | json }}"></app-menu-item>
+        </ng-container>
+    </li>
+
+</ul>
