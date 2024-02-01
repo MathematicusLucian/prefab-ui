@@ -2,7 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export interface MenuItem {
@@ -37,6 +37,10 @@ export class MenuItemComponent implements OnChanges {
     { 
       name: 'faEnvelope', 
       iconData: faEnvelope
+    },
+    { 
+      name: 'faXTwitter', 
+      iconData: faXTwitter
     }
   ];
   title$: string = "";
