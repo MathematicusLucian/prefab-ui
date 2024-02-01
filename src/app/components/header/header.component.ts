@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHamburger } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, MenuItemComponent, FontAwesomeModule],
+  imports: [CommonModule, RouterLink, MenuItemComponent, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.sass'
 })
@@ -27,8 +27,7 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe((val: any) => this.hamburgerOpen = false);
   }
 
-  ngOnInit() { 
-  } 
+  ngOnInit() { } 
   
   ngOnChanges(changes: any) {
     this.mainMenuData.subscribe((x: any) => {

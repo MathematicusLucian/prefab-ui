@@ -1,7 +1,12 @@
 <nav class="sticky top-0 z-50 max-w-screen-4xl bg-amber-400 py-2 lg:px-4
   border-b border-slate-700 flex flex-wrap items-center justify-between">
 
-    <span class="font-bold text-lg text-slate-950 tracking-narrow" routerLink="/home/">{{ headerTitle }}</span>
+    <span routerLink="/home/" 
+        class="block md:inline-block text-sm px-4 py-2 leading-none rounded-full 
+        font-semibold text-slate-950 hover:bg-amber-500 
+        text-lg tracking-narrow hover:text-slate-950">
+        {{ headerTitle }}
+    </span>
 
     <button title="hamburger-button" (click)="toggleHamburger()" 
       data-collapse-toggle="navbar-dropdown" type="button" 
