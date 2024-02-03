@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ComponentRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, ViewChild, ViewContainerRef, inject } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ComponentRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, ViewChild, ViewContainerRef, inject, ChangeDetectionStrategy } from '@angular/core';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 import { CommonModule } from '@angular/common';
 import { of } from 'rxjs';
@@ -8,38 +8,36 @@ import { of } from 'rxjs';
   standalone: true,
   imports: [CommonModule, MenuItemComponent],
   templateUrl: './menu-block.component.html',
-  styleUrl: './menu-block.component.sass'
+  styleUrl: './menu-block.component.sass',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuBlockComponent implements OnInit, OnChanges {
   @ViewChild('vcr', { static: true, read: ViewContainerRef })
   vcr!: ViewContainerRef;
-  componentRefs: ComponentRef<MenuItemComponent>[] = [];
+  componentFactoryItems: ComponentRef<MenuItemComponent>[] = [];
   cdr = inject(ChangeDetectorRef);
   @Input() menuData$!: any;
   @Input() colorScheme!: string;
   @Input() isRightLeaning!: any;
   menuDataX!: any;
   menuItemCSSGeneral = " block md:inline-block font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ";
-  menuItemCSSRight = " lg:flex-1 lg:justify-end space-x-4 ";
+  menuItemCSSCenter = " items-center justify-center text-center w-full lg:flex-1 ";
+  menuItemCSSRight = " lg:justify-end space-x-4 md:w-/5 ";
   menuItemCSS = this.menuItemCSSGeneral;
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
   
   ngOnChanges(changes: SimpleChanges) {
-    if(this.isRightLeaning == "true") {
-      this.menuItemCSS += this.menuItemCSSRight;
-    }
   }
 
   renderDynamicComponents(components?: any) {
     this.vcr.clear();
 
     components.forEach((element: any) => {
-      const componentRef = this.vcr.createComponent(MenuItemComponent);
-      componentRef.instance.menuItem = element;
-      componentRef.instance.colorScheme = this.colorScheme;
-      this.componentRefs.push(componentRef);
+      const componentFactoryItem = this.vcr.createComponent(MenuItemComponent);
+      componentFactoryItem.instance.menuItem = element;
+      componentFactoryItem.instance.colorScheme = this.colorScheme;
+      this.componentFactoryItems.push(componentFactoryItem);
     });
 
     this.cdr.detectChanges();
@@ -50,15 +48,18 @@ export class MenuBlockComponent implements OnInit, OnChanges {
       if(x.length>0) {
         let clone = JSON.parse(JSON.stringify(x));
         clone.sort((a:any, b:any) => a.order - b.order)
+        (this.isRightLeaning == "true")
+        ? this.menuItemCSS = this.menuItemCSSGeneral + this.menuItemCSSRight
+        : this.menuItemCSS = this.menuItemCSSGeneral + this.menuItemCSSCenter;
         this.renderDynamicComponents(clone);
       }
     });
   }
 
   ngOnDestroy(): void {
-    for (const componentRef of this.componentRefs) {
-      if (componentRef) {
-        componentRef.destroy();
+    for (const componentFactoryItem of this.componentFactoryItems) {
+      if (componentFactoryItem) {
+        componentFactoryItem.destroy();
       }
     }
   }

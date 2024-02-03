@@ -64,14 +64,14 @@ export class AppComponent implements OnInit {
     )
     .subscribe(
       (event: any) => {
-        console.group( "NavigationStart Event" );
-        console.log( "navigation id:", event.id );
-        console.log( "route:", event.url );
-        console.log( "trigger:", event.navigationTrigger );
-        console.log( "event.restoredState", event.restoredState );
-        if ( event.restoredState ) {
-          console.log( "restoring navigation id:", event.restoredState.navigationId );
-        }
+        // console.group( "NavigationStart Event" );
+        // console.log( "navigation id:", event.id );
+        // console.log( "route:", event.url );
+        // console.log( "trigger:", event.navigationTrigger );
+        // console.log( "event.restoredState", event.restoredState );
+        // if ( event.restoredState ) {
+        //   console.log( "restoring navigation id:", event.restoredState.navigationId );
+        // }
     });
   }
 

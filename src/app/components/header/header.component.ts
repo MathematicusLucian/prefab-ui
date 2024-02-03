@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgComponentOutlet } from '@angular/common';
 import { MenuBlockComponent } from '../menu-block/menu-block.component';
 import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -7,11 +7,12 @@ import { TextHeadingComponent } from '../text-heading/text-heading.component';
 import { HamburgerButtonComponent } from '../hamburger-button/hamburger-button.component';
 import { ContainerComponent } from '../container/container.component';
 import { BehaviorSubject, of } from 'rxjs';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, TextHeadingComponent, HamburgerButtonComponent, ContainerComponent, MenuBlockComponent],
+  imports: [CommonModule, NgComponentOutlet, RouterLink, TextHeadingComponent, HamburgerButtonComponent, ContainerComponent, MenuBlockComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.sass',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -19,41 +20,58 @@ import { BehaviorSubject, of } from 'rxjs';
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('vcr', { static: true, read: ViewContainerRef })
   vcr!: ViewContainerRef;
-  componentRefs: ComponentRef<TextHeadingComponent | HamburgerButtonComponent | ContainerComponent | MenuBlockComponent >[] = [];
+  componentFactoryItems: ComponentRef<TextHeadingComponent | HamburgerButtonComponent | ContainerComponent | MenuBlockComponent >[] = [];
   cdr = inject(ChangeDetectorRef);
   @Input() headerData!: Observable<any[]>; 
   @Input() mainMenuData!: any; 
   @Input() linksMenuData!: any;
-  isHiddenContainer$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  headerTitle = "MathematicusLucian.com";
+  isHiddenContainer$: BehaviorSubject<any> = new BehaviorSubject<any>("false");
 
   constructor(private router: Router) { }
 
-  renderDynamicComponents(component?: any) {
+  renderDynamicComponents(component?: any): void {
+    // Alternate approach: https://angular.io/guide/dynamic-component-loader
+
     this.vcr.clear();
-    // for (const componentType of componentsImported) {
 
-      const componentRef = this.vcr.createComponent(TextHeadingComponent);
-      componentRef.instance.headingText = this.headerTitle;
-      componentRef.instance.alignment = "alignment";
-      componentRef.instance.mb = "mb";
-      componentRef.instance.routerLink = "/home/";
-      componentRef.instance.textColor = "black";
-      this.componentRefs.push(componentRef);
+     const componentsImported = [
+        {
+          "componentType": "TextHeading",
+          "props" : [
+            { "headingText": "MathematicusLucian.com" },
+            { "alignment": "alignment" },
+            { "mb": "mb" },
+            { "routerLink": "/home/" },
+            { "textColor": "black" },
+            { "textSize": "2xl" }
+          ]
+        },
+      ]; 
 
-      const componentRef2 = this.vcr.createComponent(HamburgerButtonComponent);
-      componentRef2.instance.isHamburgerOpen.subscribe(event => {
-        this.isHiddenContainer$.next(event);
+      componentsImported.map((x:any) => {
+        const componentFactoryItem = this.vcr.createComponent(TextHeadingComponent);
+        console.log(x.componentType);
+        x.props.map((y: any) => {
+          componentFactoryItem.setInput(Object.keys(y)[0], y[Object.keys(y)[0]]);
+        });
+        this.componentFactoryItems.push(componentFactoryItem);
       });
-      this.componentRefs.push(componentRef2);
 
-      const componentRef3 = this.vcr.createComponent(ContainerComponent);
-      componentRef3.instance.isHidden = this.isHiddenContainer$.getValue();
-      componentRef3.instance.mainMenuData = this.mainMenuData;
-      componentRef3.instance.linksMenuData = this.linksMenuData;
-      this.componentRefs.push(componentRef3);
+      const componentFactoryItem2 = this.vcr.createComponent(HamburgerButtonComponent);
+      componentFactoryItem2.instance.isHamburgerOpen.subscribe((isOpen: any) => {
+        this.isHiddenContainer$.next(!isOpen);
+        console.log(!isOpen);
+      });
+      this.componentFactoryItems.push(componentFactoryItem2);
 
-    // }
+      const componentFactoryItem3 = this.vcr.createComponent(ContainerComponent);
+      this.isHiddenContainer$.subscribe((x: any) => {
+        componentFactoryItem3.instance.isHidden = x;
+      });
+      componentFactoryItem3.instance.mainMenuData = this.mainMenuData;
+      componentFactoryItem3.instance.linksMenuData = this.linksMenuData;
+      this.componentFactoryItems.push(componentFactoryItem3);
+
     this.cdr.detectChanges();
   }
 
@@ -66,9 +84,9 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnChanges = (): void => { } 
 
   ngOnDestroy(): void {
-    for (const componentRef of this.componentRefs) {
-      if (componentRef) {
-        componentRef.destroy();
+    for (const componentFactoryItem of this.componentFactoryItems) {
+      if (componentFactoryItem) {
+        componentFactoryItem.destroy();
       }
     }
   }

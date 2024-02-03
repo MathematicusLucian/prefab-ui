@@ -10,7 +10,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges } from '@a
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TextHeadingComponent implements OnInit, OnChanges {
-  @Input() headingText: string = "empty";
+  @Input() headingText: any = "empty";
   @Input() alignment: string = "center";
   @Input() mb: string = "0";
   @Input() routerLink!: string | null;

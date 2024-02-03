@@ -13,21 +13,14 @@ import { TaglineSmallComponent } from '../../components/tagline-small/tagline-sm
   styleUrl: './heading-block.component.sass'
 })
 export class HeadingBlockComponent implements OnInit {
-  @Input() headingData$: any = of({
-    headingText: '',
-    taglineText: '',
-    taglineSmallText: '',
-    alignment: '',
-    mb: 0
-  });
+  @Input() headingData$: any = "";
   headingText: string = "";
   taglineText: string = "";
   taglineSmallText: string = "";
   alignment: string = "";
   mb: number = 0;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.headingData$.map((x:any) => {
