@@ -12,8 +12,10 @@ import { faHamburger } from '@fortawesome/free-solid-svg-icons';
 export class HamburgerButtonComponent {
   @Output() isHamburgerOpen: EventEmitter<any> = new EventEmitter();
   faHamburger = faHamburger;
+  isOpen = false;
 
   toggleHamburger(): void {
-    this.isHamburgerOpen.emit(null);
+    this.isOpen = !this.isOpen;
+    this.isHamburgerOpen.emit(this.isOpen);
   }
 }

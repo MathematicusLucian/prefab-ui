@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -20,9 +20,8 @@ export interface MenuItem {
   templateUrl: './menu-item.component.html',
   styleUrl: './menu-item.component.sass'
 })
-export class MenuItemComponent implements OnChanges {
-  @Input() menuItem: any;
-  @Input() colorScheme: any;
+export class MenuItemComponent implements OnChanges, AfterViewInit {
+  menuItem$!:any;
   icon: any;
   faIconData = faGithub;
   icons: Array<any> = [
@@ -53,22 +52,29 @@ export class MenuItemComponent implements OnChanges {
   textActiveColor: any;
   textColor: any;
   isDarkScheme: any;
-
-  constructor(){
-  } 
-
-  ngOnChanges(changes: any) {
-    this.isDarkScheme = (this.colorScheme=="dark");
-    this.title$ = JSON.parse(changes.menuItem.currentValue).title;
-    this.icon = JSON.parse(changes.menuItem.currentValue).icon;
+  @Input() set colorScheme (color: any) {
+    this.isDarkScheme = (color=="dark");
+  }
+  @Input() set menuItem(menuItem$: any) {
+    this.menuItem$ = menuItem$;
+    this.title$ = this.menuItem$.title;
+    this.icon = this.menuItem$.icon;
     if(this.icon) {
       let iconData = this.icons.find((x) => x.name == this.icon).iconData;
       this.faIconData = iconData;
     }
-    this.target$ = JSON.parse(changes.menuItem.currentValue).target;
-    this.linkPath$ = JSON.parse(changes.menuItem.currentValue).linkPath;
-    this.active$ = JSON.parse(changes.menuItem.currentValue).active;
-    this.setColorScheme();
+    this.target$ = this.menuItem$.target;
+    this.linkPath$ = this.menuItem$.linkPath;
+    this.active$ = this.menuItem$.active;
+    this.setColorScheme(); 
+  }
+
+  constructor(){ } 
+
+  ngOnChanges(changes: SimpleChanges) {
+  }
+
+  ngAfterViewInit() {
   }
 
   setColorScheme() {
