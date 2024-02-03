@@ -8,7 +8,7 @@
 			<div class="mobile-view block lg:hidden rounded-full shadow-xl mx-auto mt-6 h-48 w-48 bg-cover bg-center"></div>	
 
             <app-tagline-small [taglineText]=[appValues.PORTFOLIO_TAGLINE]></app-tagline-small>
-            <app-text-heading [headingText]=[appValues.PORTFOLIO_OWNER] alignment="center" mb="4"></app-text-heading>
+            <app-text-heading headingText="{{ appValues.PORTFOLIO_OWNER }}" textSize="35" alignment="center" mb="1"></app-text-heading>
             <app-tagline [taglineText]=[appValues.PORTFOLIO_OWNER_POSTNOMINALS]></app-tagline>
 
 			<p class="pt-1 pb-1 text-sm md:text-sm text-gray-300 font-bold text-center">
@@ -51,11 +51,7 @@
 			</div>
 
 			<!-- home: social icons -->
-			<!-- <div class="mt-6 pb-16 lg:pb-0 w-5/5 lg:w-full mx-auto flex flex-wrap items-center justify-center">
-                <ng-container *ngFor="let menuItem of menuRightItems">
-                    <app-menu-item colorScheme="light" menuItem="{{ menuItem | json }}"></app-menu-item>
-                </ng-container>
-			</div> -->
+			<ng-container #vcr></ng-container>
 
 		</div>
 
