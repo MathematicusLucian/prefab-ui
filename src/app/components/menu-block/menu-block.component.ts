@@ -47,7 +47,10 @@ export class MenuBlockComponent implements OnInit, OnChanges {
     this.menuData$.subscribe((x: any) => {
       if(x.length>0) {
         let clone = JSON.parse(JSON.stringify(x));
-        clone.sort((a:any, b:any) => a.order - b.order)
+        console.log(clone);
+        if (this.isRightLeaning == "true") {
+          clone.sort((a:any, b:any) => a.order - b.order);
+        }
         (this.isRightLeaning == "true")
         ? this.menuItemCSS = this.menuItemCSSGeneral + this.menuItemCSSRight
         : this.menuItemCSS = this.menuItemCSSGeneral + this.menuItemCSSCenter;
