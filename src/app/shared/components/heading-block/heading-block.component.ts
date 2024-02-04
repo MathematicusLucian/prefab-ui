@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HeadingBlock } from '../../shared/models/heading-block.model';
-import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
-import { TaglineComponent } from '../../components/tagline/tagline.component';
-import { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';
+import { HeadingBlock } from '../../models/heading-block.model';
+import { TextHeadingComponent } from '../text-heading/text-heading.component';
+import { TaglineComponent } from '../tagline/tagline.component';
+import { TaglineSmallComponent } from '../tagline-small/tagline-small.component';
 
 @Component({
   selector: 'app-heading-block',

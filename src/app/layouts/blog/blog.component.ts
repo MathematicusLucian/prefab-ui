@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AppValues } from '../../core/config/enums';
 import { Observable, of } from 'rxjs';
 import { HeadingBlock } from '../../shared/models/heading-block.model';
-import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
-import { BlogPostComponent } from '../../components/blog-post/blog-post.component';
+import { HeadingBlockComponent } from '../../shared/components/heading-block/heading-block.component';
+import { BlogPostComponent } from '../../shared/components/blog-post/blog-post.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
-import { CardblockComponent } from '../../components/cardblock/containers/cardblock.component';
+import { CardblockComponent } from '../../shared/components/cardblock/containers/cardblock.component';
 import { CommonModule } from '@angular/common';
 
 @Component({

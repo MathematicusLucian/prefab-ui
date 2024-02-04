@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppValues } from '../../core/config/enums';
+import { AppValues } from '../../../core/config/enums';
 import { Observable, of } from 'rxjs';
 import { BioPhotoComponent } from '../bio-photo/bio-photo.component';
 import { BioTextBlockComponent } from '../bio-text-block/bio-text-block.component';

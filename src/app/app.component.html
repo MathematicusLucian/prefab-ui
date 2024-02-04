@@ -6,7 +6,11 @@
   <app-header [mainMenuData]="mainMenuData$" [linksMenuData]="linksMenuData$"></app-header>
   <!-- [headerData]="headerData$"  -->
   <section class="p-1 mx-auto bg-gradient-to-r from-rose-700 via-fuchsia-950 to-indigo-950 mix-blend-screen">
-    <router-outlet></router-outlet>
+    <router-outlet>
+      <span class="loader" *ngIf="isLoading">
+        <fa-icon [icon]="faSpinner"></fa-icon>
+      </span>
+    </router-outlet>
   </section>
 
   <app-footer [footerData$]="footerData$"></app-footer>

@@ -43,7 +43,7 @@ export const APP_ROUTES: Route[] = [
     { 
         path: 'post', 
         loadComponent: () => 
-            import('../../components/blog-post/blog-post.component').then(m => m.BlogPostComponent),
+            import('../../shared/components/blog-post/blog-post.component').then(m => m.BlogPostComponent),
     },
     { 
         path: "contact",

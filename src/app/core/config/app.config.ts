@@ -18,7 +18,7 @@ import {
   provideState
 } from '@ngrx/store';
 import { itemsReducer, siteGraphFeatureKey } from '../../shared/core-state/reducers';
-import { cardblockFeatureKey, cardblockReducer } from '../../components/cardblock/state/cardblock.reducers';
+import { cardblockFeatureKey, cardblockReducer } from '../../shared/components/cardblock/state/cardblock.reducers';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {
   ScreenTrackingService,
@@ -41,7 +41,11 @@ export const appConfig: ApplicationConfig = {
   // provideHttpClient(withFetch())
   providers: [
     importProvidersFrom(HttpClientModule),
-    provideRouter(APP_ROUTES, withPreloading(PreloadAllModules)), //withDebugTracing()
+    provideRouter(
+      APP_ROUTES, 
+      withPreloading(PreloadAllModules)
+       //withDebugTracing()
+    ),
     RedirectGuard,
     provideAnimations(),
     importProvidersFrom(LayoutModule),

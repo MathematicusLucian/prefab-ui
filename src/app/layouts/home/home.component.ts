@@ -1,17 +1,17 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, OnInit, OnChanges, ViewChild, ViewContainerRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppValues } from '../../core/config/enums';
-import { TextHeadingComponent } from '../../components/text-heading/text-heading.component';
-import { TaglineComponent } from '../../components/tagline/tagline.component';
-import { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';
-import { SkillsComponent } from '../../components/skills/skills.component';
-import { MenuItemComponent } from '../../components/menu-item/menu-item.component';
+import { TextHeadingComponent } from '../../shared/components/text-heading/text-heading.component';
+import { TaglineComponent } from '../../shared/components/tagline/tagline.component';
+import { TaglineSmallComponent } from '../../shared/components/tagline-small/tagline-small.component';
+import { SkillsComponent } from '../../shared/components/skills/skills.component';
+import { MenuItemComponent } from '../../shared/components/menu-item/menu-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe, faLocationPin, faBriefcase, faCode, faUserPlus, faFileLines } from '@fortawesome/free-solid-svg-icons';
-import { ButtonComponent } from '../../components/button/button.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
-import { MenuBlockComponent } from '../../components/menu-block/menu-block.component';
+import { MenuBlockComponent } from '../../shared/components/menu-block/menu-block.component';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({

@@ -4,9 +4,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { APIService } from './core/services/api/api.service';
-import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { RouterLink, RouterOutlet, RouterLinkActive, RouterEvent, NavigationEnd } from '@angular/router';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import { Store } from '@ngrx/store';
@@ -15,6 +15,8 @@ import { BackButtonDirective } from "./core/services/navigation/back-button.dire
 import { NavigationService } from './core/services/navigation/navigation.service';
 import { SiteGraphService } from './core/services/site-graph/site-graph.service';
 import { appLoaded } from "./shared/core-state";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { getAnalytics } from "firebase/analytics";
 import { Event as NavigationEvent } from "@angular/router";
 import { filter } from "rxjs/operators";
@@ -28,7 +30,7 @@ interface Item {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, 
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, FontAwesomeModule,
     FlexLayoutModule, FlexLayoutServerModule, HeaderComponent, FooterComponent
   ],
   templateUrl: './app.component.html',
@@ -44,6 +46,8 @@ export class AppComponent implements OnInit {
   mainMenuData$: any;
   linksMenuData$: any;
   skillsData$: any;
+  isLoading!: boolean;
+  faSpinner = faSpinner;
 
   constructor(private apiService: APIService, 
     private location: Location,
@@ -53,6 +57,17 @@ export class AppComponent implements OnInit {
     private store: Store,
     private router: Router
   ) {
+    this.isLoading = false;
+    
+    router.events.subscribe(
+      ( event: NavigationEvent ): void => {
+        if (event instanceof NavigationStart) {
+          this.isLoading = true;
+        } else if (event instanceof NavigationEnd) {
+          this.isLoading = false;
+        }
+      }
+    );
 
 		router.events
     .pipe(

@@ -3,7 +3,7 @@ import { Observable, of, switchMap } from 'rxjs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
-import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
+import { HeadingBlockComponent } from '../../shared/components/heading-block/heading-block.component';
 import { CommonModule } from '@angular/common';
 import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { EditorModule } from '@tinymce/tinymce-angular';

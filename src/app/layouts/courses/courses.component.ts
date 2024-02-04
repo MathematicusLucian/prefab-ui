@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppValues } from '../../core/config/enums';
 import { Observable, of } from 'rxjs';
 import { HeadingBlock } from '../../shared/models/heading-block.model';
-import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
+import { HeadingBlockComponent } from '../../shared/components/heading-block/heading-block.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
 
 @Component({

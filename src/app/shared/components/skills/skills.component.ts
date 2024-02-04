@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppValues } from '../../core/config/enums';
+import { AppValues } from '../../../core/config/enums';
 import { Observable, of } from 'rxjs';
-import { HeadingBlock } from '../../shared/models/heading-block.model';
-import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
+import { HeadingBlock } from '../../models/heading-block.model';
+import { HeadingBlockComponent } from '../heading-block/heading-block.component';
 import { BadgeComponent } from '../badge/badge.component';
 import { TextHeadingComponent } from '../text-heading/text-heading.component';
 import { TaglineSmallComponent } from '../tagline-small/tagline-small.component';

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable, of, switchMap } from 'rxjs';
-import { HeadingBlockComponent } from '../../components/heading-block/heading-block.component';
-import { CardblockComponent } from '../../components/cardblock/containers/cardblock.component';
+import { HeadingBlockComponent } from '../../shared/components/heading-block/heading-block.component';
+import { CardblockComponent } from '../../shared/components/cardblock/containers/cardblock.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
 import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { AppValues } from '../../core/config/enums';
