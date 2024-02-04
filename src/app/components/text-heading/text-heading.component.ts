@@ -15,6 +15,7 @@ export class TextHeadingComponent implements OnInit, OnChanges {
   @Input() mb: string = "0";
   @Input() routerLink!: string | null;
   @Input() textColor: string = "white";
+  @Input() fontWeight: string = "semibold";
   textSizeSet!: any;
   @Input() set textSize (size: any) {
     this.textSizeSet = size|15;
@@ -29,9 +30,10 @@ export class TextHeadingComponent implements OnInit, OnChanges {
     this.routerLink = (changes.routerLink != undefined) ? changes.routerLink.currentValue : this.routerLink;
     const alignment = (changes.alignment != undefined) ? changes.alignment.currentValue : this.alignment;  
     const mb = (changes.mb != undefined) ? changes.mb.currentValue : this.mb; 
+    const fontWeight = (changes.fontWeight != undefined) ? changes.fontWeight.currentValue : this.fontWeight;
     const textColor = (changes.textColor != undefined) ? changes.textColor.currentValue : this.textColor;
     let textSize = (changes.textSize != undefined) ? changes.textSize.currentValue : this.textSize;
-    this.mainCSS = "mb-" + mb + " font-semibold block text-" + textColor + " tracking-narrow md:text-" + this.textSizeSet + " md:text-" + alignment + " " + this.isHover(); 
+    this.mainCSS = "mb-" + mb + " font-" + fontWeight + " block text-" + textColor + " tracking-narrow md:text-" + this.textSizeSet + " md:text-" + alignment + " " + this.isHover(); 
     this.mainStyle = "font-size: " + textSize +"px !important";
   }
 

@@ -54,7 +54,6 @@ export class SkillsComponent implements OnInit, OnChanges, OnDestroy {
   
   ngOnChanges(): void {
     // this.skillsData$.subscribe((x: any) => this.skills$.push(x));
-    // console.log(this.skills);
     // this.skillsCategoriesData$.subscribe((x: any) => this.skillsCategories$.push(x));
   }
 

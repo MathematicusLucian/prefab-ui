@@ -18,6 +18,7 @@ export class HeadingBlockComponent implements OnInit {
   taglineText: string = "";
   taglineSmallText: string = "";
   alignment: string = "";
+  fontWeight: string = "semibold";
   mb: number = 0;
 
   constructor() {}
@@ -29,6 +30,7 @@ export class HeadingBlockComponent implements OnInit {
         this.taglineText = y.taglineText;
         this.taglineSmallText = y.taglineSmallText;
         this.alignment = y.alignment;
+        this.fontWeight = y.fontWeight;
         this.mb = y.mb;
       });
     });

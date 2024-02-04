@@ -39,18 +39,30 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
           "componentType": "TextHeading",
           "props" : [
             { "headingText": "MathematicusLucian.com" },
+            { "fontWeight": "semibold "},
+            { "alignment": "alignment" },
+            { "mb": "none" },
+            { "routerLink": "/home/" },
+            { "textColor": "black" },
+            { "textSize": "16" }
+          ]
+        },
+        {
+          "componentType": "TextHeading",
+          "props" : [
+            { "headingText": "Luke Jones" },
+            { "fontWeight": "normal "},
             { "alignment": "alignment" },
             { "mb": "mb" },
             { "routerLink": "/home/" },
             { "textColor": "black" },
-            { "textSize": "2xl" }
+            { "textSize": "12" }
           ]
         },
       ]; 
 
       componentsImported.map((x:any) => {
         const componentFactoryItem = this.vcr.createComponent(TextHeadingComponent);
-        console.log(x.componentType);
         x.props.map((y: any) => {
           componentFactoryItem.setInput(Object.keys(y)[0], y[Object.keys(y)[0]]);
         });
@@ -60,7 +72,6 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
       const componentFactoryItem2 = this.vcr.createComponent(HamburgerButtonComponent);
       componentFactoryItem2.instance.isHamburgerOpen.subscribe((isOpen: any) => {
         this.isHiddenContainer$.next(!isOpen);
-        console.log(!isOpen);
       });
       this.componentFactoryItems.push(componentFactoryItem2);
 
@@ -75,10 +86,11 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
     this.cdr.detectChanges();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.renderDynamicComponents(null);
+  }
 
   ngAfterViewInit(): void {
-    this.renderDynamicComponents(null);
   }
 
   ngOnChanges = (): void => { } 

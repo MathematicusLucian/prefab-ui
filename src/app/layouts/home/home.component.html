@@ -5,7 +5,7 @@
 		<div class="p-4 md:p-12 text-center lg:text-left">
 
 			<!-- img: mobile view-->
-			<div class="mobile-view block lg:hidden rounded-full shadow-xl mx-auto mt-6 h-48 w-48 bg-cover bg-center"></div>	
+			<div class="mobile-view block lg:hidden rounded-full shadow-xl mx-auto mt-6 mb-6 h-48 w-48 bg-cover bg-center"></div>	
 
             <app-tagline-small [taglineText]=[appValues.PORTFOLIO_TAGLINE]></app-tagline-small>
             <app-text-heading headingText="{{ appValues.PORTFOLIO_OWNER }}" textSize="35" alignment="center" mb="1"></app-text-heading>
@@ -17,28 +17,28 @@
 			
 			<div class="mx-auto lg:mx-0 w-5/5 pt-3 md:pt-8 border-b-2 border-amber-500"></div>
 
-			<p class="pt-4 text-base text-sm md:text-base text-white font-bold flex">
+			<p class="pt-4 text-base text-sm md:text-base text-white font-bold flex text-left">
 				<fa-icon [icon]="faBriefcase" class="w-6 mr-2 lg:mr-4 text-amber-400"></fa-icon>
 				{{ appValues.PORTFOLIO_JOB_TITLE}}
             </p>
 
-			<p class="pt-4 text-base text-sm md:text-base text-slate-200 font-light flex">
+			<p class="pt-4 text-base text-sm md:text-base text-slate-200 font-light flex text-left">
 				<fa-icon [icon]="faUserPlus" class="w-6 mr-2 lg:mr-4 text-amber-400"></fa-icon>
 				{{ appValues.PORTFOLIO_DEV_TYPES}}
             </p>
 
-			<p class="pt-4 text-base text-sm md:text-base text-white font-bold flex">
+			<p class="pt-4 text-base text-sm md:text-base text-white font-bold flex text-left">
 				<fa-icon [icon]="faCode" class="w-6 mr-2 lg:mr-4 text-amber-400"></fa-icon>
 				{{ appValues.PORTFOLIO_LANGUAGES}}
             </p>
 
-			<p class="pt-2 text-slate-300 text-sm md:text-base flex text-center">
-                <fa-icon [icon]="faFileLines" class="w-6 mr-4 text-amber-400"></fa-icon>
+			<p class="pt-2 text-slate-300 text-sm md:text-base flex text-left">
+                <fa-icon [icon]="faFileLines" class="w-6 mr-2 text-amber-400"></fa-icon>
 				{{ appValues.PORTFOLIO_EXPERIENCE }}
             </p>
 
-			<p class="pt-2 text-slate-300 text-sm md:text-base flex text-center">
-                <fa-icon [icon]="faLocationPin" class="w-6 mr-4 text-amber-400"></fa-icon>
+			<p class="pt-2 text-slate-300 text-sm md:text-base flex text-left">
+                <fa-icon [icon]="faLocationPin" class="w-6 mr-2 text-amber-400"></fa-icon>
 				{{ appValues.PORTFOLIO_LOCATION }}
             </p>
 

@@ -48,9 +48,7 @@ export class ResumeComponent implements OnInit, OnChanges {
     this.skillsCategoriesData$ = this.siteGraphService.fetchBlocks('categories');
   }
 
-  ngOnChanges(changes: any) {
-    changes.subscribe((x:any) => console.log('c'));
-  }
+  ngOnChanges(changes: any) { }
 
   hasContent(x: any) {
     return (x.length>0);

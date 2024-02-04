@@ -21,8 +21,10 @@ export class MenuBlockComponent implements OnInit, OnChanges {
   @Input() isRightLeaning!: any;
   menuDataX!: any;
   menuItemCSSGeneral = " block md:inline-block font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ";
+  // menuItemCSSGeneral = " block md:inline-block font-medium p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ";
   menuItemCSSCenter = " items-center justify-center text-center w-full lg:flex-1 ";
-  menuItemCSSRight = " lg:justify-end space-x-4 md:w-/5 ";
+  menuItemCSSRight = " lg:flex-1 lg:justify-end space-x-4 ";
+  // menuItemCSSRight = " lg:justify-end space-x-4 md:w-/5 ";
   menuItemCSS = this.menuItemCSSGeneral;
 
   ngOnInit() { }
@@ -47,7 +49,6 @@ export class MenuBlockComponent implements OnInit, OnChanges {
     this.menuData$.subscribe((x: any) => {
       if(x.length>0) {
         let clone = JSON.parse(JSON.stringify(x));
-        console.log(clone);
         if (this.isRightLeaning == "true") {
           clone.sort((a:any, b:any) => a.order - b.order);
         }
