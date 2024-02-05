@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges } from '@angular/core';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-text-heading',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule], 
   templateUrl: './text-heading.component.html',
   styleUrl: './text-heading.component.sass',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -12,8 +13,8 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges } from '@a
 export class HeadingComponent implements OnInit, OnChanges {
   @Input() headingText: any = "empty";
   @Input() alignment: string = "center";
-  @Input() mb: string = "0";
-  @Input() routerLink!: string | null;
+  @Input() mb: string = "0"; 
+  @Input() routerLink: string = "";
   @Input() textColor: string = "white";
   @Input() fontWeight: string = "semibold";
   textSizeSet!: any;
@@ -23,11 +24,14 @@ export class HeadingComponent implements OnInit, OnChanges {
   mainCSS!: string;
   mainStyle!: string;
 
+  constructor(private router: Router) { }
+
   ngOnInit() {}
 
   ngOnChanges(changes: any) {
     this.headingText = (changes.headingText != undefined) ? changes.headingText.currentValue : this.headingText;
     this.routerLink = (changes.routerLink != undefined) ? changes.routerLink.currentValue : this.routerLink;
+    if(changes.routerLink != undefined) console.log('c', this.routerLink, changes.routerLink);
     const alignment = (changes.alignment != undefined) ? changes.alignment.currentValue : this.alignment;  
     const mb = (changes.mb != undefined) ? changes.mb.currentValue : this.mb; 
     const fontWeight = (changes.fontWeight != undefined) ? changes.fontWeight.currentValue : this.fontWeight;
@@ -37,6 +41,10 @@ export class HeadingComponent implements OnInit, OnChanges {
     this.mainStyle = "font-size: " + textSize +"px !important";
   }
 
-  isRouterLink = () => this.routerLink != undefined;
+  navigate() {
+    this.router.navigate(['/', this.routerLink]);
+  }
+
+  isRouterLink = () => this.routerLink.length != 0;
   isHover = () => (this.isRouterLink()) ? "hover:bg-amber-500 hover:text-slate-950 rounded-full cursor-pointer" : "disabled-link";
 }

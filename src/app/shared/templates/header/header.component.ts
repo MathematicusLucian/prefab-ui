@@ -35,9 +35,15 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.vcr.clear();
 
-     const componentsImported = [
+    const componentTypes: any = {
+      "Heading": HeadingComponent,
+      "ToggleButton": ToggleButtonComponent,
+      "Container": ContainerComponent
+    }
+
+    const componentsImported: any = [
         {
-          "componentType": "TextHeading",
+          "componentType": "Heading",
           "props" : [
             { "headingText": "MathematicusLucian.com" },
             { "fontWeight": "semibold "},
@@ -49,7 +55,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
           ]
         },
         {
-          "componentType": "TextHeading",
+          "componentType": "Heading",
           "props" : [
             { "headingText": "Luke Jones" },
             { "fontWeight": "normal "},
@@ -62,10 +68,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
         },
       ]; 
 
-      componentsImported.map((x:any) => {
-        const componentFactoryItem = this.vcr.createComponent(HeadingComponent);
-        x.props.map((y: any) => {
-          componentFactoryItem.setInput(Object.keys(y)[0], y[Object.keys(y)[0]]);
+      componentsImported.map((component: any) => {
+        const componentFactoryItem: ComponentRef<any> = this.vcr.createComponent(componentTypes[component.componentType]);
+        component.props.map((prop: any) => {
+          componentFactoryItem.setInput(Object.keys(prop)[0], prop[Object.keys(prop)[0]]);
         });
         this.componentFactoryItems.push(componentFactoryItem);
       });
