@@ -3,7 +3,7 @@
 <section class="relative block px-6 py-10 md:py-0 md:px-10 mx-10 my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
 
     <div class="mt-6 flex-row items-center text-center justify-center">
-        <a *ngFor="let skillsCategory of skillsCategoriesData$ | async" class="inline-flex rounded-lg bg-pink-600 my-2 px-4 py-15 mx-2 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700"
+        <a *ngFor="let skillsCategory of skillsCategoriesData$ | async" class="inline-flex rounded-lg bg-pink-600 my-2 px-4 py-15 mx-2 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700 cursor-pointer"
             (click)="setChosenSkillsCategory(skillsCategory.id)">
             {{ skillsCategory.name }}
         </a>
@@ -11,7 +11,7 @@
 
     <div class="mx-10 my-10 leading-6 flex flex-row flex-wrap gap-3 items-center justify-center">
         <ng-container *ngFor="let skill of skillsData$ | async">
-            <app-badge *ngIf="hasChosenSkillsCategory(skill.parent_id)" badgeText="{{ skill.name }}"></app-badge>
+            <app-badge *ngIf="hasChosenSkillsCategory(skill.parent_id)" badgeText="{{ skill.name }}" bgColor="amber" textColor="white"></app-badge>
         </ng-container>
     </div>  
 
