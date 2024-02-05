@@ -3,7 +3,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { APIService } from './core/services/api/api.service';
+import { APIService } from './shared/services/api/api.service';
 import { RouterLink, RouterOutlet, RouterLinkActive, RouterEvent, NavigationEnd } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';

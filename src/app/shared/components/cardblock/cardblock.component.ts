@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from '../../card/card.component';
-import { of } from 'rxjs';
+import { CardComponent } from '../card/card.component';
 
 export interface Card {
   project_url: string;

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-badge',
@@ -7,11 +7,12 @@ import { Component, Input, OnChanges } from '@angular/core';
   templateUrl: './badge.component.html',
   styleUrl: './badge.component.sass'
 })
-export class BadgeComponent implements OnChanges {
+export class BadgeComponent implements OnInit, OnChanges {
   @Input() badgeText: string = "";
-  badgeText$: string = "";
+  @Input() bgColor: string | null = "amber";
+  @Input() textColor: string = "white";
+  
+  ngOnInit() { }
 
-  ngOnChanges(change:any){
-    this.badgeText$ = change.badgeText.currentvalue;
-  }
+  ngOnChanges(change:any) { }
 }

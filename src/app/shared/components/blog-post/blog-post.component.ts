@@ -3,32 +3,36 @@ import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { decode } from 'html-entities';
 import { CommonModule } from '@angular/common';
+import { FirebaseService } from '../../services/firebase/firebase.service';
+import { BadgeBlockComponent } from '../badge-block/badge-block.component';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-blog-post',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, BadgeBlockComponent],
   templateUrl: './blog-post.component.html',
   styleUrl: './blog-post.component.sass'
 })
 export class BlogPostComponent implements OnInit, OnDestroy {
-  // @Input() postDetails: any;
   postData$!: any;
   postDetails!: any;
+  id!: any;
+  badges = of({ 
+    bgColor: "pink",
+    textColor: "white",
+    tags: ["Lorem", "Ipsum", "Blah Blah"]
+  });
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private firebase: FirebaseService) {}
 
   ngOnInit() {
-    this.postData$ = this.route.paramMap
-      .pipe(map(() => window.history.state))
-      .subscribe((x:any) => {
-        this.postDetails = x.blog_data;
-      });
-  }
-
-  ngOnDestroy() {
-    this.postData$.unsubscribe();
+    this.id = this.route.snapshot.params['id'];
+    this.postData$ = this.firebase.getItemById('blog_posts', this.id);
+    this.postData$.then((post: any) => this.postDetails = post);
   }
 
   decode = (x: any) => decode(x);
+
+  ngOnDestroy() { }
 }

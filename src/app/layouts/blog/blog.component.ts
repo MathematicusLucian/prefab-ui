@@ -5,7 +5,7 @@ import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { HeadingBlockComponent } from '../../shared/components/heading-block/heading-block.component';
 import { BlogPostComponent } from '../../shared/components/blog-post/blog-post.component';
 import { SiteGraphService } from '../../core/services/site-graph/site-graph.service';
-import { CardblockComponent } from '../../shared/components/cardblock/containers/cardblock.component';
+import { CardblockComponent } from '../../shared/components/cardblock/cardblock.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -30,8 +30,6 @@ export class BlogComponent implements OnInit {
   constructor(private siteGraphService: SiteGraphService) {}
 
   ngOnInit() {
- 
     this.blogData$ = this.siteGraphService.fetchBlocks(this.blockName);
-
   }
 }

@@ -23,18 +23,24 @@ class DevEnvGuard implements CanLoad {
 }
 
 export const APP_ROUTES: Route[] = [
-    // { 
-    //     path: "import",
-    //     loadComponent: () => 
-    //         import('../../layouts/add-content/add-content.component').then(m => m.AddContentComponent),
-    //     canLoad: [DevEnvGuard]
-    // },
-    // { 
-    //     path: "newpage",
-    //     loadComponent: () => 
-    //         import('../../layouts/add-page/add-page.component').then(m => m.AddPageComponent),
-    //     canLoad: [DevEnvGuard]
-    // },
+    { 
+        path: "import",
+        loadComponent: () => 
+            import('../../layouts/add-content/add-content.component').then(m => m.AddContentComponent),
+        canLoad: [DevEnvGuard]
+    },
+    { 
+        path: "editor",
+        loadComponent: () => 
+            import('../../layouts/add-page/add-page.component').then(m => m.AddPageComponent),
+        canLoad: [DevEnvGuard]
+    },
+    { 
+        path: "editor/:id",
+        loadComponent: () => 
+            import('../../layouts/add-page/add-page.component').then(m => m.AddPageComponent),
+        canLoad: [DevEnvGuard]
+    },
     { 
         path: "contact",
         loadComponent: () => 
@@ -79,7 +85,7 @@ export const APP_ROUTES: Route[] = [
             import('../../layouts/blog/blog.component').then(m => m.BlogComponent)
     },
     { 
-        path: 'post', 
+        path: 'post/:id', 
         loadComponent: () => 
             import('../../shared/components/blog-post/blog-post.component').then(m => m.BlogPostComponent),
     },

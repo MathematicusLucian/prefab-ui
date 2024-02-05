@@ -23,8 +23,8 @@ export class BioComponent {
     title: this.appValues.CV_PAR_2_HEADING,
     body: this.appValues.CV_PAR_2_BODY
   },{
-    title: this.appValues.CV_PAR_2_HEADING,
-    body: this.appValues.CV_PAR_2_BODY
+    title: this.appValues.CV_PAR_3_HEADING,
+    body: this.appValues.CV_PAR_3_BODY
   }]);
 
 }

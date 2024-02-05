@@ -1,22 +1,21 @@
 <div class="rounded-lg bg-slate-900 mx-5 my-7 p-8 items-left text-left justify-left shadow">
     <ng-container *ngIf="postDetails">
+
+        <h1 class="font-semibold text-5xl text-center text-stone-300 leading-relaxed tracking-wide">{{ postDetails.title }}</h1>
+
+        <p class="font-semibold text-center text-sm text-stone-300 mb-6 mt-2">Author</p>
+
+        <app-badge-block [badges]="badges | async"></app-badge-block>
+
         <div 
-            class="bg-cover mx-auto flex w-200 rounded-lg"
+            class="bg-cover mx-auto flex w-200 rounded-lg mt-12 "
             style="background-image: url('./assets/imgs/{{ postDetails.img_src }}'); height: 350px; background-repeat: no-repeat; 
             background-attachment: fixed; background-position: 50% -20%; background-size: contain !important;">
         </div>
 
-        <h1 class="mt-6 font-semibold text-4xl text-stone-300 leading-relaxed tracking-wide">{{ postDetails.title }}</h1>
-
-        <p class="my-4 mb-0 font-light text-stone-300 leading-relaxed tracking-wide space-y-10"
+        <p class="my-4 mb-0 mt-10 font-light text-stone-200 text-base leading-relaxed tracking-wide space-y-10"
             [innerHtml]="decode(postDetails.content)">
         </p>
-        
-        <!-- <div class="mt-6">
-            <a class="inline-flex rounded-lg bg-pink-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700"
-                href="{{ postDetails.post_url }}">
-                Read More
-            </a>
-        </div> -->
+
     </ng-container>
 </div>

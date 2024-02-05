@@ -18,7 +18,6 @@ import {
   provideState
 } from '@ngrx/store';
 import { itemsReducer, siteGraphFeatureKey } from '../../shared/core-state/reducers';
-import { cardblockFeatureKey, cardblockReducer } from '../../shared/components/cardblock/state/cardblock.reducers';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {
   ScreenTrackingService,
@@ -53,8 +52,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideStore({ [siteGraphFeatureKey]: itemsReducer }),
     provideState({ name: 'siteGraph', reducer: itemsReducer }),
-    provideStore({ [cardblockFeatureKey]: cardblockReducer }),
-    provideState({ name: 'loading', reducer: cardblockReducer }), 
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     importProvidersFrom(
       [

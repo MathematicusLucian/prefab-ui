@@ -17,6 +17,5 @@ export class BioTextBlockComponent implements OnInit{
   @Input() elevator: string = "";
   @Input() paragraphs$: Observable<any> = of({});
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }

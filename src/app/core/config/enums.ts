@@ -28,7 +28,7 @@ export enum AppValues {
     CV_PAR_2_HEADING = "Experience",
     CV_PAR_2_BODY = "Rich problem-solving/systemising ability, and a background in highly-regulated prop-trading/ financial services, as a principal engineer to several teams (60+ devs; on-site, remote, offshore.) Familiar with ESG, DevOps, QA automation, AWS/Azure, DevEx, diversity, Six Sigma, and Agile (Certified Scrum Master.) Focuses on value to business, security, and code reusability (microservices, micro-frontends, OOP, design patterns.)",
     CV_PAR_3_HEADING = "Interests",
-    CV_PAR_3_HBODY = "AI models, neuroscience, and checking the value of cryptocurrency investments. I'm somewhere in a corner of these rainy isles, drinking lethal quantities of coffee, while hacking up a Raspberry Pi, wishing Bletchley Park was my office, redesigning workflows, or experimenting with Lora LLM AI models. Otherwise, catching up on the work of al-Khwarizmi, Isaac Newton, Turing, Tommy Flowers, Martin Fowler, Prof. Sir Baron-Cohen, David Farley, Bob Martin, Colin Furze, Sir Tim Berners-Lee, and Hannah Fry.",
+    CV_PAR_3_BODY = "AI models, neuroscience, and checking the value of cryptocurrency investments. I'm somewhere in a corner of these rainy isles, drinking lethal quantities of coffee, while hacking up a Raspberry Pi, wishing Bletchley Park was my office, redesigning workflows, or experimenting with Lora LLM AI models. Otherwise, catching up on the work of al-Khwarizmi, Isaac Newton, Alan Turing, Tommy Flowers, Martin Fowler, Prof. Sir Baron-Cohen, David Farley, Bob Martin, Colin Furze, Sir Tim Berners-Lee, and Hannah Fry.",
     RESEARCH_TAGLINE_SMALL = 'Coming Soon',
     RESEARCH_HEADING_TEXT = 'Research',
     RESEARCH_TAGLINE = 'Investigations and experimentations',
