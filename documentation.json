@@ -59,7 +59,7 @@
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n// import projectData from '../../../assets/projects.json';\nimport { CardComponent } from '../../components/card/card.component';\nimport { of } from 'rxjs';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TextHeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\nexport interface Card {\n  project_url: string;\n  img_src: string;\n  title: string;\n  content: string;\n}\n\n@Component({\n  selector: 'app-projects',\n  standalone: true,\n  imports: [CommonModule, CardComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent, ProjectsComponent],\n  templateUrl: './projects.component.html',\n  styleUrl: './projects.component.sass'\n})\nexport class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {\n  projectData$: Card[] = [];\n  constructor() {}\n\n  ngOnInit() {\n    let projectData: any[] = []; // temp\n    of(projectData).subscribe(x => {\n      this.projectData$ = x;\n    }); \n  }\n\n  ngAfterViewInit() {}\n\n  ngOnDestroy() {}\n}",
+            "sourceCode": "import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n// import projectData from '../../../assets/projects.json';\nimport { CardComponent } from '../../components/card/card.component';\nimport { of } from 'rxjs';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { HeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\nexport interface Card {\n  project_url: string;\n  img_src: string;\n  title: string;\n  content: string;\n}\n\n@Component({\n  selector: 'app-projects',\n  standalone: true,\n  imports: [CommonModule, CardComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent, ProjectsComponent],\n  templateUrl: './projects.component.html',\n  styleUrl: './projects.component.sass'\n})\nexport class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {\n  projectData$: Card[] = [];\n  constructor() {}\n\n  ngOnInit() {\n    let projectData: any[] = []; // temp\n    of(projectData).subscribe(x => {\n      this.projectData$ = x;\n    }); \n  }\n\n  ngAfterViewInit() {}\n\n  ngOnDestroy() {}\n}",
             "properties": [
                 {
                     "name": "content",
@@ -173,7 +173,7 @@
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\nimport { TextHeadingComponent } from '../text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../tagline-small/tagline-small.component';\nimport { TaglineComponent } from '../tagline/tagline.component';\n// import skillsData from '../../../assets/skills.json';\n\ninterface SkillsData {\n  name: string,\n  tag: string\n}\ninterface TagData {\n  name: string\n}\n\n@Component({\n  selector: 'app-skills',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './skills.component.html',\n  styleUrl: './skills.component.sass'\n})\nexport class SkillsComponent {\n  skillsData: any = []; //skillsData; //SkillsData\n  tagData: any =  [\n    \"ALL\",\n    \"Java\",\n    \"Python\",\n    \"C#\",\n    \"C++\",\n    \"JavaScript/UI\",\n    \"Other\",\n    \"QA\",\n    \"CI/CD\",\n    \"Infra / DBs\",\n    \"AI\",\n    \"SDLC/Agile\",\n    \"Leadership\"\n  ];\n  tagChosen = \"ALL\";\n\n  constructor() {}\n\n  setChosenTag(tagClicked: string) {\n    this.tagChosen = tagClicked;\n  }\n\n  hasChosenTag(skill: any): boolean {\n    return skill.tag.includes(this.tagChosen) || this.tagChosen == \"ALL\";\n  }\n}",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\nimport { HeadingComponent } from '../text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../tagline-small/tagline-small.component';\nimport { TaglineComponent } from '../tagline/tagline.component';\n// import skillsData from '../../../assets/skills.json';\n\ninterface SkillsData {\n  name: string,\n  tag: string\n}\ninterface TagData {\n  name: string\n}\n\n@Component({\n  selector: 'app-skills',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './skills.component.html',\n  styleUrl: './skills.component.sass'\n})\nexport class SkillsComponent {\n  skillsData: any = []; //skillsData; //SkillsData\n  tagData: any =  [\n    \"ALL\",\n    \"Java\",\n    \"Python\",\n    \"C#\",\n    \"C++\",\n    \"JavaScript/UI\",\n    \"Other\",\n    \"QA\",\n    \"CI/CD\",\n    \"Infra / DBs\",\n    \"AI\",\n    \"SDLC/Agile\",\n    \"Leadership\"\n  ];\n  tagChosen = \"ALL\";\n\n  constructor() {}\n\n  setChosenTag(tagClicked: string) {\n    this.tagChosen = tagClicked;\n  }\n\n  hasChosenTag(skill: any): boolean {\n    return skill.tag.includes(this.tagChosen) || this.tagChosen == \"ALL\";\n  }\n}",
             "properties": [
                 {
                     "name": "name",
@@ -206,7 +206,7 @@
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\nimport { TextHeadingComponent } from '../text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../tagline-small/tagline-small.component';\nimport { TaglineComponent } from '../tagline/tagline.component';\n// import skillsData from '../../../assets/skills.json';\n\ninterface SkillsData {\n  name: string,\n  tag: string\n}\ninterface TagData {\n  name: string\n}\n\n@Component({\n  selector: 'app-skills',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './skills.component.html',\n  styleUrl: './skills.component.sass'\n})\nexport class SkillsComponent {\n  skillsData: any = []; //skillsData; //SkillsData\n  tagData: any =  [\n    \"ALL\",\n    \"Java\",\n    \"Python\",\n    \"C#\",\n    \"C++\",\n    \"JavaScript/UI\",\n    \"Other\",\n    \"QA\",\n    \"CI/CD\",\n    \"Infra / DBs\",\n    \"AI\",\n    \"SDLC/Agile\",\n    \"Leadership\"\n  ];\n  tagChosen = \"ALL\";\n\n  constructor() {}\n\n  setChosenTag(tagClicked: string) {\n    this.tagChosen = tagClicked;\n  }\n\n  hasChosenTag(skill: any): boolean {\n    return skill.tag.includes(this.tagChosen) || this.tagChosen == \"ALL\";\n  }\n}",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\nimport { HeadingComponent } from '../text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../tagline-small/tagline-small.component';\nimport { TaglineComponent } from '../tagline/tagline.component';\n// import skillsData from '../../../assets/skills.json';\n\ninterface SkillsData {\n  name: string,\n  tag: string\n}\ninterface TagData {\n  name: string\n}\n\n@Component({\n  selector: 'app-skills',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './skills.component.html',\n  styleUrl: './skills.component.sass'\n})\nexport class SkillsComponent {\n  skillsData: any = []; //skillsData; //SkillsData\n  tagData: any =  [\n    \"ALL\",\n    \"Java\",\n    \"Python\",\n    \"C#\",\n    \"C++\",\n    \"JavaScript/UI\",\n    \"Other\",\n    \"QA\",\n    \"CI/CD\",\n    \"Infra / DBs\",\n    \"AI\",\n    \"SDLC/Agile\",\n    \"Leadership\"\n  ];\n  tagChosen = \"ALL\";\n\n  constructor() {}\n\n  setChosenTag(tagClicked: string) {\n    this.tagChosen = tagClicked;\n  }\n\n  hasChosenTag(skill: any): boolean {\n    return skill.tag.includes(this.tagChosen) || this.tagChosen == \"ALL\";\n  }\n}",
             "properties": [
                 {
                     "name": "name",
@@ -665,14 +665,14 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { TextHeadingComponent } from '../text-heading/text-heading.component';\n\n@Component({\n  selector: 'app-bio-text-block',\n  standalone: true,\n  imports: [TextHeadingComponent],\n  templateUrl: './bio-text-block.component.html',\n  styleUrl: './bio-text-block.component.sass'\n})\nexport class BioTextBlockComponent {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { HeadingComponent } from '../text-heading/text-heading.component';\n\n@Component({\n  selector: 'app-bio-text-block',\n  standalone: true,\n  imports: [HeadingComponent],\n  templateUrl: './bio-text-block.component.html',\n  styleUrl: './bio-text-block.component.sass'\n})\nexport class BioTextBlockComponent {\n\n}\n",
             "styleUrl": "./bio-text-block.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -759,7 +759,7 @@
                     "type": "component"
                 },
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 },
                 {
@@ -774,7 +774,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { TextHeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-blog',\n  standalone: true,\n  imports: [BlogPostComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './blog.component.html',\n  styleUrl: './blog.component.sass'\n})\nexport class BlogComponent {\n}",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { HeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-blog',\n  standalone: true,\n  imports: [BlogPostComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './blog.component.html',\n  styleUrl: './blog.component.sass'\n})\nexport class BlogComponent {\n}",
             "styleUrl": "./blog.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1180,7 +1180,7 @@
                     "type": "component"
                 },
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 },
                 {
@@ -1195,7 +1195,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { TextHeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-contact',\n  standalone: true,\n  imports: [BlogPostComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './contact.component.html',\n  styleUrl: './contact.component.sass'\n})\nexport class ContactComponent {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { HeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-contact',\n  standalone: true,\n  imports: [BlogPostComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './contact.component.html',\n  styleUrl: './contact.component.sass'\n})\nexport class ContactComponent {\n\n}\n",
             "styleUrl": "./contact.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1235,7 +1235,7 @@
                     "type": "component"
                 },
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 },
                 {
@@ -1250,7 +1250,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { TextHeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-courses',\n  standalone: true,\n  imports: [BlogPostComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './courses.component.html',\n  styleUrl: './courses.component.sass'\n})\nexport class CoursesComponent {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { HeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-courses',\n  standalone: true,\n  imports: [BlogPostComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './courses.component.html',\n  styleUrl: './courses.component.sass'\n})\nexport class CoursesComponent {\n\n}\n",
             "styleUrl": "./courses.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -1618,7 +1618,7 @@
                     "type": "module"
                 },
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 },
                 {
@@ -1649,7 +1649,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TextHeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\nimport { SkillsComponent } from '../../components/skills/skills.component';\nimport { MenuItemComponent } from '../../components/menu-item/menu-item.component';\nimport { FontAwesomeModule } from '@fortawesome/angular-fontawesome';\nimport { faGlobe, faBriefcase } from '@fortawesome/free-solid-svg-icons';\nimport { ButtonComponent } from '../../components/button/button.component';\n\n@Component({\n  selector: 'app-home',\n  standalone: true,\n  imports: [CommonModule, TextHeadingComponent, TaglineComponent, TaglineSmallComponent, ButtonComponent, MenuItemComponent, SkillsComponent, FontAwesomeModule],\n  templateUrl: './home.component.html',\n  styleUrl: './home.component.sass'\n})\nexport class HomeComponent implements OnInit{\n  menuRightItems = [\n    {\n      \"title\": null,\n      \"icon\": \"faGithub\",\n      \"linkPath\": \"/github/\",\n      \"target\": \"_blank\", \n      \"active\": false\n    },{\n      \"title\": null,\n      \"icon\": \"faLinkedin\",\n      \"linkPath\": \"/linkedin/\",\n      \"target\": \"_blank\", \n      \"active\": false\n    },{\n      \"title\": null,\n      \"icon\": \"faEnvelope\",\n      \"linkPath\": \"/contact/\",\n      \"target\": null, \n      \"active\": false\n    }\n  ];\n  faBriefcase = faBriefcase;\n  faGlobe = faGlobe;\n\n  ngOnInit() {\n  }\n}",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\nimport { SkillsComponent } from '../../components/skills/skills.component';\nimport { MenuItemComponent } from '../../components/menu-item/menu-item.component';\nimport { FontAwesomeModule } from '@fortawesome/angular-fontawesome';\nimport { faGlobe, faBriefcase } from '@fortawesome/free-solid-svg-icons';\nimport { ButtonComponent } from '../../components/button/button.component';\n\n@Component({\n  selector: 'app-home',\n  standalone: true,\n  imports: [CommonModule, HeadingComponent, TaglineComponent, TaglineSmallComponent, ButtonComponent, MenuItemComponent, SkillsComponent, FontAwesomeModule],\n  templateUrl: './home.component.html',\n  styleUrl: './home.component.sass'\n})\nexport class HomeComponent implements OnInit{\n  menuRightItems = [\n    {\n      \"title\": null,\n      \"icon\": \"faGithub\",\n      \"linkPath\": \"/github/\",\n      \"target\": \"_blank\", \n      \"active\": false\n    },{\n      \"title\": null,\n      \"icon\": \"faLinkedin\",\n      \"linkPath\": \"/linkedin/\",\n      \"target\": \"_blank\", \n      \"active\": false\n    },{\n      \"title\": null,\n      \"icon\": \"faEnvelope\",\n      \"linkPath\": \"/contact/\",\n      \"target\": null, \n      \"active\": false\n    }\n  ];\n  faBriefcase = faBriefcase;\n  faGlobe = faGlobe;\n\n  ngOnInit() {\n  }\n}",
             "styleUrl": "./home.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2078,7 +2078,7 @@
                     "type": "component"
                 },
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 },
                 {
@@ -2097,7 +2097,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n// import projectData from '../../../assets/projects.json';\nimport { CardComponent } from '../../components/card/card.component';\nimport { of } from 'rxjs';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TextHeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\nexport interface Card {\n  project_url: string;\n  img_src: string;\n  title: string;\n  content: string;\n}\n\n@Component({\n  selector: 'app-projects',\n  standalone: true,\n  imports: [CommonModule, CardComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent, ProjectsComponent],\n  templateUrl: './projects.component.html',\n  styleUrl: './projects.component.sass'\n})\nexport class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {\n  projectData$: Card[] = [];\n  constructor() {}\n\n  ngOnInit() {\n    let projectData: any[] = []; // temp\n    of(projectData).subscribe(x => {\n      this.projectData$ = x;\n    }); \n  }\n\n  ngAfterViewInit() {}\n\n  ngOnDestroy() {}\n}",
+            "sourceCode": "import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n// import projectData from '../../../assets/projects.json';\nimport { CardComponent } from '../../components/card/card.component';\nimport { of } from 'rxjs';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { HeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\nexport interface Card {\n  project_url: string;\n  img_src: string;\n  title: string;\n  content: string;\n}\n\n@Component({\n  selector: 'app-projects',\n  standalone: true,\n  imports: [CommonModule, CardComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent, ProjectsComponent],\n  templateUrl: './projects.component.html',\n  styleUrl: './projects.component.sass'\n})\nexport class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {\n  projectData$: Card[] = [];\n  constructor() {}\n\n  ngOnInit() {\n    let projectData: any[] = []; // temp\n    of(projectData).subscribe(x => {\n      this.projectData$ = x;\n    }); \n  }\n\n  ngAfterViewInit() {}\n\n  ngOnDestroy() {}\n}",
             "styleUrl": "./projects.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2150,7 +2150,7 @@
                     "type": "component"
                 },
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 },
                 {
@@ -2165,7 +2165,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { TextHeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-research',\n  standalone: true,\n  imports: [BlogPostComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './research.component.html',\n  styleUrl: './research.component.sass'\n})\nexport class ResearchComponent {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { HeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-research',\n  standalone: true,\n  imports: [BlogPostComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './research.component.html',\n  styleUrl: './research.component.sass'\n})\nexport class ResearchComponent {\n\n}\n",
             "styleUrl": "./research.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2201,7 +2201,7 @@
             "standalone": true,
             "imports": [
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 },
                 {
@@ -2232,7 +2232,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { TextHeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { SkillsComponent } from '../../components/skills/skills.component';\nimport { BioComponent } from '../../components/bio/bio.component';\nimport { BlockExperienceComponent } from '../../components/block-experience/block-experience.component';\nimport { BlogComponent } from '../blog/blog.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-resume',\n  standalone: true,\n  imports: [TextHeadingComponent, BioComponent, TaglineComponent, TaglineSmallComponent, SkillsComponent, BlockExperienceComponent, BlogComponent],\n  templateUrl: './resume.component.html',\n  styleUrl: './resume.component.sass'\n})\nexport class ResumeComponent {\n\n}",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { HeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { SkillsComponent } from '../../components/skills/skills.component';\nimport { BioComponent } from '../../components/bio/bio.component';\nimport { BlockExperienceComponent } from '../../components/block-experience/block-experience.component';\nimport { BlogComponent } from '../blog/blog.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-resume',\n  standalone: true,\n  imports: [HeadingComponent, BioComponent, TaglineComponent, TaglineSmallComponent, SkillsComponent, BlockExperienceComponent, BlogComponent],\n  templateUrl: './resume.component.html',\n  styleUrl: './resume.component.sass'\n})\nexport class ResumeComponent {\n\n}",
             "styleUrl": "./resume.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2364,7 +2364,7 @@
                     "type": "component"
                 },
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 },
                 {
@@ -2379,7 +2379,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\nimport { TextHeadingComponent } from '../text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../tagline-small/tagline-small.component';\nimport { TaglineComponent } from '../tagline/tagline.component';\n// import skillsData from '../../../assets/skills.json';\n\ninterface SkillsData {\n  name: string,\n  tag: string\n}\ninterface TagData {\n  name: string\n}\n\n@Component({\n  selector: 'app-skills',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './skills.component.html',\n  styleUrl: './skills.component.sass'\n})\nexport class SkillsComponent {\n  skillsData: any = []; //skillsData; //SkillsData\n  tagData: any =  [\n    \"ALL\",\n    \"Java\",\n    \"Python\",\n    \"C#\",\n    \"C++\",\n    \"JavaScript/UI\",\n    \"Other\",\n    \"QA\",\n    \"CI/CD\",\n    \"Infra / DBs\",\n    \"AI\",\n    \"SDLC/Agile\",\n    \"Leadership\"\n  ];\n  tagChosen = \"ALL\";\n\n  constructor() {}\n\n  setChosenTag(tagClicked: string) {\n    this.tagChosen = tagClicked;\n  }\n\n  hasChosenTag(skill: any): boolean {\n    return skill.tag.includes(this.tagChosen) || this.tagChosen == \"ALL\";\n  }\n}",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\nimport { HeadingComponent } from '../text-heading/text-heading.component';\nimport { TaglineSmallComponent } from '../tagline-small/tagline-small.component';\nimport { TaglineComponent } from '../tagline/tagline.component';\n// import skillsData from '../../../assets/skills.json';\n\ninterface SkillsData {\n  name: string,\n  tag: string\n}\ninterface TagData {\n  name: string\n}\n\n@Component({\n  selector: 'app-skills',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './skills.component.html',\n  styleUrl: './skills.component.sass'\n})\nexport class SkillsComponent {\n  skillsData: any = []; //skillsData; //SkillsData\n  tagData: any =  [\n    \"ALL\",\n    \"Java\",\n    \"Python\",\n    \"C#\",\n    \"C++\",\n    \"JavaScript/UI\",\n    \"Other\",\n    \"QA\",\n    \"CI/CD\",\n    \"Infra / DBs\",\n    \"AI\",\n    \"SDLC/Agile\",\n    \"Leadership\"\n  ];\n  tagChosen = \"ALL\";\n\n  constructor() {}\n\n  setChosenTag(tagClicked: string) {\n    this.tagChosen = tagClicked;\n  }\n\n  hasChosenTag(skill: any): boolean {\n    return skill.tag.includes(this.tagChosen) || this.tagChosen == \"ALL\";\n  }\n}",
             "styleUrl": "./skills.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2563,7 +2563,7 @@
                     "type": "component"
                 },
                 {
-                    "name": "TextHeadingComponent",
+                    "name": "HeadingComponent",
                     "type": "component"
                 },
                 {
@@ -2578,7 +2578,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { TextHeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-tags',\n  standalone: true,\n  imports: [BlogPostComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './tags.component.html',\n  styleUrl: './tags.component.sass'\n})\nexport class TagsComponent {\n\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { BlogPostComponent } from '../../components/blog-post/blog-post.component';\nimport { HeadingComponent } from '../../components/text-heading/text-heading.component';\nimport { TaglineComponent } from '../../components/tagline/tagline.component';\nimport { TaglineSmallComponent } from '../../components/tagline-small/tagline-small.component';\n\n@Component({\n  selector: 'app-tags',\n  standalone: true,\n  imports: [BlogPostComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent],\n  templateUrl: './tags.component.html',\n  styleUrl: './tags.component.sass'\n})\nexport class TagsComponent {\n\n}\n",
             "styleUrl": "./tags.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -2587,8 +2587,8 @@
             "templateData": "<section class=\"relative block px-3 py-6 md:px-0 md:py-20 mx-1 my-1 md:mx-10 md:my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow\">\n\n    <div class=\"relative mx-auto max-w-5xl text-center\">\n        <app-tagline-small taglineText=\"Coming Soon\"></app-tagline-small>\n        <app-text-heading headingText=\"Tags\" alignment=\"center\" mb=\"5\"></app-text-heading>\n        <app-tagline taglineText=\"Click a tag button below\"></app-tagline>\n    </div>\n    \n</section>"
         },
         {
-            "name": "TextHeadingComponent",
-            "id": "component-TextHeadingComponent-8aa2964acb2663a73e2819bc1b008cce4e064e68f4bb63b1d70b49eaa72772c3e372d917289ead1bc80e62dfcfddb0041fa0b3866e6f1b73a02728b5a320ca47",
+            "name": "HeadingComponent",
+            "id": "component-HeadingComponent-8aa2964acb2663a73e2819bc1b008cce4e064e68f4bb63b1d70b49eaa72772c3e372d917289ead1bc80e62dfcfddb0041fa0b3866e6f1b73a02728b5a320ca47",
             "file": "src/app/components/text-heading/text-heading.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2644,7 +2644,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-text-heading',\n  standalone: true,\n  imports: [],\n  templateUrl: './text-heading.component.html',\n  styleUrl: './text-heading.component.sass'\n})\nexport class TextHeadingComponent {\n  @Input() headingText: string = \"\";\n  @Input() alignment: string = \"center\";\n  @Input() mb: string = \"0\";\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-text-heading',\n  standalone: true,\n  imports: [],\n  templateUrl: './text-heading.component.html',\n  styleUrl: './text-heading.component.sass'\n})\nexport class HeadingComponent {\n  @Input() headingText: string = \"\";\n  @Input() alignment: string = \"center\";\n  @Input() mb: string = \"0\";\n}\n",
             "styleUrl": "./text-heading.component.sass",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -3401,7 +3401,7 @@
                 "filePath": "src/app/components/text-heading/text-heading.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "TextHeadingComponent",
+                "name": "HeadingComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
                 "status": "low"

@@ -1,0 +1,47 @@
+<app-heading-block [headingData$]=[headingData$]></app-heading-block>
+
+<section class="relative block px-3 py-6 md:px-8 md:py-7 mx-1 my-1 md:mx-10 md:my-1 rounded-lg border-b border-pink-950 bg-slate-950 shadow text-white">
+
+    <form [formGroup]="newContentForm" (ngSubmit)="addContent()">
+
+        <div class="py-1">
+            <label for="collectionName" class="pb-1">
+            CollectionName
+            </label>&nbsp;
+            <!-- <select name="collectionName" id="collectionName" class="p-3 text-black">
+                <option value="tags">tags</option>
+                <option value="blog_posts">blog_posts</option>
+            </select> -->
+            <input id="collectionName" type="text" formControlName="collectionName" class="p-2 text-black">
+        </div>
+
+        <br>
+
+        <div class="py-1">
+            <label for="encode_key" class="pb-1">
+            encode_key
+            </label>&nbsp;
+            <input id="encode_key" type="text" formControlName="encode_key" class="p-2 text-black">
+            <label for="encode_value" class="pb-1">
+            encode_value
+            </label>&nbsp;
+            <input id="encode_value" type="text" formControlName="encode_value" class="p-2 text-black">
+        </div>
+
+        <br>
+
+        <div class="py-1">
+            <label for="collectionDataJSON" class="pb-1">
+            New Data (JSON)
+            </label>
+            <br>
+            <textarea id="collectionDataJSON" type="text" rows="20" cols="90" formControlName="collectionDataJSON" class="p-2 text-black"></textarea>
+        </div>
+
+        <br>
+        <button class="button" type="submit"><strong>Add data</strong></button>
+        <br>
+
+    </form>
+
+</section>
