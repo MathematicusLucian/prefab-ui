@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { HeadingBlock } from '../../shared/models/heading-block.model';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { AppValues } from '../../core/config/enums';
+import { ENV } from './../../../environments/environment';
 
 @Component({
   selector: 'app-add-page',
@@ -24,6 +25,7 @@ import { AppValues } from '../../core/config/enums';
 })
 export class AddPageComponent {
   appValues = AppValues;
+  mceKey: any = ENV.MCE_KEY;
   mceDataModel: any;
   headingData$: Observable<HeadingBlock> = of({
     headingText: 'Add Page',
@@ -35,32 +37,37 @@ export class AddPageComponent {
   newContentForm = this.formBuilder.group({
     collectionName: '',
     title: '',
-    slug: '',
-    blogType: ''
+    blogType: '',
+    parent_id: '',
+    img_src: ''
   });
   html = '<p>Lorem ipsum</p>';
 
   constructor(
     private siteGraphService: SiteGraphService,
     private formBuilder: FormBuilder
-  ){}
+  ) { }
 
   // handleEvent($event: any) {
   // }
 
   addContent() {
     let contentStr = this.html || "";
+    const collectionName: string = this.newContentForm.value.collectionName || "";
     const title: string = this.newContentForm.value.title || "";
-    const slug: string = this.newContentForm.value.slug || "";
+    const slug: string = this.newContentForm.value.title ? this.newContentForm.value.title?.trim().substring(1,10) : "";
+    const parent_id: string = this.newContentForm.value.parent_id || "";
+    const img_src: string = this.newContentForm.value.img_src || "";
     let contentObj = {
       "content": contentStr,
       "title": title,
       "slug": slug,
+      "parent_id": parent_id,
+      "img_src": img_src,
       "author": 1,
-      "category": 1
+      "readmore_url": "{id}/post/"
     };
-    const collectionNewDataBelongsTo: string = this.newContentForm.value.collectionName || "";
-    this.siteGraphService.addBlockItemToFireBase(collectionNewDataBelongsTo, contentObj);
+    this.siteGraphService.addBlockItemToFireBase(collectionName, contentObj);
     this.newContentForm.reset();
   }
 }
