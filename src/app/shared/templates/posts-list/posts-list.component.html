@@ -1,0 +1,9 @@
+<!-- <p *ngIf="isLoading$ | async; else postlist">Loading...</p> -->
+
+<ng-template #postList>
+  <ul>
+    <!-- <li *ngFor="let post of postlist$ | async">
+      <a [routerLink]="['/post', post.id]">{{ post.name }}</a>
+    </li> -->
+  </ul>
+</ng-template>

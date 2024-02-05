@@ -9,7 +9,6 @@ export const selectBlocks = createFeatureSelector<SiteGraphState>("siteGraph"); 
 export const selectSiteGraph = createSelector( //select siteGraph from core
   selectBlocks,
   (state: SiteGraphState) => {
-    // console.log('x state', state);
     return state.siteGraph;
   }
 );
@@ -18,7 +17,6 @@ export const selectSiteGraph = createSelector( //select siteGraph from core
 //   createSelector(
 //     selectSiteGraph, 
 //     (siteGraph) => {
-//       console.log('x siteGraph', siteGraph);
 //       return siteGraph ? siteGraph.filter((block:any) => block.name === props.name) : []
 //     }
 //   );

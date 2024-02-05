@@ -2,11 +2,12 @@
   "routes": [
     "/contact",
     "/cv",
+    "/editor",
     "/github",
     "/home",
+    "/import",
     "/linkedin",
     "/news",
-    "/post",
     "/projects"
   ]
 }

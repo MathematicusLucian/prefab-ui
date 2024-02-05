@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { APIService } from '../api/api.service';
+import { APIService } from '../../../shared/services/api/api.service';
 import { Store } from '@ngrx/store';
 import { addBlock } from '../../../shared/core-state/actions';
-import { FirebaseService } from '../firebase/firebase.service';
+import { FirebaseService } from '../../../shared/services/firebase/firebase.service';
 import { Observable, of } from 'rxjs';
 import { selectSiteGraph } from '../../../shared/core-state'; //selectBlock
 import { flatMap, mergeMap } from 'rxjs';

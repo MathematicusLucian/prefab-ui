@@ -1,0 +1,22 @@
+<section class="relative block px-6 py-10 md:py-0 md:px-10 mx-10 my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
+
+    <div class="relative lg:flow mx-auto max-w-5xl text-center">
+
+        <div class="mx-auto text-center lg:text-left lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-5 lg:px-10">
+
+            <div class="flex-row lg:w-full max-w-xl lg:max-w-none mx-auto mb-4 lg:px-0 lg:py-0 lg:pt-7 lg:mr-0 items-center justify-center">
+
+                <app-bio-photo class="inline-flex"></app-bio-photo>
+
+            </div>
+
+            <div class="lg:w-full mt-12 sm:mt-16 lg:mt-0 lg:m-0 lg:pb-4 lg:pl-3 lg:relative lg:h-full text-white items-center justify-center">
+            
+                <app-bio-text-block [headingText]="headingText" [postnominals]="postnominals" [elevator]="elevator" [paragraphs$]="paragraphs$"></app-bio-text-block>    
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
