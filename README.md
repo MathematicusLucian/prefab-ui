@@ -66,7 +66,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `docs/` directory.
 
-`` ng build --aot && firebase deploy --only hosting ``
+`` ng build --configuration=production --aot && firebase deploy --only hosting ``
 
 **Running unit tests**
 

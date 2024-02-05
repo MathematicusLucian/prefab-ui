@@ -7,19 +7,18 @@ import { ENV } from './../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class IsAdminGuard implements CanActivate {
-
     canActivate(route: ActivatedRouteSnapshot) {
         window.location.href = route.data['externalUrl'];
         return false;
     }
 }
 
-@Injectable()
-class DevEnvGuard implements CanLoad {
-  constructor() {}
-  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean>|Promise<boolean>|boolean {
-    return !ENV.production; // if prod = false it will load module
-  }
+@Injectable({ providedIn: 'root' })
+export class DevEnvGuard implements CanActivate {
+    // constructor() {}CanActivate {
+    canActivate(route: ActivatedRouteSnapshot) {
+        return !ENV.production; // if prod = false it will load module
+    }
 }
 
 export const APP_ROUTES: Route[] = [
@@ -27,19 +26,19 @@ export const APP_ROUTES: Route[] = [
         path: "import",
         loadComponent: () => 
             import('../../layouts/add-content/add-content.component').then(m => m.AddContentComponent),
-        canLoad: [DevEnvGuard]
+        canActivate: [DevEnvGuard]
     },
     { 
         path: "editor",
         loadComponent: () => 
             import('../../layouts/add-page/add-page.component').then(m => m.AddPageComponent),
-        canLoad: [DevEnvGuard]
+        canActivate: [DevEnvGuard]
     },
     { 
         path: "editor/:id",
         loadComponent: () => 
             import('../../layouts/add-page/add-page.component').then(m => m.AddPageComponent),
-        canLoad: [DevEnvGuard]
+        canActivate: [DevEnvGuard]
     },
     { 
         path: "contact",
