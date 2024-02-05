@@ -36,16 +36,6 @@ export const APP_ROUTES: Route[] = [
     //     canLoad: [DevEnvGuard]
     // },
     { 
-        path: 'news', 
-        loadComponent: () => 
-            import('../../layouts/blog/blog.component').then(m => m.BlogComponent)
-    },
-    { 
-        path: 'post', 
-        loadComponent: () => 
-            import('../../shared/components/blog-post/blog-post.component').then(m => m.BlogPostComponent),
-    },
-    { 
         path: "contact",
         loadComponent: () => 
             import('../../layouts/contact/contact.component').then(m => m.ContactComponent),
@@ -82,6 +72,16 @@ export const APP_ROUTES: Route[] = [
         data: {
             externalUrl: "https://www.linkedin.com/in/lukejones123/"
         }
+    },
+    { 
+        path: 'news', 
+        loadComponent: () => 
+            import('../../layouts/blog/blog.component').then(m => m.BlogComponent)
+    },
+    { 
+        path: 'post', 
+        loadComponent: () => 
+            import('../../shared/components/blog-post/blog-post.component').then(m => m.BlogPostComponent),
     },
     { 
         path: "projects",

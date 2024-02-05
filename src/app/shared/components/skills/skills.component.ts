@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, AfterViewInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppValues } from '../../../core/config/enums';
 import { Observable, of } from 'rxjs';
@@ -23,9 +23,10 @@ interface TagData {
   standalone: true,
   imports: [CommonModule, HeadingBlockComponent, BadgeComponent, TextHeadingComponent, TaglineComponent, TaglineSmallComponent],
   templateUrl: './skills.component.html',
-  styleUrl: './skills.component.sass'
+  styleUrl: './skills.component.sass',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SkillsComponent implements OnInit, OnChanges, OnDestroy {
+export class SkillsComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   @Input() skillsData$: any;
   @Input() skillsCategoriesData$: any;
   appValues = AppValues;
@@ -36,37 +37,18 @@ export class SkillsComponent implements OnInit, OnChanges, OnDestroy {
     alignment: this.appValues.HEADERBLOCK_ALIGNMENT_NONE,
     mb: this.appValues.HEADERBLOCK_MB
   });
-  skills$: any[] = [];
-  skillsCategories$: any[] = []; 
   skillsCategoryChosenID = "ALL";
 
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.skillsData$.subscribe((x: any) => {
-      this.skills$ = x;
-    }); 
-    this.skillsCategoriesData$.subscribe((x: any) => {
-      this.skillsCategories$ = x;
-    }); 
-  }
-  
-  ngOnChanges(): void {
-    // this.skillsData$.subscribe((x: any) => this.skills$.push(x));
-    // this.skillsCategoriesData$.subscribe((x: any) => this.skillsCategories$.push(x));
-  }
+  ngOnInit(): void { }
+  ngAfterViewInit(): void { }
+  ngOnChanges(): void { }
+  ngOnDestroy(): void { }
 
-  ngOnDestroy(): void {
-    // this.skillsData$.unsubscribe();
-    // this.skillsCategoriesData$.unsubscribe();
-  }
-
-  setChosenSkillsCategory(skillsCategoryClickedID: string) {
+  setChosenSkillsCategory = (skillsCategoryClickedID: string) =>
     this.skillsCategoryChosenID = skillsCategoryClickedID;
-  }
 
-  hasChosenSkillsCategory(chosenSkillsParent: any): boolean {
-    return chosenSkillsParent.includes(this.skillsCategoryChosenID) || this.skillsCategoryChosenID == "ALL";
-  }
+  hasChosenSkillsCategory = (chosenSkillsParent: any): boolean =>
+    chosenSkillsParent.includes(this.skillsCategoryChosenID) || this.skillsCategoryChosenID == "ALL";
 }
