@@ -1,3 +1,0 @@
-import './polyfills.server.mjs';
-import{Kb as g,Mb as u,Rb as m,db as s,ja as a,ma as i,qb as l,tb as d,ub as p}from"./chunk-SH2U3B32.mjs";var b=(()=>{let e=class e{constructor(){this.badgeText="",this.bgColor="amber",this.textColor="white"}ngOnInit(){}ngOnChanges(r){}};e.\u0275fac=function(o){return new(o||e)},e.\u0275cmp=a({type:e,selectors:[["app-badge"]],inputs:{badgeText:"badgeText",bgColor:"bgColor",textColor:"textColor"},standalone:!0,features:[i,m],decls:2,vars:7,template:function(o,t){o&1&&(d(0,"span"),g(1),p()),o&2&&(l("bg-",t.bgColor,"-100 text-",t.textColor," text-1xs font-medium px-2.5 py-1.5 rounded dark:bg-",t.bgColor,"-700 dark:text-",t.textColor," cursor-pointer"),s(1),u(" ",t.badgeText,`
-`))}});let n=e;return n})();export{b as a};

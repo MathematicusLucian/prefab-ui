@@ -59,7 +59,8 @@ export const appConfig: ApplicationConfig = {
 				provideFirestore(() => getFirestore()),
 				provideAnalytics(() => getAnalytics()),
 				provideAuth(() => getAuth()),
-			]),
+			]
+		),
 		ScreenTrackingService,
 		UserTrackingService,
 	]

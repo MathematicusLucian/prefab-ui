@@ -9,6 +9,7 @@ import { HeadingComponent } from "../../atoms/text-heading/text-heading.componen
 import { TaglineSmallComponent } from "../../atoms/tagline-small/tagline-small.component";
 import { TaglineComponent } from "../../atoms/tagline/tagline.component";
 import { ActivatedRoute } from "@angular/router";
+import { OrderSortPipe } from "../../pipes/order-sort.pipe";
 
 interface SkillsData {
   name: string,
@@ -19,12 +20,12 @@ interface TagData {
 }
 
 @Component({
-	selector: "app-skills",
-	standalone: true,
-	imports: [CommonModule, HeadingBlockComponent, BadgeComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent],
-	templateUrl: "./skills.component.html",
-	styleUrl: "./skills.component.sass",
-	changeDetection: ChangeDetectionStrategy.OnPush
+    selector: "app-skills",
+    standalone: true,
+    templateUrl: "./skills.component.html",
+    styleUrl: "./skills.component.sass",
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, HeadingBlockComponent, BadgeComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent, OrderSortPipe]
 })
 export class SkillsComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   @Input() skillsData$: any;
@@ -37,12 +38,31 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnChanges, OnDest
   	alignment: this.appValues.HEADERBLOCK_ALIGNMENT_NONE,
   	mb: this.appValues.HEADERBLOCK_MB
   });
+  orderType: string = "asc"; 
+  orderByField: string = "name";
   skillsCategoryChosenID = "ALL";
+  sortByOrder!: OrderSortPipe;
 
-  constructor(private route: ActivatedRoute) { }
+  /**
+   * Inject dependencies
+   * 
+   * @param {ActivatedRoute} route
+   */
+  constructor(
+    private route: ActivatedRoute,
+  ) { 
+    this.sortByOrder = new OrderSortPipe();
+  }
 
   ngOnInit(): void { }
-  ngAfterViewInit(): void { }
+  ngAfterViewInit(): void { 
+    this.skillsCategoriesData$.subscribe((skillsCategories: any[]) => {
+      if(skillsCategories && skillsCategories[0]) {
+        const sorted = this.sortByOrder.transform(skillsCategories, this.orderType, this.orderByField);
+        if(sorted) this.skillsCategoryChosenID = sorted[0].id
+      }
+    });
+  }
   ngOnChanges(): void { }
   ngOnDestroy(): void { }
 

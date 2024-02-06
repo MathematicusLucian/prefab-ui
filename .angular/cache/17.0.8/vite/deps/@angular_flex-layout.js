@@ -1,7 +1,4 @@
 import {
-  coerceBooleanProperty
-} from "./chunk-3GN7MATJ.js";
-import {
   BREAKPOINT,
   BREAKPOINTS,
   BREAKPOINT_PRINT,
@@ -39,6 +36,9 @@ import {
   sortDescendingPriority,
   validateBasis
 } from "./chunk-OPJ3SGY2.js";
+import {
+  coerceBooleanProperty
+} from "./chunk-3GN7MATJ.js";
 import {
   DomSanitizer
 } from "./chunk-TEU7LGEA.js";
