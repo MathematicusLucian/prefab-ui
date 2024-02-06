@@ -1,8 +1,12 @@
 # prefab-ui
 
+Content-builder system (WIP) that powers my portfolio - reusable Angular standalone components; Angular Control Flow; Tailwind CSS; Storybook; for demo purposes, will add NgRx; REST API calls; Firebase Firestore/MongoDB. Potential progression: GraphQL; Kafka; SingleSpa; Module Federation; etc.
+
 ## Example
 
-https://portfolio-mathematicus-lucian.web.app/home
+[https://mathematicuslucian.com/](https://mathematicuslucian.com/)
+
+Also at: [https://portfolio-mathematicus-lucian.web.app](https://portfolio-mathematicus-lucian.web.app)
 
 ## Problem Statement
 
