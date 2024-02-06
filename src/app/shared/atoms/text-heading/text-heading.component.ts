@@ -31,7 +31,6 @@ export class HeadingComponent implements OnInit, OnChanges {
   ngOnChanges(changes: any) {
   	this.headingText = (changes.headingText != undefined) ? changes.headingText.currentValue : this.headingText;
   	this.routerLink = (changes.routerLink != undefined) ? changes.routerLink.currentValue : this.routerLink;
-  	if(changes.routerLink != undefined) console.log("c", this.routerLink, changes.routerLink);
   	const alignment = (changes.alignment != undefined) ? changes.alignment.currentValue : this.alignment;  
   	const mb = (changes.mb != undefined) ? changes.mb.currentValue : this.mb; 
   	const fontWeight = (changes.fontWeight != undefined) ? changes.fontWeight.currentValue : this.fontWeight;

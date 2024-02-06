@@ -7,6 +7,7 @@ describe("MenuItemComponent", () => {
 	let fixture: ComponentFixture<MenuItemComponent>;
 
 	beforeEach(async () => {
+		const a = setup().default();
 		await TestBed.configureTestingModule({
 			imports: [MenuItemComponent]
 		})
@@ -20,4 +21,43 @@ describe("MenuItemComponent", () => {
 	it("should create", () => {
 		expect(component).toBeTruthy();
 	});
+    it('when ngOnChanges is called it should', () => {
+        // arrange
+        const { build } = setup().default();
+        const m = build();
+        // act
+        m.ngOnChanges();
+        // assert
+        // expect(m).toEqual
+    });
+    it('when ngAfterViewInit is called it should', () => {
+        // arrange
+        const { build } = setup().default();
+        const m = build();
+        // act
+        m.ngAfterViewInit();
+        // assert
+        // expect(m).toEqual
+    });
+    it('when setColorScheme is called it should', () => {
+        // arrange
+        const { build } = setup().default();
+        const m = build();
+        // act
+        m.setColorScheme();
+        // assert
+        // expect(m).toEqual
+    });
 });
+
+function setup() {
+    const builder = {
+        default() {
+            return builder;
+        },
+        build() {
+            return new MenuItemComponent();
+        }
+    }
+    return builder;
+}

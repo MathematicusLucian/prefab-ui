@@ -3,17 +3,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
+  <!-- [headerData]="headerData$"  -->
   <app-header [mainMenuData]="mainMenuData$" [linksMenuData]="linksMenuData$"></app-header>
 
-  <!-- [headerData]="headerData$"  -->
-  <section class="p-1 mx-auto bg-gradient-to-r from-rose-700 via-fuchsia-950 to-indigo-950 mix-blend-screen">
-    <router-outlet>
+  <section class="p-1 mx-auto bg-gradient-to-r from-rose-700 via-fuchsia-950 to-indigo-950"> 
+    <router-outlet class="z-29">
       @if (isLoading) {
-<span class="loader">
-        <fa-icon [icon]="faSpinner"></fa-icon>
-      </span>
-}
+        <span class="loader">
+          <fa-icon [icon]="faSpinner"></fa-icon>
+        </span>
+      }
     </router-outlet>
   </section>
 
-  <app-footer [footerData$]="footerData$"></app-footer>
+  <app-footer class="z-29" [footerData$]="footerData$"></app-footer>

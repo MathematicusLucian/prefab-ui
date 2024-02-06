@@ -6,6 +6,7 @@ describe("CardblockComponent", () => {
 	let fixture: ComponentFixture<CardblockComponent>;
 
 	beforeEach(async () => {
+		const a = setup().default();
 		await TestBed.configureTestingModule({
 			imports: [CardblockComponent]
 		})
@@ -19,4 +20,43 @@ describe("CardblockComponent", () => {
 	it("should create", () => {
 		expect(component).toBeTruthy();
 	});
+    it('when ngOnInit is called it should', () => {
+        // arrange
+        const { build } = setup().default();
+        const c = build();
+        // act
+        c.ngOnInit();
+        // assert
+        // expect(c).toEqual
+    });
+    it('when ngAfterViewInit is called it should', () => {
+        // arrange
+        const { build } = setup().default();
+        const c = build();
+        // act
+        c.ngAfterViewInit();
+        // assert
+        // expect(c).toEqual
+    });
+    it('when ngOnDestroy is called it should', () => {
+        // arrange
+        const { build } = setup().default();
+        const c = build();
+        // act
+        c.ngOnDestroy();
+        // assert
+        // expect(c).toEqual
+    });
 });
+
+function setup() {
+    const builder = {
+        default() {
+            return builder;
+        },
+        build() {
+            return new CardblockComponent();
+        }
+    }
+    return builder;
+}

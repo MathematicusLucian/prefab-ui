@@ -1,7 +1,4 @@
 import {
-  NoopAnimationsModule
-} from "./chunk-4TMONEOP.js";
-import {
   BREAKPOINTS,
   CLASS_NAME,
   LAYOUT_CONFIG,
@@ -11,6 +8,9 @@ import {
   StylesheetMap,
   sortAscendingPriority
 } from "./chunk-OPJ3SGY2.js";
+import {
+  NoopAnimationsModule
+} from "./chunk-4TMONEOP.js";
 import {
   BrowserDomAdapter,
   BrowserModule,
@@ -57,8 +57,8 @@ import {
   ɵɵdefineNgModule,
   ɵɵinject
 } from "./chunk-PVIU6L35.js";
-import "./chunk-FQ7W6U4F.js";
 import "./chunk-P3ZF7G4F.js";
+import "./chunk-FQ7W6U4F.js";
 import {
   Subject
 } from "./chunk-N6B2ISGR.js";

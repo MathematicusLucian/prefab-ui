@@ -32,7 +32,6 @@ export class CardComponent implements OnInit, AfterViewInit, OnChanges {
         
   ngOnChanges(changes: any) {
   	this.cardDetails$ = JSON.parse(changes.cardDetails.currentValue);
-  	// console.log('cards', JSON.stringify(this.cardDetails$));
   	this.readmore_url = (this.cardDetails$.readmore_url != null) 
   		? 
   		(this.cardDetails$.readmore_url.substring(0, 4) == "{id}")

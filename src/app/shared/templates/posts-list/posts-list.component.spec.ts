@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { PostsListComponent } from "./posts-list.component";
 
 describe("PostsListComponent", () => {
@@ -7,6 +6,7 @@ describe("PostsListComponent", () => {
 	let fixture: ComponentFixture<PostsListComponent>;
 
 	beforeEach(async () => {
+		const a = setup().default();
 		await TestBed.configureTestingModule({
 			imports: [PostsListComponent]
 		})
@@ -20,4 +20,25 @@ describe("PostsListComponent", () => {
 	it("should create", () => {
 		expect(component).toBeTruthy();
 	});
+    it('when ngOnInit is called it should', () => {
+        // arrange
+        const { build } = setup().default();
+        const p = build();
+        // act
+        p.ngOnInit();
+        // assert
+        // expect(p).toEqual
+    });
 });
+
+function setup() {
+    const builder = {
+        default() {
+            return builder;
+        },
+        build() {
+            return new PostsListComponent();
+        }
+    }
+    return builder;
+}

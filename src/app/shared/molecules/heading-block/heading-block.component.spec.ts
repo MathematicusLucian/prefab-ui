@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { HeadingBlockComponent } from "./heading-block.component";
 
 describe("HeadingBlockComponent", () => {
@@ -7,6 +6,7 @@ describe("HeadingBlockComponent", () => {
 	let fixture: ComponentFixture<HeadingBlockComponent>;
 
 	beforeEach(async () => {
+		const a = setup().default();
 		await TestBed.configureTestingModule({
 			imports: [HeadingBlockComponent]
 		})
@@ -20,4 +20,25 @@ describe("HeadingBlockComponent", () => {
 	it("should create", () => {
 		expect(component).toBeTruthy();
 	});
+    it('when ngOnInit is called it should', () => {
+        // arrange
+        const { build } = setup().default();
+        const h = build();
+        // act
+        h.ngOnInit();
+        // assert
+        // expect(h).toEqual
+    });
 });
+
+function setup() {
+    const builder = {
+        default() {
+            return builder;
+        },
+        build() {
+            return new HeadingBlockComponent();
+        }
+    }
+    return builder;
+}

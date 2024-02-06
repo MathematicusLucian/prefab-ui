@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { FooterComponent } from "./footer.component";
 
 describe("FooterComponent", () => {
@@ -7,6 +6,7 @@ describe("FooterComponent", () => {
 	let fixture: ComponentFixture<FooterComponent>;
 
 	beforeEach(async () => {
+		const a = setup().default();
 		await TestBed.configureTestingModule({
 			imports: [FooterComponent]
 		})
@@ -20,4 +20,25 @@ describe("FooterComponent", () => {
 	it("should create", () => {
 		expect(component).toBeTruthy();
 	});
+    it('when ngOnChanges is called it should', () => {
+        // arrange
+        const { build } = setup().default();
+        const f = build();
+        // act
+        f.ngOnChanges({"test":"test"});
+        // assert
+        // expect(f).toEqual
+    });
 });
+
+function setup() {
+    const builder = {
+        default() {
+            return builder;
+        },
+        build() {
+            return new FooterComponent();
+        }
+    }
+    return builder;
+}
