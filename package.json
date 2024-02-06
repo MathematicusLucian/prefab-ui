@@ -9,6 +9,7 @@
     "lint": "eslint --ext .ts .",
     "lint:fix": "eslint --fix --ext .ts .",
     "test": "ng test",
+    "deploy": "ng build --configuration=production --aot && firebase deploy --only hosting",
     "serve:ssr:personal-porfolio": "node dist/personal-porfolio/server/server.mjs",
     "storybook": "ng run personal-porfolio:storybook",
     "build-storybook": "ng run personal-porfolio:build-storybook"
