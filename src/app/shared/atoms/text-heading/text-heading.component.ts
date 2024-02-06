@@ -1,11 +1,11 @@
-import { CommonModule } from "@angular/common";
+
 import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges } from "@angular/core";
 import { Router } from "@angular/router"; 
 
 @Component({
 	selector: "app-text-heading",
 	standalone: true,
-	imports: [CommonModule], 
+	imports: [], 
 	templateUrl: "./text-heading.component.html",
 	styleUrl: "./text-heading.component.sass",
 	changeDetection: ChangeDetectionStrategy.OnPush

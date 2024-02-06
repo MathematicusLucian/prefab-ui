@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Observable, of, switchMap } from "rxjs";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
+
 import { FormBuilder } from "@angular/forms";
 import { SiteGraphService } from "../../core/services/site-graph/site-graph.service";
 import { HeadingBlockComponent } from "../../shared/molecules/heading-block/heading-block.component";
@@ -13,11 +13,10 @@ import { AppValues } from "../../core/config/enums";
 	selector: "app-add-content",
 	standalone: true,
 	imports: [
-		CommonModule,
-		FormsModule,
-		ReactiveFormsModule,
-		HeadingBlockComponent
-	],
+    FormsModule,
+    ReactiveFormsModule,
+    HeadingBlockComponent
+],
 	templateUrl: "./add-content.component.html",
 	styleUrl: "./add-content.component.sass"
 })

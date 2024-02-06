@@ -2,7 +2,7 @@
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
 import { APIService } from "./shared/services/api/api.service";
 import { RouterLink, RouterOutlet, RouterLinkActive, RouterEvent, NavigationEnd } from "@angular/router";
 import { HeaderComponent } from "./shared/templates/header/header.component";
@@ -30,9 +30,7 @@ interface Item {
 @Component({
 	selector: "app-root",
 	standalone: true,
-	imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, FontAwesomeModule,
-		FlexLayoutModule, FlexLayoutServerModule, HeaderComponent, FooterComponent
-	],
+	imports: [RouterOutlet, RouterLink, RouterLinkActive, FontAwesomeModule, FlexLayoutModule, FlexLayoutServerModule, HeaderComponent, FooterComponent],
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.sass"
 })

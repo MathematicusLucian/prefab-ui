@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FormBuilder } from "@angular/forms";
 import { SiteGraphService } from "../../core/services/site-graph/site-graph.service";
 import { HeadingBlockComponent } from "../../shared/molecules/heading-block/heading-block.component";
-import { CommonModule } from "@angular/common";
+
 import { HeadingBlock } from "../../shared/models/heading-block.model";
 import { EditorModule } from "@tinymce/tinymce-angular";
 import { AppValues } from "../../core/config/enums";
@@ -14,12 +14,11 @@ import { ENV } from "../../../environments/environment";
 	selector: "app-add-page",
 	standalone: true,
 	imports: [
-		CommonModule,
-		FormsModule,
-		ReactiveFormsModule,
-		HeadingBlockComponent,
-		EditorModule
-	],
+    FormsModule,
+    ReactiveFormsModule,
+    HeadingBlockComponent,
+    EditorModule
+],
 	templateUrl: "./add-page.component.html",
 	styleUrl: "./add-page.component.sass"
 })

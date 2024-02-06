@@ -1,4 +1,4 @@
-import { CommonModule } from "@angular/common";
+
 import { Component, Input, OnChanges } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FlexLayoutServerModule } from "@angular/flex-layout/server";
@@ -8,7 +8,7 @@ import { encode, decode } from "html-entities";
 @Component({
 	selector: "app-footer",
 	standalone: true,
-	imports: [CommonModule, FlexLayoutModule, FlexLayoutServerModule],
+	imports: [FlexLayoutModule, FlexLayoutServerModule],
 	templateUrl: "./footer.component.html",
 	styleUrl: "./footer.component.sass"
 })

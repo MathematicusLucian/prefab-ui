@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
 import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { faGithub, faLinkedin, faXTwitter } from "@fortawesome/free-brands-svg-icons";
@@ -16,7 +16,7 @@ export interface MenuItem {
 @Component({
 	selector: "app-menu-item",
 	standalone: true,
-	imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, FontAwesomeModule],
+	imports: [RouterLink, RouterLinkActive, RouterOutlet, FontAwesomeModule],
 	templateUrl: "./menu-item.component.html",
 	styleUrl: "./menu-item.component.sass",
 	changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, OnInit, OnChanges, ViewChild, ViewContainerRef, inject } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
 import { AppValues } from "../../core/config/enums";
 import { HeadingComponent } from "../../shared/atoms/text-heading/text-heading.component";
 import { TaglineComponent } from "../../shared/atoms/tagline/tagline.component";
@@ -17,7 +17,7 @@ import { BehaviorSubject } from "rxjs";
 @Component({
 	selector: "app-home",
 	standalone: true,
-	imports: [CommonModule, HeadingComponent, TaglineComponent, TaglineSmallComponent, ButtonComponent, MenuItemComponent, SkillsComponent, FontAwesomeModule],
+	imports: [HeadingComponent, TaglineComponent, TaglineSmallComponent, ButtonComponent, MenuItemComponent, SkillsComponent, FontAwesomeModule],
 	templateUrl: "./home.component.html",
 	styleUrl: "./home.component.sass",
 	changeDetection: ChangeDetectionStrategy.OnPush
@@ -50,6 +50,9 @@ export class HomeComponent implements OnInit, OnChanges {
   	// this.homeData$ = this.siteGraphService.fetchBlocks(this.blockName);
   	this.linksMenuData = this.siteGraphService.fetchBlocks("menu_links");
   	this.skillsData$ = this.siteGraphService.fetchBlocks("tags");
+    this.skillsData$.subscribe((x: any) => {
+      // console.log('x', x);
+    });
   	this.skillsCategoriesData$ = this.siteGraphService.fetchBlocks("categories");
   	this.renderDynamicComponents(null);
   }

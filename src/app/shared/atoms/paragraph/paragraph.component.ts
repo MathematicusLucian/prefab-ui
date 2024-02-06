@@ -1,10 +1,10 @@
 import { Component, Input } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
 
 @Component({
 	selector: "app-paragraph",
 	standalone: true,
-	imports: [CommonModule],
+	imports: [],
 	templateUrl: "./paragraph.component.html",
 	styleUrl: "./paragraph.component.sass"
 })

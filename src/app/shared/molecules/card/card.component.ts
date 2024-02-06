@@ -1,4 +1,4 @@
-import { CommonModule } from "@angular/common";
+
 import { AfterViewInit, Component, Input, OnChanges, OnInit } from "@angular/core";
 import { ButtonComponent } from "../../atoms/button/button.component";
 import { decode } from "html-entities";
@@ -15,7 +15,7 @@ export interface Card {
 @Component({
 	selector: "app-card",
 	standalone: true,
-	imports: [CommonModule, ButtonComponent, RouterLink],
+	imports: [ButtonComponent, RouterLink],
 	templateUrl: "./card.component.html",
 	styleUrl: "./card.component.sass"
 })

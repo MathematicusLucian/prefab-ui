@@ -6,12 +6,12 @@ import { HeadingBlockComponent } from "../../shared/molecules/heading-block/head
 import { BlogPostComponent } from "../blog-post/blog-post.component";
 import { SiteGraphService } from "../../core/services/site-graph/site-graph.service";
 import { CardblockComponent } from "../../shared/templates/cardblock/cardblock.component";
-import { CommonModule } from "@angular/common";
+
 
 @Component({
 	selector: "app-blog",
 	standalone: true,
-	imports: [CommonModule, HeadingBlockComponent, BlogPostComponent, CardblockComponent],
+	imports: [HeadingBlockComponent, BlogPostComponent, CardblockComponent],
 	templateUrl: "./blog.component.html",
 	styleUrl: "./blog.component.sass"
 })

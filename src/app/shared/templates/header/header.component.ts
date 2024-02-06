@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef, inject } from "@angular/core";
-import { CommonModule, NgComponentOutlet } from "@angular/common";
+import { NgComponentOutlet } from "@angular/common";
 import { MenuBlockComponent } from "../../molecules/menu-block/menu-block.component";
 import { Router, RouterLink } from "@angular/router";
 import { Observable } from "rxjs";
@@ -13,7 +13,7 @@ import { faHamburger } from "@fortawesome/free-solid-svg-icons";
 @Component({
 	selector: "app-header",
 	standalone: true,
-	imports: [CommonModule, NgComponentOutlet, RouterLink, HeadingComponent, ToggleButtonComponent, ContainerComponent, MenuBlockComponent],
+	imports: [NgComponentOutlet, RouterLink, HeadingComponent, ToggleButtonComponent, ContainerComponent, MenuBlockComponent],
 	templateUrl: "./header.component.html",
 	styleUrl: "./header.component.sass",
 	changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
 import { Observable, of, switchMap } from "rxjs";
 import { HeadingBlockComponent } from "../../shared/molecules/heading-block/heading-block.component";
 import { CardblockComponent } from "../../shared/templates/cardblock/cardblock.component";
@@ -12,7 +12,7 @@ import { AppValues } from "../../core/config/enums";
 	templateUrl: "./projects.component.html",
 	styleUrl: "./projects.component.sass",
 	standalone: true,
-	imports: [CommonModule, HeadingBlockComponent, CardblockComponent],
+	imports: [HeadingBlockComponent, CardblockComponent],
 })
 export class ProjectsComponent implements OnInit {
 	appValues = AppValues;

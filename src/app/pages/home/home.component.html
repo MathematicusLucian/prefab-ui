@@ -64,6 +64,8 @@
 
 </div>
 
-<ng-container *ngIf="skillsData$">
+@if (skillsData$) {
+
 	<app-skills [skillsData$]="skillsData$" [skillsCategoriesData$]="skillsCategoriesData$"></app-skills>
-</ng-container>
+
+}

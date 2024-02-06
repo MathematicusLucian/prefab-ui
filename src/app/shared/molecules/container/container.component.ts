@@ -1,12 +1,12 @@
 import { ChangeDetectorRef, Component, ComponentRef, Input, OnInit, AfterViewInit, OnChanges, OnDestroy, ViewChild, ViewContainerRef, inject, ChangeDetectionStrategy, ElementRef } from "@angular/core";
 import { MenuBlockComponent } from "../menu-block/menu-block.component";
-import { CommonModule } from "@angular/common";
+
 import { BehaviorSubject } from "rxjs";
  
 @Component({
 	selector: "app-container",
 	standalone: true,
-	imports: [CommonModule, MenuBlockComponent],
+	imports: [MenuBlockComponent],
 	templateUrl: "./container.component.html",
 	styleUrl: "./container.component.sass",
 	changeDetection: ChangeDetectionStrategy.OnPush
