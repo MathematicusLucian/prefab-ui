@@ -1,8 +1,4 @@
-// // TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 import { Component, OnInit } from "@angular/core";
-
 import { APIService } from "./shared/services/api/api.service";
 import { RouterLink, RouterOutlet, RouterLinkActive, RouterEvent, NavigationEnd } from "@angular/router";
 import { HeaderComponent } from "./shared/templates/header/header.component";

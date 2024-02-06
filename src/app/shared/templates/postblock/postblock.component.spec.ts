@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { PostblockComponent } from "./postblock.component";
 
 describe("PostblockComponent", () => {
@@ -7,6 +6,7 @@ describe("PostblockComponent", () => {
 	let fixture: ComponentFixture<PostblockComponent>;
 
 	beforeEach(async () => {
+		const a = setup().default();
 		await TestBed.configureTestingModule({
 			imports: [PostblockComponent]
 		})
@@ -21,3 +21,15 @@ describe("PostblockComponent", () => {
 		expect(component).toBeTruthy();
 	});
 });
+
+function setup() {
+    const builder = {
+        default() {
+            return builder;
+        },
+        build() {
+            return new PostblockComponent();
+        }
+    }
+    return builder;
+}

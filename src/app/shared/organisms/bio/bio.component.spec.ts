@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { BioComponent } from "./bio.component";
 
 describe("BioComponent", () => {
@@ -7,6 +6,7 @@ describe("BioComponent", () => {
 	let fixture: ComponentFixture<BioComponent>;
 
 	beforeEach(async () => {
+		const a = setup().default();
 		await TestBed.configureTestingModule({
 			imports: [BioComponent]
 		})
@@ -21,3 +21,15 @@ describe("BioComponent", () => {
 		expect(component).toBeTruthy();
 	});
 });
+
+function setup() {
+    const builder = {
+        default() {
+            return builder;
+        },
+        build() {
+            return new BioComponent();
+        }
+    }
+    return builder;
+}

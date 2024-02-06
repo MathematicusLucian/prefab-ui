@@ -1,4 +1,7 @@
 import {
+  coerceBooleanProperty
+} from "./chunk-3GN7MATJ.js";
+import {
   BREAKPOINT,
   BREAKPOINTS,
   BREAKPOINT_PRINT,
@@ -36,9 +39,6 @@ import {
   sortDescendingPriority,
   validateBasis
 } from "./chunk-OPJ3SGY2.js";
-import {
-  coerceBooleanProperty
-} from "./chunk-3GN7MATJ.js";
 import {
   DomSanitizer
 } from "./chunk-TEU7LGEA.js";
@@ -82,8 +82,8 @@ import {
   ɵɵgetInheritedFactory,
   ɵɵinject
 } from "./chunk-PVIU6L35.js";
-import "./chunk-FQ7W6U4F.js";
 import "./chunk-P3ZF7G4F.js";
+import "./chunk-FQ7W6U4F.js";
 import {
   Subject,
   takeUntil

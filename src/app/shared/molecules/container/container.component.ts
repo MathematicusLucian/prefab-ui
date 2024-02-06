@@ -1,6 +1,5 @@
 import { ChangeDetectorRef, Component, ComponentRef, Input, OnInit, AfterViewInit, OnChanges, OnDestroy, ViewChild, ViewContainerRef, inject, ChangeDetectionStrategy, ElementRef } from "@angular/core";
 import { MenuBlockComponent } from "../menu-block/menu-block.component";
-
 import { BehaviorSubject } from "rxjs";
  
 @Component({
@@ -23,7 +22,7 @@ export class ContainerComponent implements OnInit, AfterViewInit, OnChanges, OnD
   	this.isHiddenArray.push(value);
   	const expandableContainerClasses = (this.isHiddenArray[0]==true) ?" hidden md:block " : " w-full max-w-screen-xl md:block md:w-auto pl-0 md:pl-5 mt-0 pt-0 " ;
   	if(this.el) this.el.className = expandableContainerClasses; 
-  	this.ref.detectChanges();
+  	// this.ref.detectChanges();
   }
   get isHidden(): any {
   	return (this.isHiddenArray[0]==true);
@@ -32,7 +31,10 @@ export class ContainerComponent implements OnInit, AfterViewInit, OnChanges, OnD
   @Input() mainMenuData!: any; 
   @Input() linksMenuData!: any;
 
-  constructor(private ref: ChangeDetectorRef, public element: ElementRef){
+  constructor(
+	// private ref: ChangeDetectorRef, 
+	public element: ElementRef
+){
   	this.el = this.element.nativeElement.querySelector("#expandable");
   }
 
