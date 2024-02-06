@@ -1,5 +1,6 @@
 <div class="rounded-lg bg-slate-900 mx-5 my-7 p-8 items-left text-left justify-left shadow">
-    <ng-container *ngIf="postDetails">
+    @if (postDetails) {
+
 
         <h1 class="font-semibold text-5xl text-center text-stone-300 leading-relaxed tracking-wide">{{ postDetails.title }}</h1>
 
@@ -17,5 +18,6 @@
             [innerHtml]="decode(postDetails.content)">
         </p>
 
-    </ng-container>
+    
+}
 </div>

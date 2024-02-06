@@ -8,9 +8,11 @@
   <!-- [headerData]="headerData$"  -->
   <section class="p-1 mx-auto bg-gradient-to-r from-rose-700 via-fuchsia-950 to-indigo-950 mix-blend-screen">
     <router-outlet>
-      <span class="loader" *ngIf="isLoading">
+      @if (isLoading) {
+<span class="loader">
         <fa-icon [icon]="faSpinner"></fa-icon>
       </span>
+}
     </router-outlet>
   </section>
 

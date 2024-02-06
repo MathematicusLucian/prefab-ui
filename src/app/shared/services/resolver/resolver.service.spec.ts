@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { ResolverService } from './resolver.service';
+import { ResolverService } from "./resolver.service";
 
-describe('ResolverService', () => {
-  let service: ResolverService;
+describe("ResolverService", () => {
+	let service: ResolverService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ResolverService);
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({});
+		service = TestBed.inject(ResolverService);
+	});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+	it("should be created", () => {
+		expect(service).toBeTruthy();
+	});
 });

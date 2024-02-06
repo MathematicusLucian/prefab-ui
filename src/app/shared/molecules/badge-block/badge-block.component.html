@@ -1,5 +1,7 @@
 <div class="justify-center items-center text-center space-x-4">
-    <ng-container *ngFor="let badgeText of badges.tags">
+    @for (badgeText of badges.tags; track badgeText) {
+
         <app-badge badgeText={{badgeText}} bgColor={{badges.bgColor}} textColor={{badges.textColor}}></app-badge>
-    </ng-container>
+    
+}
 </div>

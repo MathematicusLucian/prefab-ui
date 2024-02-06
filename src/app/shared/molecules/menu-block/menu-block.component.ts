@@ -1,19 +1,19 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ComponentRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, ViewChild, ViewContainerRef, inject, ChangeDetectionStrategy } from '@angular/core';
-import { MenuItemComponent } from '../../atoms/menu-item/menu-item.component';
-import { CommonModule } from '@angular/common';
-import { of } from 'rxjs';
+import { AfterViewInit, ChangeDetectorRef, Component, ComponentRef, Input, OnInit, OnChanges, OnDestroy, SimpleChanges, ViewChild, ViewContainerRef, inject, ChangeDetectionStrategy } from "@angular/core";
+import { MenuItemComponent } from "../../atoms/menu-item/menu-item.component";
+import { CommonModule } from "@angular/common";
+import { of } from "rxjs";
 
 @Component({
-  selector: 'app-menu-block',
-  standalone: true,
-  imports: [CommonModule, MenuItemComponent],
-  templateUrl: './menu-block.component.html',
-  styleUrl: './menu-block.component.sass',
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: "app-menu-block",
+	standalone: true,
+	imports: [CommonModule, MenuItemComponent],
+	templateUrl: "./menu-block.component.html",
+	styleUrl: "./menu-block.component.sass",
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuBlockComponent implements OnInit, OnChanges {
-  @ViewChild('vcr', { static: true, read: ViewContainerRef })
-  vcr!: ViewContainerRef;
+  @ViewChild("vcr", { static: true, read: ViewContainerRef })
+  	vcr!: ViewContainerRef;
   componentFactoryItems: ComponentRef<MenuItemComponent>[] = [];
   cdr = inject(ChangeDetectorRef);
   @Input() menuData$!: any;
@@ -33,39 +33,39 @@ export class MenuBlockComponent implements OnInit, OnChanges {
   }
 
   renderDynamicComponents(components?: any) {
-    this.vcr.clear();
+  	this.vcr.clear();
 
-    components.forEach((element: any) => {
-      const componentFactoryItem = this.vcr.createComponent(MenuItemComponent);
-      componentFactoryItem.instance.menuItem = element;
-      componentFactoryItem.instance.colorScheme = this.colorScheme;
-      this.componentFactoryItems.push(componentFactoryItem);
-    });
+  	components.forEach((element: any) => {
+  		const componentFactoryItem = this.vcr.createComponent(MenuItemComponent);
+  		componentFactoryItem.instance.menuItem = element;
+  		componentFactoryItem.instance.colorScheme = this.colorScheme;
+  		this.componentFactoryItems.push(componentFactoryItem);
+  	});
 
-    this.cdr.detectChanges();
+  	this.cdr.detectChanges();
   }
 
   ngAfterViewInit() {
-    this.menuData$.subscribe((x: any) => {
-      if(x.length>0) {
-        let clone = JSON.parse(JSON.stringify(x));
-        if (this.isRightLeaning == "true") {
-          clone.sort((a:any, b:any) => a.order - b.order);
-        }
-        (this.isRightLeaning == "true")
-        ? this.menuItemCSS = this.menuItemCSSGeneral + this.menuItemCSSRight
-        : this.menuItemCSS = this.menuItemCSSGeneral + this.menuItemCSSCenter;
-        this.renderDynamicComponents(clone);
-      }
-    });
+  	this.menuData$.subscribe((x: any) => {
+  		if(x.length>0) {
+  			const clone = JSON.parse(JSON.stringify(x));
+  			if (this.isRightLeaning == "true") {
+  				clone.sort((a:any, b:any) => a.order - b.order);
+  			}
+  			(this.isRightLeaning == "true")
+  				? this.menuItemCSS = this.menuItemCSSGeneral + this.menuItemCSSRight
+  				: this.menuItemCSS = this.menuItemCSSGeneral + this.menuItemCSSCenter;
+  			this.renderDynamicComponents(clone);
+  		}
+  	});
   }
 
   ngOnDestroy(): void {
-    for (const componentFactoryItem of this.componentFactoryItems) {
-      if (componentFactoryItem) {
-        componentFactoryItem.destroy();
-      }
-    }
+  	for (const componentFactoryItem of this.componentFactoryItems) {
+  		if (componentFactoryItem) {
+  			componentFactoryItem.destroy();
+  		}
+  	}
   }
 
 }

@@ -12,14 +12,20 @@
 
 <section class="relative block px-6 py-10 md:px-0 md:py-20 mx-10 my-0 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
 
-    <div *ngIf="resumeItems$" class="pt-16 pb-4 flex flex-row flex-wrap items-center justify-center">
-        <ng-container *ngFor="let rI of resumeItems$">
+    @if (resumeItems$) {
+<div class="pt-16 pb-4 flex flex-row flex-wrap items-center justify-center">
+        @for (rI of resumeItems$; track rI) {
+
             <app-block-experience [experienceItemDetails]=[rI]></app-block-experience>
-        </ng-container>
+        
+}
     </div>
+}
     
 </section>
 
-<ng-container *ngIf="skillsData$">
+@if (skillsData$) {
+
 	<app-skills [skillsData$]="skillsData$" [skillsCategoriesData$]="skillsCategoriesData$"></app-skills>
-</ng-container>
+
+}

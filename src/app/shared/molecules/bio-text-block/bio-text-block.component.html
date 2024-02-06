@@ -6,8 +6,10 @@
    
     <p class="mt-4 mb-5 text-sm text-slate-100">{{ elevator }}</p> 
   
-    <ng-container *ngFor="let paragraph of paragraphs$ | async">
+    @for (paragraph of paragraphs$ | async; track paragraph) {
+
         <app-paragraph title="{{ paragraph.title }}" body="{{ paragraph.body }}"></app-paragraph>
-    </ng-container>
+    
+}
 
 </div>
