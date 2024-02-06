@@ -1,11 +1,11 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-badge',
-  standalone: true,
-  imports: [],
-  templateUrl: './badge.component.html',
-  styleUrl: './badge.component.sass'
+	selector: "app-badge",
+	standalone: true,
+	imports: [],
+	templateUrl: "./badge.component.html",
+	styleUrl: "./badge.component.sass"
 })
 export class BadgeComponent implements OnInit, OnChanges {
   @Input() badgeText: string = "";

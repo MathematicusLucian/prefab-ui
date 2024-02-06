@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { BioPhotoComponent } from './bio-photo.component';
+import { BioPhotoComponent } from "./bio-photo.component";
 
-describe('BioPhotoComponent', () => {
-  let component: BioPhotoComponent;
-  let fixture: ComponentFixture<BioPhotoComponent>;
+describe("BioPhotoComponent", () => {
+	let component: BioPhotoComponent;
+	let fixture: ComponentFixture<BioPhotoComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [BioPhotoComponent]
-    })
-    .compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [BioPhotoComponent]
+		})
+			.compileComponents();
     
-    fixture = TestBed.createComponent(BioPhotoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(BioPhotoComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it("should create", () => {
+		expect(component).toBeTruthy();
+	});
 });

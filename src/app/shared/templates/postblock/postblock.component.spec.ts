@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PostblockComponent } from './postblock.component';
+import { PostblockComponent } from "./postblock.component";
 
-describe('PostblockComponent', () => {
-  let component: PostblockComponent;
-  let fixture: ComponentFixture<PostblockComponent>;
+describe("PostblockComponent", () => {
+	let component: PostblockComponent;
+	let fixture: ComponentFixture<PostblockComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [PostblockComponent]
-    })
-    .compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [PostblockComponent]
+		})
+			.compileComponents();
     
-    fixture = TestBed.createComponent(PostblockComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(PostblockComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it("should create", () => {
+		expect(component).toBeTruthy();
+	});
 });

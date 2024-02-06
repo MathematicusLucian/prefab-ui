@@ -6,5 +6,5 @@ export interface SiteGraphState {
 }
 
 export const initialState: SiteGraphState = {
-  siteGraph: [],
+	siteGraph: [],
 };

@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CardComponent } from '../../molecules/card/card.component';
+import { Component, OnInit, AfterViewInit, OnDestroy, Input } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { CardComponent } from "../../molecules/card/card.component";
 
 export interface Card {
   project_url: string;
@@ -10,11 +10,11 @@ export interface Card {
 }
 
 @Component({
-  selector: 'cardblock',
-  standalone: true,
-  imports: [CommonModule, CardComponent, CardblockComponent],
-  templateUrl: './cardblock.component.html',
-  styleUrl: './cardblock.component.sass'
+	selector: "cardblock",
+	standalone: true,
+	imports: [CommonModule, CardComponent, CardblockComponent],
+	templateUrl: "./cardblock.component.html",
+	styleUrl: "./cardblock.component.sass"
 })
 export class CardblockComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() data$: any;
@@ -23,9 +23,9 @@ export class CardblockComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor() {}
 
   ngOnInit() {
-    this.data$.subscribe((x: any) => {
-      this.cardblockData$ = x;
-    }); 
+  	this.data$.subscribe((x: any) => {
+  		this.cardblockData$ = x;
+  	}); 
   }
 
   ngAfterViewInit() {}
