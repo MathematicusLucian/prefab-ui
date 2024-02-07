@@ -7,6 +7,6 @@ import { assetUrl } from 'src/single-spa/asset-url';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Blog';
+  title = 'Home';
   yoshiUrl = './../assets/yoshi.png';
 }

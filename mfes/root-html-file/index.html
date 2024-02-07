@@ -11,13 +11,13 @@
       {
         "imports": {
           "prefab-home": "http://localhost:4201/main.js",
-          "prefab-resume": "http://localhost:53224/main.js",
-          "prefab-navbar": "http://localhost:53237/main.js",
           "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js",
           "single-spa-layout": "https://unpkg.com/single-spa-layout@1.0.0-beta.2/dist/system/single-spa-layout.min.js"
         }
       }
     </script>
+    <!-- "prefab-resume": "http://localhost:53224/main.js",
+    "prefab-navbar": "http://localhost:53237/main.js", -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js" as="script" crossorigin="anonymous" />
     <script src='https://unpkg.com/core-js-bundle@3.1.4/minified.js'></script>
     <script src="https://unpkg.com/zone.js@0.10.3/dist/zone.js"></script>
@@ -28,13 +28,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.0.0/extras/named-register.min.js"></script>
     <template id="single-spa-layout">
       <single-spa-router>
-        <nav class="topnav">
+        <!-- <nav class="topnav">
           <application name="prefab-navbar"></application>
-        </nav>
+        </nav> -->
         <div class="main-content">
-          <route path="prefab-resume">
-            <application name="prefab-resume"></application> <!-- loader="spaLoader" -->
-          </route>
+          <!-- <route path="prefab-blog">
+            <application name="prefab-blog"></application>
+          </route> -->
+          <!-- <route path="prefab-resume">
+            <application name="prefab-resume"></application>
+          </route> -->
           <route default> 
             <!-- Routes here include post, post-list, categories, etc. -->
             <!-- Tags MFE will be shared across MFEs, to insert in both the home, and resumes page.
@@ -46,9 +49,6 @@
           <route path="prefab-contact">
             <application name="prefab-contact"></application>
           </route>  
-          <route path="prefab-home">
-            <application name="prefab-home"></application>
-          </route>
           -->
         </div>
         <!-- <footer class="topnav">
@@ -91,6 +91,6 @@
         start();
       });
     </script>
-    <import-map-overrides-full></import-map-overrides-full>
+    <!-- <import-map-overrides-full></import-map-overrides-full> -->
   </body>
 </html>
