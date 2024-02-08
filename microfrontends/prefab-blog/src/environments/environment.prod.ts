@@ -1,8 +1,9 @@
 import { firebaseConfig } from "./firebase_config";
+import { tinymceConfig } from "./tinymce_config";
 
 export const ENV = {
 	name: "PROD",
 	production: true,
 	firebase: firebaseConfig,
-	MCE_KEY: "r9m1smx5dmdq0ysre7tgapvj48cf1ramhid1uo09t7bi3qyw"
+	MCE_KEY: tinymceConfig
 };

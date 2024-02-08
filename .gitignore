@@ -4,6 +4,8 @@ CNAME
 */.firebase
 firebase_config.ts
 */firebase_config.ts
+tinymce_config.ts
+*/tinymce_config.ts
 .angular/cache 
 */.angular/cache
 */angular/

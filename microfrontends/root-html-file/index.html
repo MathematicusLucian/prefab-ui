@@ -10,7 +10,7 @@
     <script type="systemjs-importmap">
       {
         "imports": {
-          "prefab-home": "http://localhost:49338/main.js",
+          "prefab-blog": "http://localhost:54235/main.js",
           "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js",
           "single-spa-layout": "https://unpkg.com/single-spa-layout@1.0.0-beta.2/dist/system/single-spa-layout.min.js"
         }
@@ -43,7 +43,8 @@
             <!-- Tags MFE will be shared across MFEs, to insert in both the home, and resumes page.
             The Blog MFE presents all posts that have a tag. 
             The Tags MFE presents the tags (which will need a prop to set link type for tags, i.e. to 'post') -->
-            <application name="prefab-home"></application> <!-- loader="spaLoader" props="id" -->
+            <!-- <application name="prefab-home"></application> loader="spaLoader" props="id" -->
+            <application name="prefab-blog"></application>
           </route>
           <!-- 
           <route path="prefab-contact">
