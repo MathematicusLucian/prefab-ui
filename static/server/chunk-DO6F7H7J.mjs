@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-var a={apiKey:"AIzaSyDFpJEelPucI-hXB_Eh4n9lsCnjqKdBeGQ",authDomain:"portfolio-mathematicus-lucian.firebaseapp.com",projectId:"portfolio-mathematicus-lucian",storageBucket:"portfolio-mathematicus-lucian.appspot.com",messagingSenderId:"188070869103",appId:"1:188070869103:web:428842c0a55a377292359a",measurementId:"G-MCJ5070GFT"};var t={name:"PROD",production:!0,firebase:a,MCE_KEY:"r9m1smx5dmdq0ysre7tgapvj48cf1ramhid1uo09t7bi3qyw"};export{t as a};
