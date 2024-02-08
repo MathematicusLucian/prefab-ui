@@ -16,8 +16,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "paths": {
-      "prefab-ui": [
-        "./dist/prefab-ui"
+      "prefab-dashboard-ui": [
+        "./dist/prefab-dashboard-ui"
+      ],
+      "prefab-common-ui": [
+        "./dist/prefab-common-ui"
       ]
     },
     "importHelpers": true,

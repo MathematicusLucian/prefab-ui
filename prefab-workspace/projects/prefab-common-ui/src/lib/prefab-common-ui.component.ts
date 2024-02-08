@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'prefab-ui-prefab-ui',
+  selector: 'prefab-common-ui',
   standalone: true,
   imports: [],
   template: `
     <p>
-      prefab-ui works!
+      prefab-common-ui works!
     </p>
   `,
   styles: ``
 })
-export class PrefabUiComponent {
+export class PrefabCommonUiComponent {
 
 }

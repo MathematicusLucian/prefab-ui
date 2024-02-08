@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrefabUiComponent } from './prefab-ui.component';
+import { PrefabCommonUiComponent } from './prefab-common-ui.component';
 
-describe('PrefabUiComponent', () => {
-  let component: PrefabUiComponent;
-  let fixture: ComponentFixture<PrefabUiComponent>;
+describe('PrefabCommonUiComponent', () => {
+  let component: PrefabCommonUiComponent;
+  let fixture: ComponentFixture<PrefabCommonUiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrefabUiComponent]
+      imports: [PrefabCommonUiComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PrefabUiComponent);
+    fixture = TestBed.createComponent(PrefabCommonUiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

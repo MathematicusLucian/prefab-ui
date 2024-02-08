@@ -1,5 +1,5 @@
 {
-  "name": "prefab-ui",
+  "name": "prefab-dashboard-ui",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^17.1.0",

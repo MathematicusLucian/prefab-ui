@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PrefabUiService } from './prefab-ui.service';
+import { PrefabCommonUiService } from './prefab-common-ui.service';
 
 describe('PrefabUiService', () => {
-  let service: PrefabUiService;
+  let service: PrefabCommonUiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PrefabUiService);
+    service = TestBed.inject(PrefabCommonUiService);
   });
 
   it('should be created', () => {
