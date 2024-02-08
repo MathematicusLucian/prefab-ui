@@ -1,8 +1,13 @@
+.DS_Store
 CNAME 
 firebase_config.ts
 .angular/cache 
 */.angular/cache
 */angular/
+firebase_config.ts
+*/firebase_config.ts
+tinymce_config.ts
+*/tinymce_config.ts
 
 # Logs
 logs
