@@ -1,0 +1,16 @@
+{
+    "dataSourceType": "firebase",
+    "dataPipelineUrl": "http://0.0.0.0:80",
+    "dataPaths": [
+      {"blockType": "footer", "name": "footer", "collectionName": "footer"},
+      {"blockType": "resume_item", "name": "resume_item", "collectionName": "resume_item"},
+      {"blockType": "menu", "name": "menu_main", "collectionName": "menu_items", "parent_id": "Athy4mCpsIMnIy0wZkAt"},
+      {"blockType": "menu", "name": "menu_links", "collectionName": "menu_items", "parent_id": "dk5rpiWtW6DVqjtrWZy2"},
+      {"blockType": "tags", "name": "tags", "collectionName": "tags", "parent_grouping_id": "v9CDPt27ghAkyWlOxElD"},
+      {"blockType": "categories", "name": "categories", "collectionName": "categories", "parent_id": "v9CDPt27ghAkyWlOxElD"},
+      {"blockType": "page", "name": "news", "collectionName": "blog_posts", "parent_id": "sUrZVZv9U6XzjE4DOyHR"},
+      {"blockType": "page", "name": "projects", "collectionName": "blog_posts", "parent_id": "ZuiS8o4wVmwyhs5WhaKS"},
+      {"blockType": "page", "name": "home", "collectionName": "pages", "page_name": "home"}
+    ],
+    "experimentalForceLongPolling": true
+}

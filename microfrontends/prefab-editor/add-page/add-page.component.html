@@ -1,0 +1,63 @@
+<app-heading-block [headingData$]=[headingData$]></app-heading-block>
+
+<section class="overflow-x-hidden relative block px-3 py-6 md:px-8 md:py-7 mx-1 my-1 md:mx-10 md:my-1 rounded-lg border-b border-pink-950 bg-slate-950 shadow text-white">
+
+    <form [formGroup]="newContentForm" (ngSubmit)="addContent()" class="flex flex-wrap">
+
+        <div class="py-2 pr-6">
+            <label for="title" class="pb-1 pr-2">
+            title
+            </label>&nbsp;
+            <input id="title" size="124" type="text" formControlName="title" class="p-3 text-black">
+        </div>
+
+        <div class="py-2 pr-6">
+            <label for="img_src" class="pb-1 pr-2">
+            img_src
+            </label>&nbsp;
+            <input id="img_src" type="text" formControlName="img_src" class="p-3 text-black">
+        </div>
+
+        <div class="py-2 pr-6">
+            <label for="collectionName" class="pb-1 pr-2">
+            collectionName
+            </label>&nbsp;
+            <select name="collectionName" id="collectionName" class="p-3 text-black">
+                <option value="blog_posts">blog_posts</option>
+            </select>
+        </div>
+
+        <div class="py-2 pr-6">
+            <label for="parent_id" class="pb-1 pr-2">
+            blogType
+            </label>&nbsp;
+            <select name="parent_id" id="parent_id" class="p-3 text-black">
+                <option value="sUrZVZv9U6XzjE4DOyHR">News</option>
+                <option value="ZuiS8o4wVmwyhs5WhaKS">Projects</option>
+                <option value="LKA3NV9E6ThrCyVP401y">Research</option>
+                <option value="ibCZoMJKZLhmcXHdTqWn">Course 1</option>
+                <option value="VdWI2beGV1c3tbUzuqwh">Course 2</option>
+            </select>
+        </div>
+
+        <button class="button pl-3" type="submit"><strong>Add data</strong></button>
+
+    </form>
+  
+    <editor
+        apiKey={{mceKey}}
+        (onSaveContent)="addContent()"
+        [(ngModel)]="html"
+        [init]="{
+            height: 800,
+            menubar: false,
+            file_picker_types: 'file image media'
+        }"
+        initialValue=""
+        [inline]="false"
+        plugins="advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount"
+        tagName="div"
+        toolbar="undo redo | image lists charmap visualblocks media table | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | code">
+    </editor>
+
+</section>

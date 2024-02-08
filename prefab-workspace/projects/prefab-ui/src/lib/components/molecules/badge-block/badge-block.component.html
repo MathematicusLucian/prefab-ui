@@ -1,0 +1,7 @@
+<div class="justify-center items-center text-center space-x-4">
+    @for (badgeText of badges.tags; track badgeText) {
+
+        <app-badge badgeText={{badgeText}} bgColor={{badges.bgColor}} textColor={{badges.textColor}}></app-badge>
+    
+}
+</div>

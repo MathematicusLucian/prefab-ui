@@ -1,5 +1,12 @@
+.DS_Store
 CNAME 
-firebase
+.firebase
+*/.firebase
+firebase_config.ts
+*/firebase_config.ts
+.angular/cache 
+*/.angular/cache
+*/angular/
 
 # Logs
 logs
@@ -137,3 +144,9 @@ dist
 
 # Storybook
 storybook-static/
+# Firebase
+.firebase
+*/.firebase
+.angular
+*-debug.log
+.runtimeconfig.json

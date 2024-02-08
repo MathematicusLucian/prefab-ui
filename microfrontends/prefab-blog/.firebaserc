@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "portfolio-mathematicus-lucian"
+  },
+  "targets": {
+    "portfolio-mathematicus-lucian": {
+      "hosting": {
+        "personal-porfolio": [
+          "portfolio-mathematicus-lucian"
+        ]
+      }
+    }
+  }
+}
