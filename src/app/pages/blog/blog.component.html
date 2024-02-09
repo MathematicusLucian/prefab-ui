@@ -1,9 +1,7 @@
 <app-heading-block [headingData$]=[headingData$]></app-heading-block>
 
-<section class="relative block px-1 md:px-0 py-1 md:py-2 mx-1 md:mx-10 my-1 mrounded-lg border-b border-pink-950 bg-slate-950 shadow">
-
+<section class="relative block px-1 md:px-0 py-1 md:py-2 mx-1 md:mx-10 my-0 mrounded-lg border-b border-pink-950 bg-slate-950 shadow">
     @if (blogData$) {
       <cardblock [data$]="blogData$"></cardblock>
     }
-  
 </section>

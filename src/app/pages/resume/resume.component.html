@@ -1,23 +1,21 @@
 <app-heading-block [headingData$]=[headingData$]></app-heading-block>
 
-<section class="relative block mx-1 my-1 md:mx-10 md:my-0 p-0 m-0 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
-    <p class="mb-0 mt-0 font-semibold text-base text-white text-center">
+<section class="relative block rounded-lg border-b border-pink-950 bg-slate-950 shadow">
+    <p class="font-semibold text-base text-white text-center">
         <a rel="noopener" href="https://www.linkedin.com/in/lukejones123/" target="_blank">
-            Please see LinkedIn profile <fa-icon [icon]="faLinkedin" class="w-6 ml-2 mt-2 fa-lg text-amber-400"></fa-icon>
+            Please see LinkedIn profile <fa-icon [icon]="faLinkedin" class="w-6 mt-2 fa-lg text-amber-400"></fa-icon>
         </a>
     </p>
 </section>
 
 <app-bio></app-bio>
 
-<section class="relative block flex flex-row flex-wrap rounded-lg border-b border-pink-950 bg-slate-950 shadow px-0 md:px-2 py-0 md:py-3 mx-2 my-2 items-center justify-center">
-
+<section class="relative block flex flex-row flex-wrap rounded-lg border-b border-pink-950 bg-slate-950 shadow px-0 md:px-2 py-2 md:py-3 mx-0 md:mx-10 my-1 items-center justify-center">
     @if (resumeItems$) {
         @for (resumeItem of resumeItems$; track resumeItem) {
             <app-block-experience [experienceItemDetails]=[resumeItem] class="block"></app-block-experience>        
         }
     }
-    
 </section>
 
 @if (skillsData$) {

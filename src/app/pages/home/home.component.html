@@ -1,6 +1,6 @@
-<div class="max-w-4xl flex items-center h-auto flex-wrap mx-auto my-0 lg:my-28">
+<div class="max-w-4xl flex items-center h-auto flex-wrap mx-auto mt-1 md:mt-5 md:mb-6">
     
-	<div id="profile" class="w-full lg:w-3/5 mb-6 mt-5 lg:mx-0 mb-0 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
+	<div id="profile" class="w-full lg:w-3/5 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
 	
 		<div class="p-4 md:p-12 text-center lg:text-left">
 
@@ -8,7 +8,10 @@
 			<div class="mobile-view block lg:hidden rounded-full shadow-xl mx-auto mt-6 mb-6 h-48 w-48 bg-cover bg-center"></div>	
 
             <app-tagline-small [taglineText]=[appValues.PORTFOLIO_TAGLINE]></app-tagline-small>
-            <app-text-heading headingText="{{ appValues.PORTFOLIO_OWNER }}" textSize="35" alignment="center" mb="1"></app-text-heading>
+            <app-text-heading 
+				headingText="{{ appValues.PORTFOLIO_OWNER }}" 
+				textSize="35" alignment="center" mb="1"
+			></app-text-heading>
             <app-tagline [taglineText]=[appValues.PORTFOLIO_OWNER_POSTNOMINALS]></app-tagline>
 
 			<p class="pt-1 pb-1 text-sm md:text-sm text-gray-300 font-bold text-center">
@@ -65,7 +68,5 @@
 </div>
 
 @if (skillsData$) {
-
 	<app-skills [skillsData$]="skillsData$" [skillsCategoriesData$]="skillsCategoriesData$"></app-skills>
-
 }

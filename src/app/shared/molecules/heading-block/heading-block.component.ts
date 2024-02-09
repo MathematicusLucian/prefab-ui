@@ -15,6 +15,7 @@ import { TaglineSmallComponent } from "../../atoms/tagline-small/tagline-small.c
 export class HeadingBlockComponent implements OnInit {
   @Input() headingData$: any = "";
   headingText: string = "";
+  header: string = "false";
   taglineText: string = "";
   taglineSmallText: string = "";
   alignment: string = "";
@@ -27,8 +28,9 @@ export class HeadingBlockComponent implements OnInit {
   	this.headingData$.map((x:any) => {
   		x.subscribe((y:any) => {
   			this.headingText = y.headingText;
+  			this.header = (y.header) ? y.header : "false";
   			this.taglineText = y.taglineText;
-  			this.taglineSmallText = y.taglineSmallText;
+  			this.taglineSmallText = (y.taglineSmallText) ? y.taglineSmallText : "28";
   			this.alignment = y.alignment;
   			this.fontWeight = y.fontWeight;
   			this.mb = y.mb;

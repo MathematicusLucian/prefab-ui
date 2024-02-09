@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
 })
 export class HeadingComponent implements OnInit, OnChanges {
   @Input() headingText: any = "empty";
-  @Input() header: string = "n"; 
+  @Input() header: any = "false"; 
   @Input() alignment: string = "center";
   @Input() mb: string = "0"; 
   @Input() routerLink: string = "";
@@ -20,7 +20,7 @@ export class HeadingComponent implements OnInit, OnChanges {
   @Input() fontWeight: string = "semibold";
   textSizeSet!: any;
   @Input() set textSize (size: any) {
-  	this.textSizeSet = size|15;
+  	this.textSizeSet = size!=undefined ? size : "28";
   }
   mainCSS!: string;
   mainStyle!: string;
@@ -36,15 +36,15 @@ export class HeadingComponent implements OnInit, OnChanges {
   	const mb = (changes.mb != undefined) ? changes.mb.currentValue : this.mb; 
   	const fontWeight = (changes.fontWeight != undefined) ? changes.fontWeight.currentValue : this.fontWeight;
   	const textColor = (changes.textColor != undefined) ? changes.textColor.currentValue : this.textColor;
-  	const textSize = (changes.textSize != undefined) ? changes.textSize.currentValue : this.textSize;
+  	const textSize = (changes.textSize != undefined) ? changes.textSize.currentValue : "28";
     // const textSizeMobile = 10; // (textSize != undefined ) ? Math.round(this.textSize / 2) : 9;
-    const header = (changes.header != undefined) ? changes.header.currentValue : this.header;
-  	this.mainCSS = "mb-" + mb + " font-" + fontWeight + " block text-" + textColor + " tracking-narrow md:text-" + this.textSizeSet + " md:text-" + alignment + " "  + header + " " + this.isHover(); 
+    const header = (changes.header != undefined && changes.header.currentValue == "true") ? "y" : this.header;
+  	this.mainCSS = "mb-" + mb + " font-" + fontWeight + " block text-" + textColor + " tracking-narrow md:text-" + alignment + " " + this.isHover() + " "  + this.header;
   	this.mainStyle = " font-size: " + textSize +"px ";
   }
 
   navigate() {
-  	this.router.navigate(["/", this.routerLink]);
+  	if(this.routerLink.length>0) this.router.navigate(["/", this.routerLink]);
   }
 
   isRouterLink = () => this.routerLink.length != 0;
