@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 })
 export class HeadingComponent implements OnInit, OnChanges {
   @Input() headingText: any = "empty";
+  @Input() header: string = "n"; 
   @Input() alignment: string = "center";
   @Input() mb: string = "0"; 
   @Input() routerLink: string = "";
@@ -36,8 +37,10 @@ export class HeadingComponent implements OnInit, OnChanges {
   	const fontWeight = (changes.fontWeight != undefined) ? changes.fontWeight.currentValue : this.fontWeight;
   	const textColor = (changes.textColor != undefined) ? changes.textColor.currentValue : this.textColor;
   	const textSize = (changes.textSize != undefined) ? changes.textSize.currentValue : this.textSize;
-  	this.mainCSS = "mb-" + mb + " font-" + fontWeight + " block text-" + textColor + " tracking-narrow md:text-" + this.textSizeSet + " md:text-" + alignment + " " + this.isHover(); 
-  	this.mainStyle = "font-size: " + textSize +"px !important";
+    // const textSizeMobile = 10; // (textSize != undefined ) ? Math.round(this.textSize / 2) : 9;
+    const header = (changes.header != undefined) ? changes.header.currentValue : this.header;
+  	this.mainCSS = "mb-" + mb + " font-" + fontWeight + " block text-" + textColor + " tracking-narrow md:text-" + this.textSizeSet + " md:text-" + alignment + " "  + header + " " + this.isHover(); 
+  	this.mainStyle = " font-size: " + textSize +"px ";
   }
 
   navigate() {

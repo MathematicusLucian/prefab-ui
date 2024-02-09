@@ -1,7 +1,7 @@
 <app-heading-block [headingData$]=[headingData$]></app-heading-block>
 
 <section class="relative block mx-1 my-1 md:mx-10 md:my-0 p-0 m-0 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
-    <p class="mb-0 mt-0 font-semibold text-base text-white md:text-center">
+    <p class="mb-0 mt-0 font-semibold text-base text-white text-center">
         <a rel="noopener" href="https://www.linkedin.com/in/lukejones123/" target="_blank">
             Please see LinkedIn profile <fa-icon [icon]="faLinkedin" class="w-6 ml-2 mt-2 fa-lg text-amber-400"></fa-icon>
         </a>
@@ -10,22 +10,16 @@
 
 <app-bio></app-bio>
 
-<section class="relative block px-6 py-10 md:px-0 md:py-20 mx-10 my-0 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
+<section class="relative block flex flex-row flex-wrap rounded-lg border-b border-pink-950 bg-slate-950 shadow px-0 md:px-2 py-0 md:py-3 mx-2 my-2 items-center justify-center">
 
     @if (resumeItems$) {
-<div class="pt-16 pb-4 flex flex-row flex-wrap items-center justify-center">
-        @for (rI of resumeItems$; track rI) {
-
-            <app-block-experience [experienceItemDetails]=[rI]></app-block-experience>
-        
-}
-    </div>
-}
+        @for (resumeItem of resumeItems$; track resumeItem) {
+            <app-block-experience [experienceItemDetails]=[resumeItem] class="block"></app-block-experience>        
+        }
+    }
     
 </section>
 
 @if (skillsData$) {
-
 	<app-skills [skillsData$]="skillsData$" [skillsCategoriesData$]="skillsCategoriesData$"></app-skills>
-
 }
