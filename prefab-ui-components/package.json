@@ -1,5 +1,5 @@
 {
-  "name": "prefab-workspace",
+  "name": "prefab-ui-components",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

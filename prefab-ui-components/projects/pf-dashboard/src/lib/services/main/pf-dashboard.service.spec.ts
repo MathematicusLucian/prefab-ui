@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PrefabDashboardUiService } from './prefab-dashboard-ui.service';
+import { PrefabDashboardUiService } from './pf-dashboard.service';
 
 describe('PrefabDashboardUiService', () => {
   let service: PrefabDashboardUiService;

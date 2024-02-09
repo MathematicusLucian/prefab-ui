@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrefabCommonUiComponent } from './prefab-common-ui.component';
+import { PrefabCommonUiComponent } from './pf-common.component';
 
 describe('PrefabCommonUiComponent', () => {
   let component: PrefabCommonUiComponent;

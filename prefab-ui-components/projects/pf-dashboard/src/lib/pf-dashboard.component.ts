@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'prefab-common-ui',
+  selector: 'lib-pf-dashboard',
   standalone: true,
   imports: [],
   template: `
     <p>
-      prefab-common-ui works!
+      pf-dashboard works!
     </p>
   `,
   styles: ``
 })
-export class PrefabCommonUiComponent {
+export class PrefabDashboardUiComponent {
 
 }

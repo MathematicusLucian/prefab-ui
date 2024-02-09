@@ -16,11 +16,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "paths": {
-      "prefab-dashboard-ui": [
-        "./dist/prefab-dashboard-ui"
+      "pf-dashboard": [
+        "./dist/pf-dashboard"
       ],
-      "prefab-common-ui": [
-        "./dist/prefab-common-ui"
+      "pf-common": [
+        "./dist/pf-common"
       ]
     },
     "importHelpers": true,

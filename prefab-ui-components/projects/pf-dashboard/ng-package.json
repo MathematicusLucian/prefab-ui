@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/prefab-dashboard-ui",
+  "dest": "../../dist/pf-dashboard",
   "lib": {
     "entryFile": "src/public-api.ts"
   }

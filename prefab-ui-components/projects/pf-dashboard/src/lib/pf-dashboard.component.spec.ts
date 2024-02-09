@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrefabDashboardUiComponent } from './prefab-dashboard-ui.component';
+import { PrefabDashboardUiComponent } from './pf-dashboard.component';
 
 describe('PrefabDashboardUiComponent', () => {
   let component: PrefabDashboardUiComponent;
