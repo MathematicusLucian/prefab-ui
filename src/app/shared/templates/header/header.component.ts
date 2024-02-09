@@ -97,12 +97,9 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
   	this.renderDynamicComponents(null);
   }
-
   ngAfterViewInit(): void {
   }
-
   ngOnChanges = (): void => { }; 
-
   ngOnDestroy(): void {
   	for (const componentFactoryItem of this.componentFactoryItems) {
   		if (componentFactoryItem) {

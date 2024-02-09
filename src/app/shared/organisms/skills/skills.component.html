@@ -1,16 +1,16 @@
 <app-heading-block [headingData$]=[headingData$]></app-heading-block>
 
-<section class="relative block px-0 md:px-10 py-0 md:py-10 mx-0 md:mx-10 my-0 md:my-8 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
+<section class="relative block px-0 md:px-10 py-0 md:py-2 mx-0 md:mx-10 my-0 md:my-2 rounded-lg border-b border-pink-950 bg-slate-950 shadow">
 
     <div class="mt-1 md:mt-3 md:mt-6 flex-row items-center text-center justify-center">
         <a *ngFor="let skillsCategory of skillsCategoriesData$ | async | sortByOrder: orderType:orderByField" 
-        class="inline-flex rounded-lg bg-pink-600 mx-1 md:mx-2 my-1 px-1 md:px-3 py-1 md:py-2 text-xs md:text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700 cursor-pointer"
+        class="inline-flex rounded-lg bg-pink-600 mx-1 md:mx-2 my-1 px-1 md:px-3 py-1 md:py-2 text-xs md:text-sm font-semibold leading-7 text-white shadow-sm ring-1 ring-pink-600 hover:bg-pink-700 hover:ring-pink-700 cursor-pointer"
             (click)="setChosenSkillsCategory(skillsCategory.id)">
             {{ skillsCategory.name }}
         </a>
     </div>
 
-    <div class="mx-0 md:mx-10 mt-0 md:mt-10 leading-6 flex flex-row flex-wrap gap-0 md:gap-3 items-center justify-center">
+    <div class="mx-0 md:mx-10 my-0 md:my-2 leading-6 flex flex-row flex-wrap gap-0 md:gap-3 items-center justify-center">
         <ng-container *ngFor="let skill of skillsData$ | async| sortByOrder: orderType:orderByField">
             <app-badge *ngIf="hasChosenSkillsCategory(skill.parent_id)" badgeText="{{ skill.name }}" bgColor="amber" textColor="white"></app-badge>
         </ng-container>

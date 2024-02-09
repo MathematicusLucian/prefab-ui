@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { HeadingBlock } from "../../models/heading-block.model";
 import { HeadingComponent } from "../../atoms/text-heading/text-heading.component";
@@ -12,7 +12,7 @@ import { TaglineSmallComponent } from "../../atoms/tagline-small/tagline-small.c
 	templateUrl: "./heading-block.component.html",
 	styleUrl: "./heading-block.component.sass"
 })
-export class HeadingBlockComponent implements OnInit {
+export class HeadingBlockComponent implements OnInit, OnDestroy {
   @Input() headingData$: any = "";
   headingText: string = "";
   header: string = "false";
@@ -36,6 +36,10 @@ export class HeadingBlockComponent implements OnInit {
   			this.mb = y.mb;
   		});
   	});
+  }
+
+  ngOnDestroy() {
+	  // this.projectsData$.unsubscribe();
   }
   
 }

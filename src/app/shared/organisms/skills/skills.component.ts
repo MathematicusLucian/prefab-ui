@@ -28,8 +28,8 @@ interface TagData {
     imports: [CommonModule, HeadingBlockComponent, BadgeComponent, HeadingComponent, TaglineComponent, TaglineSmallComponent, OrderSortPipe]
 })
 export class SkillsComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
-  @Input() skillsData$: any;
   @Input() skillsCategoriesData$: any;
+  @Input() skillsData$: any;
   appValues = AppValues;
   headingData$: Observable<HeadingBlock> = of({
   	headingText: this.appValues.SKILLS_HEADING_TEXT,
@@ -64,11 +64,14 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     });
   }
   ngOnChanges(): void { }
-  ngOnDestroy(): void { }
+  ngOnDestroy(): void { 
+    // this.skillsCategoriesData$.destroy();
+  }
 
   setChosenSkillsCategory = (skillsCategoryClickedID: string) =>
   	this.skillsCategoryChosenID = skillsCategoryClickedID;
 
   hasChosenSkillsCategory = (chosenSkillsParent: any): boolean =>
   	chosenSkillsParent.includes(this.skillsCategoryChosenID) || this.skillsCategoryChosenID == "ALL";
+
 }

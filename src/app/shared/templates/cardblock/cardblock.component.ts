@@ -27,8 +27,8 @@ export class CardblockComponent implements OnInit, AfterViewInit, OnDestroy {
   		this.cardblockData$ = x;
   	}); 
   }
-
   ngAfterViewInit() {}
-
-  ngOnDestroy() {}
+	ngOnDestroy() {
+		// this.data$.unsubscribe();
+	}
 }

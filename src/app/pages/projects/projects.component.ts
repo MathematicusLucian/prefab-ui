@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Observable, of, switchMap } from "rxjs";
 import { HeadingBlockComponent } from "../../shared/molecules/heading-block/heading-block.component";
 import { CardblockComponent } from "../../shared/templates/cardblock/cardblock.component";
@@ -14,7 +13,7 @@ import { AppValues } from "../../core/config/enums";
 	standalone: true,
 	imports: [HeadingBlockComponent, CardblockComponent],
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, OnDestroy {
 	appValues = AppValues;
 	headingData$: Observable<HeadingBlock> = of({
 		headingText: this.appValues.PROJECTS_HEADING_TEXT,
@@ -31,6 +30,10 @@ export class ProjectsComponent implements OnInit {
 	ngOnInit() {
 		this.projectsData$ = this.siteGraphService.fetchBlocks(this.blockName);
 		this.siteGraphService.fetchAllBlocks().subscribe();
+	}
+
+	ngOnDestroy() {
+		// this.projectsData$.unsubscribe();
 	}
 
 }

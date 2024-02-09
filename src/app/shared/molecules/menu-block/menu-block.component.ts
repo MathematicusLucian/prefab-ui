@@ -11,7 +11,7 @@ import { of } from "rxjs";
 	styleUrl: "./menu-block.component.sass",
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MenuBlockComponent implements OnInit, OnChanges {
+export class MenuBlockComponent implements OnInit, OnChanges, OnDestroy {
   @ViewChild("vcr", { static: true, read: ViewContainerRef })
   	vcr!: ViewContainerRef;
   componentFactoryItems: ComponentRef<MenuItemComponent>[] = [];
@@ -67,5 +67,4 @@ export class MenuBlockComponent implements OnInit, OnChanges {
   		}
   	}
   }
-
 }

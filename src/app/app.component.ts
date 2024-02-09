@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { APIService } from "./shared/services/api/api.service";
 import { RouterLink, RouterOutlet, RouterLinkActive, RouterEvent, NavigationEnd } from "@angular/router";
 import { HeaderComponent } from "./shared/templates/header/header.component";
@@ -30,7 +30,7 @@ interface Item {
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.sass"
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 	title = "personal-porfolio";
 	dataPipelineUrl: any;
 	dataPaths: any;
@@ -92,5 +92,9 @@ export class AppComponent implements OnInit {
 		this.footerData$ = this.siteGraphService.fetchBlocks("footer");
 		this.mainMenuData$ = this.siteGraphService.fetchBlocks("menu_main");
 		this.linksMenuData$ = this.siteGraphService.fetchBlocks("menu_links");
+	}
+
+	ngOnDestroy() {
+		// this.router.events.destroy();
 	}
 }

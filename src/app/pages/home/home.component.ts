@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, OnInit, OnChanges, ViewChild, ViewContainerRef, inject } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, OnInit, OnChanges, ViewChild, ViewContainerRef, inject, OnDestroy } from "@angular/core";
 
 import { AppValues } from "../../core/config/enums";
 import { HeadingComponent } from "../../shared/atoms/text-heading/text-heading.component";
@@ -22,7 +22,7 @@ import { BehaviorSubject } from "rxjs";
 	styleUrl: "./home.component.sass",
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit, OnChanges {
+export class HomeComponent implements OnInit, OnChanges, OnDestroy {
   @ViewChild("vcr", { static: true, read: ViewContainerRef })
   	vcr!: ViewContainerRef;
   componentFactoryItems: ComponentRef<MenuBlockComponent>[] = [];

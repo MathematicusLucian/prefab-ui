@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnDestroy } from "@angular/core";
 import { APIService } from "../../../shared/services/api/api.service";
 import { Store } from "@ngrx/store";
 import { addBlock } from "../../../shared/core-state/actions";
@@ -12,16 +12,21 @@ import appConfig from "../../config/app.config.json";
 @Injectable({
 	providedIn: "root"
 })
-export class SiteGraphService {
+export class SiteGraphService implements OnDestroy {
 	error: any;
 	items$!: Observable<any>;
 
-	constructor(private apiService: APIService, 
-    private firebaseService: FirebaseService,
-    private store: Store
+	constructor(
+		private apiService: APIService, 
+		private firebaseService: FirebaseService,
+		private store: Store
 	) {}
 
-	loadFirebaseBlockToGraph(dataPath: any){
+	ngOnDestroy() {
+		// this.items$.unsubscribe();
+	}
+
+	loadFirebaseBlockToGraph(dataPath: any) {
 		const p_id = (dataPath.parent_id) ? dataPath.parent_id : "";
 		const parent_grouping_id = (dataPath.parent_grouping_id) ? dataPath.parent_grouping_id : "";
 

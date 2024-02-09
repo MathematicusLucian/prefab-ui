@@ -1,5 +1,4 @@
-import { Component, OnInit, OnChanges } from "@angular/core";
-
+import { Component, OnInit, OnChanges, OnDestroy } from "@angular/core";
 import { AppValues } from "../../core/config/enums";
 import { Observable, of } from "rxjs";
 import { HeadingBlock } from "../../shared/models/heading-block.model";
@@ -18,7 +17,7 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 	templateUrl: "./resume.component.html",
 	styleUrl: "./resume.component.sass"
 })
-export class ResumeComponent implements OnInit, OnChanges {
+export class ResumeComponent implements OnInit, OnChanges, OnDestroy {
 	faLinkedin = faLinkedin;
 	appValues = AppValues;
 	headingData$: Observable<HeadingBlock> = of({
@@ -49,6 +48,10 @@ export class ResumeComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges(changes: any) { }
+
+	ngOnDestroy() {
+		// this.projectsData$.unsubscribe();
+	}
 
 	hasContent(x: any) {
 		return (x.length>0);
