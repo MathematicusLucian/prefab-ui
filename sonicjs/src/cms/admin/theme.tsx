@@ -162,7 +162,7 @@ export const Layout: FC<{
             class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"
             href="/admin"
           >
-            <img class="logo" src="/public/images/sonicjs-logo.svg" />
+            Prefab CMS
           </a>
           <button
             class="navbar-toggler position-absolute d-md-none collapsed"

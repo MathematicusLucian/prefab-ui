@@ -1,19 +1,19 @@
 # Headless CMS
 
 ## Overview
-- [Cloudflare Workers platform](https://dash.cloudflare.com/sign-up)
-- [Sonic.js Headless CMS](https://sonicjs.com) - 6 times faster 🔥🔥🔥 than a standard Node.js application.
+- [Formio](https://github.com/formio)
+- AWS seems a little heavyweight for a blog CMS. Instead, utilised [Cloudflare Workers platform](https://dash.cloudflare.com/sign-up), as per [Sonic.js Headless CMS](https://sonicjs.com) - 6 times faster 🔥🔥🔥 than a standard Node.js application.
   | Platform      | Average Response Time | Difference |
   | ----------- | ----------- | ----------- |
   | Strapi      | 342.1ms       | - baseline - |
   | Node + Postgres   | 320.2ms        | 1.06x Faster|
   | SonicJs   | 52.7ms        | 6.4x Faster|
-- Drizzle: Open source ORM to write plain SQL (or use the API.)
-- Hono: For API routing.
+- [Drizzle](https://orm.drizzle.team/): Open source ORM to write plain SQL (or use the API.)
+- [Hono](https://hono.dev/): For API routing.
 
 ## Prerequisites
-1. A free Cloudflare account
-1. Install Wrangler CLI
+1. A free [Cloudflare account](https://dash.cloudflare.com/sign-up)
+1. Install [Cloudflare Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/)
 
 ## Getting Started
 ```
@@ -30,8 +30,7 @@ Admin interface:
   - The default if no env variable is set
   - Faster than scrypt, but less secure
   - Uses about 80-100ms CPU time
-  - Recommended if on cloudflare workers free plan
-    - Since cloudflare allows rollover CPU time you are unlikely to get an Exceeded CPU Limits error, but you can adjust the options below to potentially use less CPU time
+  - Recommended if on cloudflare workers free plan. (Since Cloudflare allows rollover CPU time you are unlikely to get an Exceeded CPU Limits error, but you can adjust the options below to potentially use less CPU time.)
   - Can adjust iterations with the AUTH_ITERATIONS env variable (default and max 100000)
   - Can adjust hash with the AUTH_HASH env variable ("SHA_256", "SHA-384" or "SHA-512" ("SHA-512" is the default))
 
@@ -42,7 +41,7 @@ Admin interface:
 
 If you change your auth options old users will still be able to login but the encryption won't change for their password until they change their password.
 
- [https://sonicjs.com/environment-variables](https://sonicjs.com/environment-variables)
+[https://sonicjs.com/environment-variables](https://sonicjs.com/environment-variables)
 
 ### Setup a user
   1. When one first opens the app, one will be prompted to create an admin user
