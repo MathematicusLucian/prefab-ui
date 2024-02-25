@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 import { ENV } from "./../../../environments/environment";
+import { BlogPostComponent } from "../../pages/blog-post/blog-post.component";
 
 @Injectable({ providedIn: "root" })
 export class IsAdminGuard implements CanActivate {
@@ -85,8 +86,9 @@ export const APP_ROUTES: Route[] = [
 	},
 	{ 
 		path: "post/:id", 
-		loadComponent: () => 
-			import("../../pages/blog-post/blog-post.component").then(m => m.BlogPostComponent),
+		component: BlogPostComponent
+		// loadComponent: () => 
+		// 	import("../../pages/blog-post/blog-post.component").then(m => m.BlogPostComponent),
 	},
 	{ 
 		path: "projects",

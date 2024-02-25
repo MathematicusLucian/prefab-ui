@@ -1,7 +1,6 @@
 <div class="rounded-lg bg-slate-900 mx-5 my-7 p-8 items-left text-left justify-left shadow">
     @if (postDetails) {
 
-
         <h1 class="font-semibold text-5xl text-center text-stone-300 leading-relaxed tracking-wide">{{ postDetails.title }}</h1>
 
         <p class="font-semibold text-center text-sm text-stone-300 mb-6 mt-2">Author</p>
@@ -9,15 +8,14 @@
         <app-badge-block [badges]="badges | async"></app-badge-block>
 
         <div 
-            class="bg-cover mx-auto flex w-200 rounded-lg mt-12 "
-            style="background-image: url('./assets/imgs/{{ postDetails.img_src }}'); height: 350px; background-repeat: no-repeat; 
-            background-attachment: fixed; background-position: 50% -20%; background-size: contain !important;">
+            class="post-body bg-cover mx-auto flex w-200 rounded-lg mt-12 "
+            style="background-image: url('{{ postDetails.img_src }}'); height: 350px; background-repeat: no-repeat; 
+            background-position: 50% -20%; background-size: contain !important;">
         </div>
 
         <p class="my-4 mb-0 mt-10 font-light text-stone-200 text-base leading-relaxed tracking-wide space-y-10"
             [innerHtml]="decode(postDetails.content)">
         </p>
 
-    
 }
 </div>

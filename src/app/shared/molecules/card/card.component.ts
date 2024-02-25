@@ -42,5 +42,5 @@ export class CardComponent implements OnInit, AfterViewInit, OnChanges {
 
   decode = (x: any) => decode(x);
 
-  shortenTextToPreview = (x: any) => x.substring(0,190) + " ...";
+  shortenTextToPreview = (x: any) => x.substring(0,190).replace(/(<([^>]+)>)/gi, "") + " ...";
 }

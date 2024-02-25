@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { map } from "rxjs/operators";
+import { map, switchMap } from "rxjs/operators";
 import { decode } from "html-entities";
 import { CommonModule } from "@angular/common";
 import { FirebaseService } from "../../shared/services/firebase/firebase.service";
@@ -28,6 +28,9 @@ export class BlogPostComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.id = this.route.snapshot.params["id"];
+		// this.id$ = this.route.paramMap.pipe(
+		// 	switchMap((params) => this.websiteStore.select(params.get('id')))
+		//   );
 		this.postData$ = this.firebase.getItemById("blog_posts", this.id);
 		this.postData$.then((post: any) => this.postDetails = post);
 	}
